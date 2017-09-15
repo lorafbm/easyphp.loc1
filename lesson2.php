@@ -1,5 +1,7 @@
 <?php
 error_reporting(-1);
+
+echo 'Занятие №2 Условия if else';
 function wtf($array, $stop = false)
 { // вывод массива
     echo '<pre>' . print_r($array, 1) . '</pre>';
