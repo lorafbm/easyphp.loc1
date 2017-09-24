@@ -16,4 +16,5 @@ foreach ($mass as $key1 => $value1) {
     }
     echo '</tr>';
 }
+echo '</table>';
 
