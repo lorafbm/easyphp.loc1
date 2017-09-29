@@ -106,7 +106,7 @@ $mass = explode(' ', $stroka);
 
 $stroka = 'hello abcde';
 $str = 'мир мир мир';
-echo $str[0].$str[1];
+//echo $str[0].$str[1];
 
 for ($i = 0; $i < strlen ($stroka); $i++) {
    // if (in_array($stroka[$i] . $stroka[$i + 1], $alfavit))
@@ -120,7 +120,48 @@ $mass = explode (' ',$stroka);
 
 
 
+/*$aa = '';
+$stroka = 'hello abcde qwerty, abcde';
+$mass = explode(' ', $stroka);
+var_dump($mass);
+foreach ($mass as $key =>$value){
+    if ($value == 'abcde'){
+        $aa = $aa.' zzz';
+    }else{
+        $aa = $aa. ' '. $value;
+
+    }
+}
+
+echo $aa;*/
 
 
+// $value1 = substr($value, 0, -1);//обрезаем последний символ каждого эл-та массива
+//$value2 = substr($value, 1);//обрезаем первый символ каждого эл-та массива
+//echo substr($a, 0, -1) . '11<br>';//обрезаем посл символ
+//echo substr($a, 1) . '22<br>';//обр первый символ
+$a='*h*';
 
+echo substr($a, 0,3) . '22<br>';//обр первый символ
 
+/*$bb = '';
+$needle = 'abcde';
+$replace = 'zzz';
+$stroka = 'hello abcde, abcde qwerty, ,abcde';
+$mass = explode(' ', $stroka);
+var_dump($mass);
+foreach ($mass as $key =>$value){
+    $l=strlen($needle); // длина искомого
+    $value1=substr($value,0,$l);//обрезаем  символы более длины искомого в каждои эл-те массива
+
+    $value2 = substr($value,-$l);//обрезаем все до первого символа искомого в  каждом эл-те массива
+
+    if ($value == 'abcde' || $value == $value1 || $value == $value2){
+        $bb = $bb.$replace;
+    }else{
+        $bb = $bb. ' '. $value;
+
+    }
+}
+echo 'Было: '.$stroka.'<br>';
+echo 'Стало: '.$bb;*/

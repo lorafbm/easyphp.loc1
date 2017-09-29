@@ -6,25 +6,45 @@ echo '1. написать фунцию по типу str_replace,
 
 function myReplace($needle, $replace, $haystack)
 {
+    $l = strlen($needle); // длина искомого
+
     $mass = explode(' ', $haystack); //сформировали массив из строки чтоб перебрать
-    foreach ($mass as $key => $value) {// будем перебирать и сравнивать
-        if ($value == $needle) { // если равны
+    // var_dump($mass);
+
+    foreach ($mass as $key => $value) {         // будем перебирать и сравнивать
+
+        $value1 = substr($value, 0, $l);//обрезаем  символы более длины искомого в каждои эл-те массива
+
+        $value2 = substr($value, -$l);//обрезаем все до первого символа искомого в  каждом эл-те массива
+
+        if ($value == $needle) {  // если равны
             $mass[$key] = $replace; // заменяем
+        } elseif ($value1 == $needle) {
+             $mass[$key] = $replace . substr($value, $l); // заменяем и возвращаем символы после искомого
+        } elseif ($value2 == $needle) {
+            $mass[$key] = substr($value, 0, -$l) . $replace; // заменяем и возвращаем символы до искомого
         }
     }
+      // var_dump($mass);
+
     $newMass = implode(' ', $mass); // новая строка обратно из массива
+
     return $newMass;
 }
 
 $a = 'Вася';
 $b = 'Петя';
-$c = 'Вася любит мороженное эх Вася';
-/*$c = ' Катя любит мороженное';*/
+$c = 'Вася,, любит ,Вася мороженное эх,Вася';
+/*$a = 'Vasa';
+$b = 'Peta';
+$c = 'Vasa,, lubit jem ,Vasa Vasa,  Vasa';*/
+
 echo 'Было:' . $c . '<br>';
 echo 'Стало: ' . myReplace($a, $b, $c) . '<br>';
 
 
-echo '2. Вам нужно создать массив и заполнить его 
+
+/*echo '2. Вам нужно создать массив и заполнить его
 случайными числами от 1 до 100 (функция rand). 
 Далее, вычислить произведение(сложение) тех элементов, 
 которые больше ноля и у которых парные индексы.
@@ -51,7 +71,9 @@ $result1 = array_product($mass);
 var_dump($mass);
 
 echo $result.' - это сумма<br>';
-echo $result1.' - это произведение<br>';
+echo $result1.' - это произведение<br>';*/
+
+
 
 
 
