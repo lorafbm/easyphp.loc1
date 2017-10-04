@@ -47,6 +47,9 @@ if (!empty ($_POST['word'])) {
 //валидация возраст
 if (!empty ($_POST['age'])) {
     if (($_POST['age'] == intval($_POST['age']) && ($_POST['age']) > 0)) {
+        $_POST['age']  = (int)$_POST['age'];
+       /* echo $_POST['age'];
+        exit();*/
         $_SESSION['age'] = (int)$_POST['age']; // записываем в сессию
         unset($_SESSION['error_age']); // удаляем ошибку
         $flag_a = 1;
