@@ -1,8 +1,7 @@
 <?php
 session_start();
 error_reporting(-1);
-//var_dump($_SESSION);
-//var_dump($_POST);
+
 /*вывод названий месяцев*/
 function month($num)
 {
@@ -32,7 +31,13 @@ function month($num)
         return 'Декабрь';
     }
 }
-
+/*транслитерация*/
+function translit($str)
+{
+    $rus = array('А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я', 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я');
+    $lat = array('A', 'B', 'V', 'G', 'D', 'E', 'E', 'Gh', 'Z', 'I', 'Y', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'T', 'U', 'F', 'H', 'C', 'Ch', 'Sh', 'Sch', 'Y', 'Y', 'Y', 'E', 'Yu', 'Ya', 'a', 'b', 'v', 'g', 'd', 'e', 'e', 'gh', 'z', 'i', 'y', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'f', 'h', 'c', 'ch', 'sh', 'sch', 'y', 'y', 'y', 'e', 'yu', 'ya');
+    return str_replace($rus, $lat, $str);
+}
 
 $sel = !empty($_SESSION['result']['day']) ? $_SESSION['result']['day'] : '';
 $rad = !empty($_SESSION['result']['pol']) ? $_SESSION['result']['pol'] : '';
@@ -47,7 +52,7 @@ if (!empty($_SESSION['auth'])) { ?>
     <p><?php echo 'Вы: ' . $_SESSION['result']['pol']; ?></p>
     <p><?php echo 'Дата рождения: ' . $_SESSION['result']['day'] . ' ' . month($_SESSION['result']['month']) . ' ' . $_SESSION['result']['year']; ?></p>
     <p><?php echo 'Вам: ' . $_SESSION['age'] . 'лет'; ?></p>
-    <p><?php echo 'Ваше сообщение: ' . $_SESSION['result']['message']; ?></p>
+    <p><?php echo 'Ваше сообщение: ' . translit($_SESSION['result']['message']); ?></p>
 <?php } else { ?>
     <link rel="stylesheet" href="/vendor/public/bootstrap/dist/css/bootstrap.css">
     <style><?php echo file_get_contents('./dz8style.css') ?></style>
@@ -76,7 +81,7 @@ if (!empty($_SESSION['auth'])) { ?>
                     <label class="radio-inline"><input type="radio" name="pol" class="radio-inline"
                                                        value="2" <?php echo !empty($rad) && $rad == 2 ? 'checked' : ''; ?>>Женщина</label>
                     <p><?php if (!empty ($_SESSION['error']['pol'])) {
-                            echo '<span style="color: red;">'.$_SESSION['error']['pol'].'</span>';
+                            echo '<span style="color: red;">' . $_SESSION['error']['pol'] . '</span>';
                         } ?></p>
                 </div>
                 <select name="day" class="form-control">
@@ -86,7 +91,7 @@ if (!empty($_SESSION['auth'])) { ?>
                     <?php } ?>
                 </select>
                 <p><?php if (!empty ($_SESSION['error']['day'])) {
-                        echo '<span style="color: red;">'.$_SESSION['error']['day'].'</span>';
+                        echo '<span style="color: red;">' . $_SESSION['error']['day'] . '</span>';
                     } ?></p>
                 <select name="month" class="form-control">
                     <option value="0">-Месяц-</option>
@@ -95,7 +100,7 @@ if (!empty($_SESSION['auth'])) { ?>
                     <?php } ?>
                 </select>
                 <p><?php if (!empty ($_SESSION['error']['month'])) {
-                        echo '<span style="color: red;">'.$_SESSION['error']['month'].'</span>';
+                        echo '<span style="color: red;">' . $_SESSION['error']['month'] . '</span>';
                     } ?></p>
                 <select name="year" class="form-control">
                     <option value="0">-Год-</option>
@@ -104,13 +109,12 @@ if (!empty($_SESSION['auth'])) { ?>
                     <?php } ?>
                 </select>
                 <p><?php if (!empty ($_SESSION['error']['year'])) {
-                        echo '<span style="color: red;">'.$_SESSION['error']['year'].'</span>';
+                        echo '<span style="color: red;">' . $_SESSION['error']['year'] . '</span>';
                     } ?></p>
-
                 <textarea name="message" class="form-control"
                           placeholder="Сообщение не менее 25 символов"><?php echo !empty($_SESSION['result']['message']) ? $_SESSION['result']['message'] : ''; ?></textarea>
                 <p><?php if (!empty ($_SESSION['error']['message'])) {
-                        echo '<span style="color: red;">'.$_SESSION['error']['message'].'</span>';
+                        echo '<span style="color: red;">' . $_SESSION['error']['message'] . '</span>';
                     } ?></p>
                 <div class="form-group">
                     <input type="submit" value="Отправить" class="btn btn-info">

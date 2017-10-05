@@ -1,7 +1,6 @@
 <?php
 session_start();
 error_reporting(-1);
-//var_dump($_POST);
 
 /*вывод правильного кол-ва дней в месяце*/
 function checkqdays($month)
@@ -24,6 +23,48 @@ function checkqdays($month)
         }
     }
 }
+/*заменка слов*/
+function myReplace($needle, $replace, $haystack)
+{
+    if (is_array($needle)) {
+        $mass = explode(' ', $haystack);
+        foreach ($mass as $key => $value) {
+            foreach ($needle as $k => $v) {
+                $l = strlen($needle[$k]); // длина искомого
+                $value1 = substr($value, 0, $l);//обрезаем  символы более длины искомого в каждои эл-те массива
+                $value2 = substr($value, -$l);//обрезаем все до первого символа искомого в  каждом эл-те массива
+
+                if ($value == $needle[$k]) {
+                    $mass[$key] = $replace; // заменяем
+                }elseif ($value1 == $needle[$k]) {
+                    $mass[$key] = $replace . substr($value, $l); // заменяем и возвращаем символы после искомого
+                } elseif ($value2 == $needle[$k]) {
+                    $mass[$key] = substr($value, 0, -$l) . $replace; // заменяем и возвращаем символы до искомого
+                }
+            }
+        }
+        $newMass = implode(' ', $mass); // новая строка обратно из массива
+        return $newMass;
+    } else {
+        $l = strlen($needle); // длина искомого
+        $mass = explode(' ', $haystack); //сформировали массив из строки чтоб перебрать
+        foreach ($mass as $key => $value) {                // будем перебирать и сравнивать
+
+            $value1 = substr($value, 0, $l);//обрезаем  символы более длины искомого в каждои эл-те массива
+            $value2 = substr($value, -$l);//обрезаем все до первого символа искомого в  каждом эл-те массива
+
+            if ($value == $needle) {  // если равны
+                $mass[$key] = $replace; // заменяем
+            } elseif ($value1 == $needle) {
+                $mass[$key] = $replace . substr($value, $l); // заменяем и возвращаем символы после искомого
+            } elseif ($value2 == $needle) {
+                $mass[$key] = substr($value, 0, -$l) . $replace; // заменяем и возвращаем символы до искомого
+            }
+        }
+        $newMass = implode(' ', $mass); // новая строка обратно из массива
+        return $newMass;
+    }
+}
 /*вычисление возраста из даты рождения*/
 function age($birthday)
 {
@@ -35,14 +76,7 @@ function age($birthday)
     return $age;
 }
 
-/*транслитерация*/
-function translit($str) {
-    $rus = array('А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я', 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я');
-    $lat = array('A', 'B', 'V', 'G', 'D', 'E', 'E', 'Gh', 'Z', 'I', 'Y', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'T', 'U', 'F', 'H', 'C', 'Ch', 'Sh', 'Sch', 'Y', 'Y', 'Y', 'E', 'Yu', 'Ya', 'a', 'b', 'v', 'g', 'd', 'e', 'e', 'gh', 'z', 'i', 'y', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'f', 'h', 'c', 'ch', 'sh', 'sch', 'y', 'y', 'y', 'e', 'yu', 'ya');
-    return str_replace($rus, $lat, $str);
-}
-
-$_SESSION['result'] = array();
+$_SESSION['result'] = array();//создаем пустые массивы чтобы каждый раз удалялись неправильные данные которые ввел пользователь
 $_SESSION['error'] = array();
 
 //валидация логин
@@ -95,7 +129,6 @@ if (!empty($_POST['pol'])) {
     } elseif ($_POST['pol'] = 2) {
         $_SESSION['result']['pol'] = 'Женщина';
     }
-
     $flag_p = 1;
 } else {
     $_SESSION['error']['pol'] = 'Не выбран пол!';
@@ -144,10 +177,9 @@ if (!empty($_POST['message'])) {
         $needle = array('черный', 'белый', 'красный');
         $replace = 'желтый';
         $haystack = $_POST['message'];
-        $str = str_replace($needle, $replace, $haystack);
-        $_SESSION['result']['message'] = translit($str);
-        $flag_mes = 1;
-
+        $str = myReplace($needle,$replace,$haystack);
+        $flag_mes= 1;
+        $_SESSION['result']['message'] = $str;
     }
 } else {
     $_SESSION['error']['message'] = 'Введите сообщение!';
