@@ -14,6 +14,13 @@
       <path value="$PROJECT_DIR$/../localhost/vendor/public/compass-mixins" />
       <path value="$PROJECT_DIR$/../localhost/vendor/public/vega-lite" />
       <path value="$PROJECT_DIR$/../localhost/vendor/public/vega" />
+      <path value="$PROJECT_DIR$/vendor/public/bootstrap" />
+      <path value="$PROJECT_DIR$/vendor/public/jquery" />
+      <path value="$PROJECT_DIR$/vendor/facebook/php-sdk-v4" />
+      <path value="$PROJECT_DIR$/vendor/prestashop/blockcurrencies" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/public/less" />
+      <path value="$PROJECT_DIR$/vendor/public/lesshat" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7" />
