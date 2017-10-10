@@ -23,6 +23,7 @@ function checkqdays($month)
         }
     }
 }
+
 /*заменка слов*/
 function myReplace($needle, $replace, $haystack)
 {
@@ -36,7 +37,7 @@ function myReplace($needle, $replace, $haystack)
 
                 if ($value == $needle[$k]) {
                     $mass[$key] = $replace; // заменяем
-                }elseif ($value1 == $needle[$k]) {
+                } elseif ($value1 == $needle[$k]) {
                     $mass[$key] = $replace . substr($value, $l); // заменяем и возвращаем символы после искомого
                 } elseif ($value2 == $needle[$k]) {
                     $mass[$key] = substr($value, 0, -$l) . $replace; // заменяем и возвращаем символы до искомого
@@ -65,6 +66,7 @@ function myReplace($needle, $replace, $haystack)
         return $newMass;
     }
 }
+
 /*вычисление возраста из даты рождения*/
 function age($birthday)
 {
@@ -124,14 +126,10 @@ if (!empty ($_POST['email'])) {
 
 //валидация радио на пустоту
 if (!empty($_POST['pol'])) {
-    if ($_POST['pol'] = 1) {
-        $_SESSION['result']['pol'] = 'Мужчина';
-    } elseif ($_POST['pol'] = 2) {
-        $_SESSION['result']['pol'] = 'Женщина';
-    }
+    $_SESSION['result']['pol'] = $_POST['pol'];
     $flag_p = 1;
-} else {
-    $_SESSION['error']['pol'] = 'Не выбран пол!';
+}else{
+$_SESSION['error']['pol'] = 'Не выбран пол!';
 }
 
 //валидация день
@@ -177,8 +175,8 @@ if (!empty($_POST['message'])) {
         $needle = array('черный', 'белый', 'красный');
         $replace = 'желтый';
         $haystack = $_POST['message'];
-        $str = myReplace($needle,$replace,$haystack);
-        $flag_mes= 1;
+        $str = myReplace($needle, $replace, $haystack);
+        $flag_mes = 1;
         $_SESSION['result']['message'] = $str;
     }
 } else {
