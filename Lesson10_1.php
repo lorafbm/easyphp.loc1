@@ -11,9 +11,11 @@ if(empty($_GET['page'])){
 }elseif (($_GET['page']) == 'contact'){
     echo 'Contact page';
 }elseif ($_GET['page'] == 'help'){
-    echo 'help page';
+    echo 'Help page';
 }
-
-
-
+?>
+<br><br>
+<a href="/lesson10_1.php">Home</a>
+<a href="/lesson10_1.php?page=contact">Contact</a>
+<a href="/lesson10_1.php?page=help">Help</a>
 
