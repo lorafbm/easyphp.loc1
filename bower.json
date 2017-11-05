@@ -1,8 +1,5 @@
 {
-  "name": "easyphp.loc",
-  "authors": [
-    "loraKirko <lorakirko@gmail.com>"
-  ],
+  "name": "tesst",
   "description": "",
   "main": "",
   "license": "MIT",
@@ -13,5 +10,16 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7",
+    "less": "^2.7.2",
+    "viscompass": "compass#^0.7.1",
+    "compass-mixins": "^1.0.2",
+    "assets-loader": "^0.5.1",
+    "lesshat": "^4.1.0",
+    "fancybox": "^3.1.25",
+    "popper.js": "^1.12.6"
+  }
 }

@@ -21,7 +21,14 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/public/less" />
       <path value="$PROJECT_DIR$/vendor/public/lesshat" />
+      <path value="$PROJECT_DIR$/vendor/public/assets-loader" />
+      <path value="$PROJECT_DIR$/vendor/public/d3" />
+      <path value="$PROJECT_DIR$/vendor/public/compass-mixins" />
+      <path value="$PROJECT_DIR$/vendor/public/vega" />
+      <path value="$PROJECT_DIR$/vendor/public/vega-lite" />
+      <path value="$PROJECT_DIR$/vendor/public/viscompass" />
+      <path value="$PROJECT_DIR$/vendor/public/fancybox" />
+      <path value="$PROJECT_DIR$/vendor/public/popper.js" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="7" />
 </project>

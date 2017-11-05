@@ -4,47 +4,44 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "221cdcb96a06ec3c605798f7f694bbfb",
+    "content-hash": "4fd155d264e6fd0b037800fcd03727cc",
     "packages": [
         {
             "name": "facebook/php-sdk-v4",
-            "version": "5.x-dev",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/php-graph-sdk.git",
-                "reference": "2f9639c15ae043911f40ffe44080b32bac2c5280"
+                "reference": "63f21580923895958dd78401ad0a226aab88a3dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/php-graph-sdk/zipball/2f9639c15ae043911f40ffe44080b32bac2c5280",
-                "reference": "2f9639c15ae043911f40ffe44080b32bac2c5280",
+                "url": "https://api.github.com/repos/facebook/php-graph-sdk/zipball/63f21580923895958dd78401ad0a226aab88a3dd",
+                "reference": "63f21580923895958dd78401ad0a226aab88a3dd",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.4|^7.0"
+                "paragonie/random_compat": "^2.0",
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
                 "guzzlehttp/guzzle": "~5.0",
                 "mockery/mockery": "~0.8",
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "^5.7.5"
             },
             "suggest": {
-                "guzzlehttp/guzzle": "Allows for implementation of the Guzzle HTTP client",
-                "paragonie/random_compat": "Provides a better CSPRNG option in PHP 5"
+                "guzzlehttp/guzzle": "Allows for implementation of the Guzzle HTTP client"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.x-dev"
+                    "dev-master": "6.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
                     "Facebook\\": "src/Facebook/"
-                },
-                "files": [
-                    "src/Facebook/polyfills.php"
-                ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -63,39 +60,55 @@
                 "sdk"
             ],
             "abandoned": "facebook/graph-sdk",
-            "time": "2017-08-16T17:28:07+00:00"
+            "time": "2017-03-21T09:04:27+00:00"
         },
         {
-            "name": "prestashop/blockcurrencies",
-            "version": "v0.4.1",
+            "name": "paragonie/random_compat",
+            "version": "v2.0.10",
             "source": {
                 "type": "git",
-                "url": "https://github.com/PrestaShop/blockcurrencies.git",
-                "reference": "2511d1e4261ed37a974dce1acdc03538c11be434"
+                "url": "https://github.com/paragonie/random_compat.git",
+                "reference": "634bae8e911eefa89c1abfbf1b66da679ac8f54d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PrestaShop/blockcurrencies/zipball/2511d1e4261ed37a974dce1acdc03538c11be434",
-                "reference": "2511d1e4261ed37a974dce1acdc03538c11be434",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/634bae8e911eefa89c1abfbf1b66da679ac8f54d",
+                "reference": "634bae8e911eefa89c1abfbf1b66da679ac8f54d",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": ">=5.2.0"
             },
-            "type": "prestashop-module",
+            "require-dev": {
+                "phpunit/phpunit": "4.*|5.*"
+            },
+            "suggest": {
+                "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "lib/random.php"
+                ]
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "AFL - Academic Free License (AFL 3.0)"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "PrestaShop SA",
-                    "email": "contact@prestashop.com"
+                    "name": "Paragon Initiative Enterprises",
+                    "email": "security@paragonie.com",
+                    "homepage": "https://paragonie.com"
                 }
             ],
-            "description": "PrestaShop module blockcurrencies",
-            "homepage": "https://github.com/PrestaShop/blockcurrencies",
-            "time": "2016-07-27T15:10:47+00:00"
+            "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+            "keywords": [
+                "csprng",
+                "pseudorandom",
+                "random"
+            ],
+            "time": "2017-03-13T16:27:32+00:00"
         }
     ],
     "packages-dev": [],
