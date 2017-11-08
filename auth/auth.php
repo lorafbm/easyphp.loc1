@@ -29,6 +29,9 @@ error_reporting(-1);
                                 echo '<span style="color: red;">' . $_SESSION['error']['password'] . '</span>';
                             } ?>
                         </div>
+                        <div><input type="checkbox" name="remember"><span>Запомнить</span></div>
+                        <input type="hidden" name="ip" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>">
+                        <input type="hidden" name="hua" value="<?php echo $_SERVER['HTTP_USER_AGENT']; ?>">
                         <div class="form-group">
                             <input type="submit" value="Войти" class="btn btn-info">
                         </div>

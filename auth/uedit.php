@@ -6,6 +6,16 @@ define('USER', 'root');
 define('PASSWORD', '');
 define('DATABASE', 'easyphp');
 
+
+function MyHash($var)
+{
+    $salt = 'ABC';
+    $salt2 = 'CBA';
+    $var = crypt(md5($var . $salt), $salt2);
+    return $var;
+
+}
+
 $connect = mysqli_connect(HOST, USER, PASSWORD, DATABASE);
 
 $_SESSION['result'] = array();//создаем пустые массивы чтобы каждый раз удалялись неправильные данные которые ввел пользователь
@@ -78,18 +88,18 @@ if (!empty ($_POST['password'])) {
     $_SESSION['error']['password'] = 'Вы не заполнили пароль!';
 
 }
-
-if (!empty ($flag_l) && !empty($flag_p) && !empty($flag_e)) {
+/* редатируем пароль если нужно*/
+if (!empty ($flag_l)  && !empty($flag_e)) {
 
     $sql3 = "UPDATE `users` SET 
       `user_name`      ='" . $_POST['login'] . "',
-      `password`       ='" . $_POST['password'] . "',
       `email`          ='" . $_POST['email'] . "'
+         " . ((!empty($_POST['password'])) ? ",`password` = '" . MyHash($_POST['password']) . "'" : "") . "
        WHERE `user_id` =" . (int)$_GET['id'] . "
        ";
     mysqli_query($connect, $sql3);
 
-    $_SESSION['info'] = 'Данные пользователя успешно изменены!';
+    $_SESSION['info'] = 'Данные успешно изменены!';
     header('Location: /auth/cab.php');
     exit();
 }
@@ -113,7 +123,7 @@ if (!empty ($flag_l) && !empty($flag_p) && !empty($flag_e)) {
                 <div class="form-group">
                     <input type="password" name="password" class="form-control"
                            placeholder="Пароль не менее 5 символов"
-                           value="<?php echo $row['password']; ?>">
+                           value="">
                     <?php if (!empty($_SESSION['error']['password'])) {
                         echo '<span style="color: red;">' . $_SESSION['error']['password'] . '</span>';
                     } ?>
@@ -132,13 +142,3 @@ if (!empty ($flag_l) && !empty($flag_p) && !empty($flag_e)) {
             </form>
         </fieldset>
     </div>
-/*<?php function wtf($array, $stop = false)
-{ // вывод массива
-    echo '<pre>' . print_r($array, 1) . '</pre>';
-    if (!$stop) {
-        exit();
-    }
-}
-
-wtf($_SESSION, 1);
-?>*/

@@ -30,6 +30,7 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="module" module-name="test" />
     <orderEntry type="module-library">
       <library name="PHP" type="php">
         <CLASSES>
@@ -48,18 +49,6 @@
           <root url="file://$MODULE_DIR$/vendor/public/vega" />
           <root url="file://$MODULE_DIR$/vendor/public/vega-lite" />
           <root url="file://$MODULE_DIR$/vendor/public/viscompass" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/composer" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/facebook/php-sdk-v4" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/paragonie/random_compat" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/public/assets-loader" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/public/bootstrap" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/public/compass-mixins" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/public/d3" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/public/jquery" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/public/less" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/public/vega" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/public/vega-lite" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/public/viscompass" />
         </CLASSES>
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/composer" />
@@ -77,20 +66,9 @@
           <root url="file://$MODULE_DIR$/vendor/public/vega" />
           <root url="file://$MODULE_DIR$/vendor/public/vega-lite" />
           <root url="file://$MODULE_DIR$/vendor/public/viscompass" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/composer" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/facebook/php-sdk-v4" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/paragonie/random_compat" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/public/assets-loader" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/public/bootstrap" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/public/compass-mixins" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/public/d3" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/public/jquery" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/public/less" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/public/vega" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/public/vega-lite" />
-          <root url="file://$MODULE_DIR$/../localhost/vendor/public/viscompass" />
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="module" module-name="schoolphp" />
   </component>
 </module>
