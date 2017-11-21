@@ -31,6 +31,8 @@
       </library>
     </orderEntry>
     <orderEntry type="module" module-name="test" />
+    <orderEntry type="module" module-name="schoolphp" />
+    <orderEntry type="module" module-name="pages" />
     <orderEntry type="module-library">
       <library name="PHP" type="php">
         <CLASSES>
@@ -69,6 +71,5 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="module" module-name="schoolphp" />
   </component>
 </module>

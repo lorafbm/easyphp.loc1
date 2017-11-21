@@ -8,6 +8,8 @@ define('USER', 'root');
 define('PASSWORD', '');
 define('DATABASE', 'easyphp');
 
+
+
 $connect = mysqli_connect(HOST, USER, PASSWORD, DATABASE);
 
 function hsc($el)
@@ -153,8 +155,6 @@ $num = $tnum[0];
     <div class="commentboxname">' . hsc($row['date']) . '</div></div><hr>';
         } ?>
 </div>
-
-
 
 
 

@@ -37,49 +37,31 @@
             <div class="left"><p>CMS  <span>Управление сайтом</span></p>
             </div>
             <div class="right">
-
             </div>
         </div>
         <div class="mini-menu" onclick="$('#menu1').toggle('slow');"></div>
         <div id="menu1">
             <ul>
                 <li><a href="/">Главная</a></li>
-                <li><a href="#">Управление категориями&nbsp;&nbsp;<span>&#8744;</span></a>
-                    <ul>
-                        <?php foreach ($data['category_info'] as $key) { ?>
-                            <li>
-                                <a href="<?php echo mylink('category', (int)$key['category_id']); ?>"><?php echo htmlspecialchars($key['category_name']); ?></a>
-                            </li>
-                            <?php
-                        } ?>
-                    </ul>
-                </li>
+                <?php if(isset($_SESSION['user'])){ ?>
+                <li><a href="#">Категории</a></li>
                 <li><a href="<?php echo mylink_a('a_news'); ?>">Новости</a></li>
                 <li><a href="<?php echo mylink_a('a_aboutus'); ?>">О нас</a></li>
-                <li><a href="<?php echo mylink_a('a_styles'); ?>">Стили</a></li>
-                <li class="last"><a href="/">Выход</a></li>
+                <li><a href="<?php echo mylink_a('cab'); ?>">Кабинет</a></li>
+                <?php } ?>
+                <li class="last"><a href="<?php echo mylink_a('exit'); ?>">Выход</a></li>
             </ul>
         </div>
-
         <nav class="clearfix">
             <ul>
                 <li class="first"><a href="/index.php?route=admin">Главная</a></li>
-                <li>
-                    <a href="<?php echo mylink_a('a_categories'); ?>">Категории</a>
-                    <ul>
-                        <?php foreach ($data['category_info'] as $key) {
-                            ?>
-                            <li>
-                                <a href="<?php echo mylink('category', (int)$key['category_id']); ?>"><?php echo htmlspecialchars($key['category_name']); ?></a>
-                            </li>
-                            <?php
-                        } ?>
-                    </ul>
-                </li>
+                <?php if(isset($_SESSION['user'])){ ?>
+                <li><a href="<?php echo mylink_a('a_categories'); ?>">Категории</a></li>
                 <li><a href="<?php echo mylink_a('a_news'); ?>">Новости</a></li>
                 <li><a href="<?php echo mylink_a('a_aboutus'); ?>">О нас</a></li>
-                <li><a href="<?php echo mylink_a('a_styles'); ?>">Стили</a></li>
-                <li class="last"><a href="/">Выход</a></li>
+                <li><a href="<?php echo mylink_a('cab'); ?>">Кабинет</a></li>
+                <?php } ?>
+                <li class="last"><a href="<?php echo mylink_a('exit'); ?>">Выход</a></li>
             </ul>
         </nav>
     </header>

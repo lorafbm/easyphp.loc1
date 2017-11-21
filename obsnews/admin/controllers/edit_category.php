@@ -14,12 +14,16 @@ while ($row = mysqli_fetch_assoc($res)) {
 if (isset($_POST['edit_name'],$_POST['edit_catdesc'],$_POST['edit'])) {
 
     if (!empty($_POST['edit_name']) && !empty($_POST['edit_catdesc'])) {
+
+        foreach ($_POST as $k => $v) {
+            $_POST[$k] = trimAll($v);
+        }
         q("
             UPDATE `category` SET
-            `category_name`        = '" . ($_POST['edit_name']) . "',
-            `category_description` = '" . ($_POST['edit_catdesc']) . "',
-            `title`                = '" . ($_POST['edit_title']) . "'
-              WHERE `category_id`=" . (int)$_GET['id'] . "
+            `category_name`        = '" . mysqli_real_escape_string($connect,$_POST['edit_name']) . "',
+            `category_description` = '" . mysqli_real_escape_string($connect,$_POST['edit_catdesc']) . "',
+            `title`                = '" . mysqli_real_escape_string($connect,$_POST['edit_title']) . "'
+              WHERE `category_id`  =  " . (int)$_GET['id'] . "
         ");
 
         $_SESSION['info_cat'] = 'Категория успешно отредактирована!';
@@ -31,11 +35,12 @@ if (isset($_POST['edit_name'],$_POST['edit_catdesc'],$_POST['edit'])) {
     if (isset($_POST['edit_name'],$_POST['edit_catdesc'], $_POST['submit'])) {
         $key['category_name'] = $_POST['edit_name'];
         $key['category_description'] = $_POST['edit_catdesc'];
-
+        $key['title'] = $_POST['edit_title'];
     }
 }
 
 $data['title'] = ' Админ «ОБСновости» | Категории - Редактировать';
+
 
 getHeader_a($data);
 getView_a('edit_category', $data);
