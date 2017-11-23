@@ -151,7 +151,6 @@ if (isset($_POST['text']) && !empty($_POST['text'])) {
 <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
 
 <div class="clearfix" style="margin: 20px;">
-
     <?php echo $_SESSION['info'] ? $_SESSION['info'] : '';
     echo $_SESSION['info1'] ? $_SESSION['info1'] : '';
     echo $_SESSION['info2'] ? $_SESSION['info2'] : ''; ?>
@@ -164,7 +163,6 @@ if (isset($_POST['text']) && !empty($_POST['text'])) {
             }
         }
         ?></div>
-
     <form action="" method="post" style="width: 300px; margin: 20px; float: left">
         <p><?php if (!empty($error)) {
                 echo $error;
