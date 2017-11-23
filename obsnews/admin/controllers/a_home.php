@@ -11,7 +11,6 @@ if (!empty($_POST['submit'])) {
     } else {
         $_SESSION['error']['login'] = 'Вы не заполнили логин!';
     }
-
     if (!empty ($_POST['password'])) {
         $_SESSION['result']['password'] = $_POST['password'];
         $flag_p = 1;
@@ -49,13 +48,10 @@ if (!empty($_POST['submit'])) {
     }
 }
 $data['title'] = ' Админ «ABCновости»';
-
 getHeader_a($data);
 getView_a('a_home', $data);
-//wtf($data,1);
-//wtf($_SESSION,1);
-//wtf($_POST, 1);
-getFooter_a();
+getFooter_a($data);
+
 
 
 
