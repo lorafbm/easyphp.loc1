@@ -106,21 +106,7 @@ Class Valid
             }
         }
     }
-/*выводим на какую букву нужен вариант?*/
-    public function letter($name){
 
-            $name = mb_strtolower($name);
-                $dlinna = mb_strlen($name, "utf8");
-                $last = mb_substr($name, $dlinna - 1, 1, "utf8"); // получили последнюю букву
-                $forbidden_letters = array('ь', 'й', 'ъ', 'ы'); // массив запрещенных окончаний
-                if (in_array($last, $forbidden_letters)) { // если посл буква не подходит
-                    $pre_last = mb_substr($name, $dlinna - 2, 1, "utf8");
-                    return $pre_last; // берем предпоследнюю
-                } else {
-                    return $last; // иначе берем последнюю
-                }
-
-    }
 
 
     public function del_city($name, $array)
@@ -195,8 +181,7 @@ if (!empty($_POST['submit']) && !empty($_POST['text'])) {
         if ($step) {
             echo 'Компьютер выбрал город: ' . $step . '<br>';
             $_SESSION['list'] = $val->del_city($step, $_SESSION['list']); //удаляем выбранный вариант
-            $letter = $val->letter($step); // получили букву
-            echo 'Нужен вариант на букву: ' . $letter . '<br>';
+
 
         }
     } else {

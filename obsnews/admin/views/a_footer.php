@@ -1,7 +1,7 @@
 <footer>
     <div class="clearfix">
         <div class="wrapp"><p>CMS</p>
-            <span> © 2017 | </span><a href="#">ОБС новости</a>
+            <span> © 2017 | </span><a href="#">abc новости</a>
         </div>
     </div>
 </footer>
