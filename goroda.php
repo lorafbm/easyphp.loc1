@@ -15,6 +15,7 @@ define('DATABASE', 'easyphp');
 $connect = mysqli_connect(HOST, USER, PASSWORD, DATABASE);
 mysqli_query($connect, "SET CHARSET UTF8");
 /*вставка в тбл городов*/
+
 /*$list = array(Харьков,
     Киев,
     Луганск,
@@ -117,7 +118,7 @@ if (isset($_POST['text']) && !empty($_POST['text'])) {
     // 3. Создала экземпляр класса
     $val = new Valid;
     $_SESSION['info'] = 'Вы выбрали: ' . $_POST['text'] . '<br>';
-       $_SESSION['result'] = $val->get_letter($_POST['text'], $_SESSION['list']); // получили букву
+    $_SESSION['result'] = $val->get_letter($_POST['text'], $_SESSION['list']); // получили букву
 
     if ($_SESSION['result']) {
         $_SESSION['info1'] = 'Нужен вариант на букву: ' . $_SESSION['result'] . '<br>';
@@ -131,40 +132,31 @@ if (isset($_POST['text']) && !empty($_POST['text'])) {
             $_SESSION['list'] = $val->del_city($_SESSION['step'], $_SESSION['list']); //удаляем выбранный вариант
         } else {
             echo 'Нет варианов! Компьютер проиграл!';
-            unset($_SESSION['start']);
+            // unset($_SESSION['start']);
             session_unset();
         }
     } else {
         echo 'Нет такого города! Вы проиграли!';
         unset($_SESSION['start']);
         session_unset();
-       //  session_destroy();
     }
 } else {
     $error = 'Выберите и введите город!';
 }
 
-//wtf($_SESSION['list'], 1);
 //wtf($_SESSION, 1);
-//wtf($_SESSION['error']);
 //var_dump($_POST);
-//var_dump($_SESSION);
+
 ?>
 
 
 <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
 
 <div class="clearfix" style="margin: 20px;">
-    <?php if (isset($_SESSION['info'])) {
-        echo $_SESSION['info'];
-    }
-    if (isset($_SESSION['info1'])) {
-        echo $_SESSION['info1'];
-    }
-    if (isset($_SESSION['info2'])) {
-        echo $_SESSION['info2'];
-    }
-    ?>
+
+    <?php echo $_SESSION['info'] ? $_SESSION['info'] : '';
+    echo $_SESSION['info1'] ? $_SESSION['info1'] : '';
+    echo $_SESSION['info2'] ? $_SESSION['info2'] : ''; ?>
     <div style="border: 1px solid cornflowerblue; width: 300px; float: left; padding: 20px;">
         <h4>Варианты для выбора:</h4>
         <?php if (isset ($_SESSION['start'])) {
@@ -172,9 +164,8 @@ if (isset($_POST['text']) && !empty($_POST['text'])) {
             foreach ($_SESSION['list'] as $k => $v) {
                 echo $v . '<br>';
             }
-        } else {
-
-        } ?></div>
+        }
+        ?></div>
 
     <form action="" method="post" style="width: 300px; margin: 20px; float: left">
         <p><?php if (!empty($error)) {
