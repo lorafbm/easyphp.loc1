@@ -1,8 +1,7 @@
 <?php
-//echo 'занятие 19. Основы ООП.<br>';
+echo 'занятие 18. Основы ООП.<br>';
 
-
-/*class CarAuto
+class CarAuto
 {
     public $color = '';
     const QWERTY = 45;
@@ -35,5 +34,14 @@ echo $auto2->color . '<br>';
 echo $auto2->ololo($auto2->color) . '<br>';
 echo $auto->www() . '<br>';
 echo CarAuto::QWERTY;
-echo $auto->qqq();*/
+echo $auto->qqq();
+
+
+
+
+
+
+
+
+
 

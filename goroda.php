@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 function wtf($array, $stop = false)
 {
     echo '<pre>' . htmlspecialchars(print_r($array, 1)) . '</pre>';
@@ -97,74 +97,94 @@ Class Computer
         }
     }
 }
-/*1. записали в сессию все города - начальный этап и привели их к ниж регистру сразу*/
-$sql = "SELECT `city` 
+
+
+if (!isset($_SESSION['start'])) {
+    /*1. записали в сессию все города - начальный этап и привели их к ниж регистру сразу*/
+    $sql = "SELECT `city`
         FROM `city`
         ORDER BY `id` ASC
-  
-       ";
-$res = mysqli_query($connect, $sql);
+        ";
+    $res = mysqli_query($connect, $sql);
 
-while ($row = mysqli_fetch_assoc($res)) {
-    $_SESSION['list'][] = mb_strtolower($row['city']);
+    while ($row = mysqli_fetch_assoc($res)) {
+        $_SESSION['list'][] = trim(mb_strtolower($row['city']));
+    }
 }
+$_SESSION['start'] = 1; // теперь  начали игру
 // 2. Если пришел ПОСТ то идем на валидацию и получаем последнюю букву от которой пляшем и удаляем выбранное
-
-if (!empty($_POST['submit']) && !empty($_POST['text'])) {
-
+if (isset($_POST['text']) && !empty($_POST['text'])) {
     // 3. Создала экземпляр класса
     $val = new Valid;
-    echo 'Вы выбрали: ' . $_POST['text'] . '<br>';
+    $_SESSION['info'] = 'Вы выбрали: ' . $_POST['text'] . '<br>';
+       $_SESSION['result'] = $val->get_letter($_POST['text'], $_SESSION['list']); // получили букву
 
-    $result = $val->get_letter($_POST['text'], $_SESSION['list']); // получили букву
-
-    if ($result) {
-        echo 'Нужен вариант на букву: ' . $result . '<br>';
+    if ($_SESSION['result']) {
+        $_SESSION['info1'] = 'Нужен вариант на букву: ' . $_SESSION['result'] . '<br>';
         $_SESSION['list'] = $val->del_city($_POST['text'], $_SESSION['list']); //удаляем выбранный вариант
 
         //4. имитируем ход компа
         $Comp = new Computer;
-        $step = $Comp->step_valid($result, $_SESSION['list']);
-        if ($step) {
-            echo 'Компьютер выбрал город: ' . $step . '<br>';
-            $_SESSION['list'] = $val->del_city($step, $_SESSION['list']); //удаляем выбранный вариант
+        $_SESSION['step'] = $Comp->step_valid($_SESSION['result'], $_SESSION['list']);
+        if ($_SESSION['step']) {
+            $_SESSION['info2'] = 'Компьютер выбрал город: ' . $_SESSION['step'] . '<br>';
+            $_SESSION['list'] = $val->del_city($_SESSION['step'], $_SESSION['list']); //удаляем выбранный вариант
+        } else {
+            echo 'Нет варианов! Компьютер проиграл!';
+            unset($_SESSION['start']);
+            session_unset();
         }
     } else {
         echo 'Нет такого города! Вы проиграли!';
+        unset($_SESSION['start']);
+        session_unset();
+       //  session_destroy();
     }
 } else {
-    $error = 'Выберите и введите город, чтобы игра в города началась!';
+    $error = 'Выберите и введите город!';
 }
 
 //wtf($_SESSION['list'], 1);
+//wtf($_SESSION, 1);
 //wtf($_SESSION['error']);
 //var_dump($_POST);
 //var_dump($_SESSION);
 ?>
 
 
-
 <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
 
 <div class="clearfix" style="margin: 20px;">
+    <?php if (isset($_SESSION['info'])) {
+        echo $_SESSION['info'];
+    }
+    if (isset($_SESSION['info1'])) {
+        echo $_SESSION['info1'];
+    }
+    if (isset($_SESSION['info2'])) {
+        echo $_SESSION['info2'];
+    }
+    ?>
+    <div style="border: 1px solid cornflowerblue; width: 300px; float: left; padding: 20px;">
+        <h4>Варианты для выбора:</h4>
+        <?php if (isset ($_SESSION['start'])) {
+            sort($_SESSION['list']);
+            foreach ($_SESSION['list'] as $k => $v) {
+                echo $v . '<br>';
+            }
+        } else {
 
-<div  style="border: 1px solid cornflowerblue; width: 300px; float: left; padding: 20px;">
-    <h4>Варианты для выбора:</h4>
-    <?php foreach ($_SESSION['list'] as $k=>$v){
-        $k=$k+1;
-        echo $k.'. '. $v.'<br>';
+        } ?></div>
 
-    } ?></div>
-
-<form action="" method="post" style="width: 300px; margin: 20px; float: left">
-    <p><?php if (!empty($error)) {
-            echo $error;
-        } ?></p>
-    <div class="form-group">
-        <input type=text name="text" value="" placeholder="Введите город!" class="form-control">
-    </div>
-    <div class="form-group">
-        <input type="submit" name="submit" value="GO!" class="btn btn-info">
-    </div>
-</form>
+    <form action="" method="post" style="width: 300px; margin: 20px; float: left">
+        <p><?php if (!empty($error)) {
+                echo $error;
+            } ?></p>
+        <div class="form-group">
+            <input type=text name="text" value="" placeholder="Введите город!" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="submit" name="submit" value="GO!" class="btn btn-info">
+        </div>
+    </form>
 </div>
