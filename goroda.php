@@ -132,12 +132,10 @@ if (isset($_POST['text']) && !empty($_POST['text'])) {
             $_SESSION['list'] = $val->del_city($_SESSION['step'], $_SESSION['list']); //удаляем выбранный вариант
         } else {
             echo 'Нет варианов! Компьютер проиграл!';
-            // unset($_SESSION['start']);
             session_unset();
         }
     } else {
         echo 'Нет такого города! Вы проиграли!';
-        unset($_SESSION['start']);
         session_unset();
     }
 } else {
