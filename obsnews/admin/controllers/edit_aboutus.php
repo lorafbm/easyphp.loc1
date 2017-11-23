@@ -117,7 +117,7 @@ if (isset($_POST['title'], $_POST['text'], $_POST['address'], $_POST['phone'], $
 }
 
 
-$data['title'] = ' Админ «ОБСновости» | О нас - Редактировать';
+$data['title'] = ' Админ «ABCновости» | О нас - Редактировать';
 getHeader_a($data);
 //wtf($_POST,1);
 //wtf($_FILES,1);

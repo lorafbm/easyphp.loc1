@@ -39,7 +39,7 @@
 <div class="content">
     <header>
         <div class="clearfix">
-            <div class="left"><a href="/"><img src="/logo1.png" width="230" height="88" alt="obsновости"></a>
+            <div class="left"><a href="/"><img src="/logo.png" width="230" height="88" alt="obsновости"></a>
             </div>
             <div class="right">
                 <p><?php echo htmlspecialchars($data['info']['address']) ?></p>

@@ -32,7 +32,7 @@ while ($row_h = mysqli_fetch_assoc($res_h)) {
     $data['category_info'][] =$row_h;
 }
 
-$data['title'] = 'Новости | «ОБСновости»| Популярное';
+$data['title'] = 'Новости | «ABCновости»| Популярное';
 
 getHeader($data);
 getView('popular',$data);

@@ -91,7 +91,7 @@ if (!empty ($flag_l) && !empty($flag_p) && !empty($flag_e) && !empty($flag_c) ) 
 }
 
 
-$data['title'] = ' Админ «ОБСновости» | Регистрация';
+$data['title'] = ' Админ «ABCновости» | Регистрация';
 
 
 getHeader_a($data);

@@ -64,7 +64,7 @@ if (isset ($_GET['action']) && $_GET['action'] == 'delete') { // удалени�
     header("Location: /index.php?route=admin&page=a_categories");
     exit();
 }
-$data['title'] = ' Админ «ОБСновости» | Категории';
+$data['title'] = ' Админ «ABCновости» | Категории';
 
 getHeader_a($data);
 getView_a('a_categories', $data);

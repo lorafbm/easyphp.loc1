@@ -28,6 +28,11 @@
                 <li>
                     В меню <b>кабинет</b> вы можете сменить логин, пароль, e-mail.
                 </li>
+                <li>
+                    Если хотите <b>заменить логотоп</b>, просто скопируйте изображение логотипа в формате .png с именем logo.png
+                    в корень сайта. Старое изображение можно переименовать или удалить если он вам больше вообще не нужен.
+                    Для корректоного отображения придерживайтесь размера 231*88px.
+                </li>
                 <b>Успехов!</b>
             </ol>
 
@@ -52,6 +57,17 @@
                             echo '<span style="color: red;">' . $_SESSION['error']['password'] . '</span>';
                         } ?>
                     </div>
+                    <div class="form-group">
+                        <input type="text" name="capcha" class="form-control" placeholder=" введите код с картинки"
+                               value="">
+                        <?php if (!empty($_SESSION['error']['capcha'])) {
+                            echo '<span style="color: red;">' . $_SESSION['error']['capcha'] . '</span>';
+                        } ?>
+                    </div>
+                    <img src="/admin/views/capcha.php"  id="capcha" alt="capcha"><br>
+                    <?php echo '<input type="button" onclick="document.getElementById(\'capcha\').src=\'/admin/views/capcha.php?id=\'+
+Math.round(Math.random()*9999)" value="Другой код" class=" btn btn-primary">'; ?>
+                    <div class="form-group">
                     <div class="form-group">
                         <input type="submit" name="submit" value="Войти" class="btn btn-info">
                     </div>

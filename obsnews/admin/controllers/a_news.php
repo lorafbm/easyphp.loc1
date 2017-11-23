@@ -118,7 +118,7 @@ if (isset ($_GET['action']) && $_GET['action'] == 'delete') { // удалени�
 }
 
 
-$data['title'] = ' Админ «ОБСновости» | Новости';
+$data['title'] = ' Админ «ABCновости» | Новости';
 
 /*if (isset ($_SESSION['info_news'])) {
     unset ($_SESSION['info_news']);

@@ -1,8 +1,6 @@
 <?php
-
 $_SESSION['info_news'] = '';
-
-$data['title'] = ' Админ «ОБСновости» | Категории - Добавить';
+$data['title'] = ' Админ «ABCновости» | Категории - Добавить';
 
 /*выборка категорий для вывода списка категорий*/
 $sql_c = "SELECT *
@@ -15,7 +13,6 @@ while ($row_c = mysqli_fetch_assoc($res_c)) {
     $data['category_info'][] = $row_c;  // формируем массив для передачи
 
 }
-
 
 /*валидация на пустоту всех полей кроме изображения*/
 if (isset($_POST['add_news'], $_POST['add_news_name'], $_POST['add_short_description'],

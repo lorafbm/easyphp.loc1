@@ -39,7 +39,7 @@ if (isset($_POST['edit_name'],$_POST['edit_catdesc'],$_POST['edit'])) {
     }
 }
 
-$data['title'] = ' Админ «ОБСновости» | Категории - Редактировать';
+$data['title'] = ' Админ «ABCновости» | Категории - Редактировать';
 
 
 getHeader_a($data);

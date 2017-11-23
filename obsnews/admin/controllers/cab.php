@@ -88,7 +88,7 @@ if (!empty ($flag_l)  && !empty($flag_e)) {
     exit();
 }
 
-$data['title'] = ' Админ «ОБСновости» | Кабинет';
+$data['title'] = ' Админ «ABCновости» | Кабинет';
 getHeader_a($data);
 getView_a('cab',$data);
 //wtf($_SESSION,1);

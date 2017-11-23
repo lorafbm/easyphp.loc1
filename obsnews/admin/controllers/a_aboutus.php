@@ -8,7 +8,7 @@ $data['info']=$row;
 
 
 
-$data['title'] = ' Админ «ОБСновости» | О нас';
+$data['title'] = ' Админ «ABCновости» | О нас';
 getHeader_a($data);
 getView_a('a_aboutus',$data);
 getFooter_a();

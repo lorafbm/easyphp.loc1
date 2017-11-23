@@ -11,7 +11,7 @@ while ($row_h = mysqli_fetch_assoc($res_h)) {
     $data['category_info'][] = $row_h;
 }
 
-$data['title'] = 'Новости | «ОБСновости»| +0 000 000-00-00';
+$data['title'] = 'Новости | «ABCновости»| +0 000 000-00-00';
 
 
 /*обновление к-ва просмотров*/
