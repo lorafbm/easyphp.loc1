@@ -22,6 +22,7 @@ html, body {
   min-width: 320px;
   height: 100%;
   background-color: lightblue;
+  font-size: 14px;
 }
 
 /*ширина блока считается как контент+ падинг+бордер*/
@@ -272,10 +273,17 @@ nav {
 
 /*main*/
 main {
-  margin: 0px auto;
-  width: 85%;
+  margin: 0 auto;
+    width: 85%;
     color: #000000;
 
+
+/*.container {
+
+  @media (min-width: 1200px){
+    max-width: 1140px;
+  }
+}*/
     img {
       margin-bottom: 10px;
 
@@ -294,12 +302,19 @@ main {
 
     .glyphicon-remove {
       color: red;
+      &:hover{
+        text-decoration: underline ;
+        color: red;
+      }
     }
     .glyphicon-pencil {
       color: darkblue;
       margin-right: 20px;
       margin-left: 20px;
-
+      &:hover{
+        text-decoration: underline ;
+        color: darkblue;
+      }
     }
     .news_info {
       color: grey;

@@ -1,7 +1,7 @@
+<?php getHeader_a(); ?>
 <main>
     <div class="wrap">
-
-        <div class="wrapper_addnews">
+       <div class="wrapper_addnews">
             <p>Новая новость:</p>
             <!--<img src="/photo/<?php if (isset($_POST['add_news'])){echo $data['img'];} ?>">-->
             <form action="" method="post" role="form" enctype="multipart/form-data">
@@ -65,5 +65,5 @@
         </div>
     </div>
 </main>
-
+<?php getFooter_a(); ?>
 

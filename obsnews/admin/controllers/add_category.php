@@ -40,11 +40,8 @@ if (isset($_POST['submit'], $_POST['add_name'], $_POST['add_catdesc'])) {
 
 }
 
-$data['title'] = ' Админ «ABCновости» | Категории - Добавить';
+getView_a('add_category');
 
-getHeader_a($data);
-getView_a('add_category', $data);
-getFooter_a();
 
 
 

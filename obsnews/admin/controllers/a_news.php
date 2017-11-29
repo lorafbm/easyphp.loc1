@@ -1,4 +1,5 @@
 <?php
+
 /*получаем количество новостей*/
 $newsq = q("
     SELECT COUNT(*)
@@ -11,7 +12,7 @@ $data['num'] = $num;
 
 
 /*пагинатор*/
-$count_show_pages = 4;// задаем сколько сообщений выводить на странице
+$count_show_pages = 6;// задаем сколько сообщений выводить на странице
 $count_pages = (int)(($num - 1) / $count_show_pages) + 1;
 $data['count_pages'] = $count_pages;
 
@@ -117,13 +118,6 @@ if (isset ($_GET['action']) && $_GET['action'] == 'delete') { // удалени�
     exit();
 }
 
-
-$data['title'] = ' Админ «ABCновости» | Новости';
-
-/*if (isset ($_SESSION['info_news'])) {
-    unset ($_SESSION['info_news']);
-}*/
 //wtf($data,1);
-getHeader_a($data);
+
 getView_a('a_news', $data);
-getFooter_a();

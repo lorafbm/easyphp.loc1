@@ -1,6 +1,5 @@
 <?php
 $_SESSION['info_news'] = '';
-$data['title'] = ' Админ «ABCновости» | Категории - Редактировать';
 
 /*выборка категорий для вывода*/
 $sql_c = "SELECT *
@@ -23,7 +22,6 @@ $res = mysqli_query($connect, $sql);
 
 while ($row = mysqli_fetch_assoc($res)) {
     $data['news'][] = $row;  // формируем массив для передачи в вывод
-
 }
 
 
@@ -95,9 +93,6 @@ if (isset($_POST['edit_news'], $_POST['edit_news_name'], $_POST['edit_short_desc
     $key['author'] = $_POST['edit_author'];
 }
 
-
-getHeader_a($data);
 getView_a('edit_news', $data);
 //wtf($data, 1);
 //wtf($_POST,1);
-getFooter_a();

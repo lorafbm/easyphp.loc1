@@ -29,10 +29,13 @@ if (!empty($_POST['submit'])) {
     }
     /*если все ОК то тогда запрос в базу на проверку логина и пароля*/
     if (!empty($flag_l) && !empty($flag_p) && !empty($flag_c)) {
+        foreach ($_POST as $k => $v) {
+            $_POST[$k] = trimAll($v);
+        }
 
         $sql = " SELECT * FROM `users`
-                 WHERE `user_name`= '" . mysqli_real_escape_string($connect, $_POST['login']) . "' 
-                 AND  `password` = '" . mysqli_real_escape_string($connect, (MyHash($_POST['password']))) . "'
+                 WHERE `user_name`= '" . $_POST['login'] . "' 
+                 AND  `password`  = '" .(MyHash($_POST['password'])) . "'
                   LIMIT 1
                 ";
         $res = mysqli_query($connect, $sql);
@@ -47,10 +50,10 @@ if (!empty($_POST['submit'])) {
         }
     }
 }
-$data['title'] = ' Админ «ABCновости»';
-getHeader_a($data);
-getView_a('a_home', $data);
-getFooter_a($data);
+
+getView_a('a_home');
+//wtf($data,1);
+
 
 
 

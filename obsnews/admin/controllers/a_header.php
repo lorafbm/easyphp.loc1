@@ -1,4 +1,2 @@
 <?php
-
-
-getView_a('a_header',$data);
+getView_a('a_header');

@@ -1,6 +1,5 @@
 <?php
 $_SESSION['info_news'] = '';
-$data['title'] = ' Админ «ABCновости» | Категории - Добавить';
 
 /*выборка категорий для вывода списка категорий*/
 $sql_c = "SELECT *
@@ -73,9 +72,6 @@ if (isset($_POST['add_news'], $_POST['add_news_name'], $_POST['add_short_descrip
     }
 }
 
-getHeader_a($data);
 getView_a('add_news', $data);
-getFooter_a();
-wtf($_POST, 1);
-wtf($data, 1);
+//wtf($data, 1);
 //wtf($_SESSION,1);

@@ -22,8 +22,8 @@ function week($num)
     }
 }
 
-/*var_dump($_POST);
-var_dump($_SESSION);*/
+var_dump($_POST);
+var_dump($_SESSION);
 $sel = !empty($_SESSION['result']['week']) ? $_SESSION['result']['week'] : '';
 $rad = !empty($_SESSION['result']['pol']) ? $_SESSION['result']['pol'] : '';
 ?>

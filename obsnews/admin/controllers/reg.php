@@ -91,14 +91,10 @@ if (!empty ($flag_l) && !empty($flag_p) && !empty($flag_e) && !empty($flag_c) ) 
 }
 
 
-$data['title'] = ' Админ «ABCновости» | Регистрация';
-
-
-getHeader_a($data);
-getView_a('reg',$data);
+getView_a('reg');
 //wtf($data,1);
 //wtf($_SESSION,1);
 //wtf($_COOKIE,1);
 //wtf($_POST,1);
-getFooter_a();
+
 

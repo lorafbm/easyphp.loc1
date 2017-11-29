@@ -11,7 +11,7 @@ if (!empty($_POST['name'])) {
         ORDER BY `category_id` ASC 
      ";
     $res_s = mysqli_query($connect, $sql_s);
-    //wtf($res_s,1);
+
     while ($row_s = mysqli_fetch_assoc($res_s)) {
         $data['category_info'][] = $row_s;  // формируем массив для передачи
     }
@@ -64,10 +64,7 @@ if (isset ($_GET['action']) && $_GET['action'] == 'delete') { // удалени�
     header("Location: /index.php?route=admin&page=a_categories");
     exit();
 }
-$data['title'] = ' Админ «ABCновости» | Категории';
 
-getHeader_a($data);
 getView_a('a_categories', $data);
 //wtf($data,1);
 //wtf($_POST,1);
-getFooter_a();

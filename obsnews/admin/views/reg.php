@@ -1,6 +1,7 @@
-<main>
-    <div class="wrap">
-           <div class="wrapper">
+<?php getHeader_a(); ?>
+    <main>
+        <div class="wrap">
+            <div class="wrapper">
                 <fieldset>
                     <p>Форма регистрации:</p>
                     <form action="" method="post" role="form">
@@ -34,8 +35,8 @@
                                 echo '<span style="color: red;">' . $_SESSION['error']['capcha'] . '</span>';
                             } ?>
                         </div>
-                       <img src="/admin/views/capcha.php"  id="capcha" alt="capcha"><br>
-                       <?php echo '<input type="button" onclick="document.getElementById(\'capcha\').src=\'/admin/views/capcha.php?id=\'+
+                        <img src="/admin/views/capcha.php" id="capcha" alt="capcha"><br>
+                        <?php echo '<input type="button" onclick="document.getElementById(\'capcha\').src=\'/admin/views/capcha.php?id=\'+
 Math.round(Math.random()*9999)" value="Другой код" class=" btn btn-primary">'; ?>
                         <div class="form-group">
                             <input type="submit" name="submit" value="Отправить" class="btn btn-info">
@@ -43,5 +44,6 @@ Math.round(Math.random()*9999)" value="Другой код" class=" btn btn-prim
                     </form>
                 </fieldset>
             </div>
-    </div>
-</main>
+        </div>
+    </main>
+<?php getFooter_a(); ?>

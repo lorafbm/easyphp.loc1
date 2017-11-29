@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <!--<link rel="dns-prefetch" href="https://obsnews.loc">-->
-    <title><?php echo $data['title'];?></title>
+    <title> Админ «ABCновости»</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,9 +11,11 @@
      указали номер телефона в html-коде и не указали в хедере, то смартфон распознает его как телефонный номер
      и попытается набрать его по клику. То же самое и с адресом.-->
 
+
+
     <link rel="stylesheet" href="/vendor/public/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/vendor/public/bootstrap/dist/css/bootstrap-theme.min.css">
-
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/vendor/public/fancybox/dist/jquery.fancybox.css?v=2.1.5">
     <link rel="stylesheet" href="/admin/views/styles/a_style.css">
     <script src="/vendor/public/jquery/dist/jquery.js"></script>
@@ -58,7 +60,7 @@
                 <?php if(isset($_SESSION['user'])){ ?>
                 <li><a href="<?php echo mylink_a('a_categories'); ?>">Категории</a></li>
                 <li><a href="<?php echo mylink_a('a_news'); ?>">Новости</a></li>
-                <li><a href="<?php echo mylink_a('a_aboutus'); ?>">О нас</a></li>
+                <li><a href="<?php echo mylink_a('a_pages'); ?>">Статичные страницы</a></li>
                 <li><a href="<?php echo mylink_a('cab'); ?>">Кабинет</a></li>
                 <?php } ?>
                 <li class="last"><a href="<?php echo mylink_a('exit'); ?>">Выход</a></li>

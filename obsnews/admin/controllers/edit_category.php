@@ -39,9 +39,5 @@ if (isset($_POST['edit_name'],$_POST['edit_catdesc'],$_POST['edit'])) {
     }
 }
 
-$data['title'] = ' Админ «ABCновости» | Категории - Редактировать';
-
-
-getHeader_a($data);
 getView_a('edit_category', $data);
-getFooter_a();
+

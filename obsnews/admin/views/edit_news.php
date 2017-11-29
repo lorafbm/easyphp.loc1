@@ -1,3 +1,4 @@
+<?php getHeader_a($data); ?>
 <main>
     <div class="wrap">
         <p>Редактировать новость:</p>
@@ -61,5 +62,5 @@
         </div>
     </div>
 </main>
-
+<?php getFooter_a(); ?>
 

@@ -1,6 +1,6 @@
+<?php getHeader_a(); ?>
 <main>
     <div class="wrap">
-
         <div class="wrapper">
             <fieldset>
                 <p>Ваши данные:</p>
@@ -35,3 +35,4 @@
             </fieldset>
         </div>
 </main>
+<?php getFooter_a(); ?>

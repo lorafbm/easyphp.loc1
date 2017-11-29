@@ -42,7 +42,7 @@
             <div class="left"><a href="/"><img src="/logo.png" width="230" height="88" alt="obsновости"></a>
             </div>
             <div class="right">
-                <p><?php echo htmlspecialchars($data['info']['address']) ?></p>
+                <p style="line-height: 15px;"><?php echo htmlspecialchars($data['info']['address']) ?></p>
                 <p><?php echo htmlspecialchars($data['info']['phone']) ?> </p>
                 <p><?php echo htmlspecialchars($data['info']['email']) ?></p>
             </div>
@@ -55,7 +55,7 @@
                     <ul>
                         <?php foreach ($data['category_info'] as $key) { ?>
                             <li>
-                                <a href="<?php echo mylink('category', $key['category_id']); ?>"><?php echo $key['category_name']; ?></a>
+                                <a href="<?php echo mylink('category', $key['category_id']); ?>"><?php echo htmlspecialchars($key['category_name']); ?></a>
                             </li>
                             <?php
                         } ?>
@@ -64,7 +64,18 @@
                 <li><a href="/index.php?route=popular">Популярное</a></li>
                 <li><a href="#">Бизнес</a></li>
                 <li><a href="#">Спорт</a></li>
-                <li class="last"><a href="/index.php?route=Aboutus">О нас</a></li>
+                <li class="last">
+                    <a href="#">Eще&nbsp;&nbsp;<span>&#8744;</span></a>
+                    <ul>
+                        <?php foreach ($data['page'] as $key) {
+                            ?>
+                            <li>
+                                <a href="<?php echo mylink_page('page', $key['id']); ?>"><?php echo htmlspecialchars($key['name']); ?></a>
+                            </li>
+                            <?php
+                        } ?>
+                    </ul>
+                </li>
             </ul>
         </div>
 <!--        <a href="/index.php?route=admin">Вход в Admin панель</a>-->
@@ -72,12 +83,12 @@
             <ul>
                 <li class="first"><a href="/">Главная</a></li>
                 <li>
-                    <a href="#"> Все категории&nbsp;&nbsp;<span>&#8744;</span></a>
+                    <a href="#">Категории&nbsp;&nbsp;<span>&#8744;</span></a>
                     <ul>
                         <?php foreach ($data['category_info'] as $key) {
                             ?>
                             <li>
-                                <a href="<?php echo mylink('category', $key['category_id']); ?>"><?php echo $key['category_name']; ?></a>
+                                <a href="<?php echo mylink('category', $key['category_id']); ?>"><?php echo htmlspecialchars($key['category_name']); ?></a>
                             </li>
                             <?php
                         } ?>
@@ -86,7 +97,22 @@
                 <li><a href="/index.php?route=popular">Популярное</a></li>
                 <li><a href="/index.php?route=category&category_id=2">Бизнес</a></li>
                 <li><a href="/index.php?route=category&category_id=4">Спорт</a></li>
-                <li class="last"><a href="/index.php?route=Aboutus">О нас</a></li>
+                <li class="last">
+                    <a href="#">Eще&nbsp;&nbsp;<span>&#8744;</span></a>
+                    <ul>
+                        <?php foreach ($data['page'] as $key) {
+                            ?>
+                            <li>
+                                <a href="<?php echo mylink_page('page', $key['id']); ?>"><?php echo htmlspecialchars($key['name']); ?></a>
+                            </li>
+                            <?php
+                        } ?>
+                    </ul>
+                </li>
+
+
+<!--                <li class="last"><a href="/index.php?route=Aboutus">О нас</a></li>-->
+
             </ul>
         </nav>
     </header>

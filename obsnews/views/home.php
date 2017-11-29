@@ -1,3 +1,4 @@
+<?php getHeader(); ?>
 <main>
     <div class="wrap">
         <p class="title">Последние новости:</p>
@@ -9,7 +10,7 @@
                             <img src="<?php echo $news['news_img']; ?>" width="200px" alt="pic1">
                             <h3><?php echo htmlspecialchars($news['news_name']); ?></h3>
                             <p><?php echo htmlspecialchars($news['short_description']); ?></p>
-                            <?php foreach ($data['category_info'] as $key1) {
+                            <?php foreach ($data['cat_info'] as $key1) {
                             if ($news['category_id'] == $key1['category_id']) { ?>
                             <p><span><?php echo htmlspecialchars($key1['category_name']);
                                     }
@@ -30,3 +31,4 @@
             </div>
         </div>
 </main>
+<?php getFooter(); ?>

@@ -45,14 +45,11 @@ header {
   text-align: left;
 }
 @media screen and (max-width: 970px) {
-  header {
-    margin: 0px 8%;
-  }
 }
 header .left {
   float: left;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 650px) {
   header .left {
     width: 100%;
     float: none;
@@ -67,7 +64,7 @@ header .right {
   margin-bottom: 0;
   font-weight: 600;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 650px) {
   header .right {
     width: 100%;
     float: none;
@@ -75,13 +72,24 @@ header .right {
     margin-top: 10px;
   }
 }
-.mini-menu:before {
+.mini-menu {
+  background-image: url("/image/menu.png");
+  width: 60px;
+  height: 54px;
+  margin-bottom: 10px;
+  display: none;
+}
+@media screen and (max-width: 650px) {
+  .mini-menu {
+    display: block;
+  }
+}
+/*.mini-menu:before {
   display: none;
   text-align: center;
   width: 100%;
-}
-@media screen and (max-width: 480px) {
-  .mini-menu:before {
+
+  @media screen and (max-width: 650px) {
     display: block;
     cursor: pointer;
     border-bottom: 12px double black;
@@ -92,16 +100,17 @@ header .right {
     margin-top: 3%;
     margin-bottom: 5%;
   }
-}
+
+}*/
 #menu1 {
   display: none;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 650px) {
   #menu1 {
     margin: 3% 8%;
   }
 }
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 650px) {
   #menu1 {
     display: none !important;
   }
@@ -118,10 +127,11 @@ header .right {
 }
 #menu1 ul a,
 #menu1 ul span {
-  color: #301ecd;
+  color: darkblue;
   cursor: pointer;
   text-decoration: none;
   line-height: 28px;
+  font-weight: bold;
 }
 #menu1 ul a:hover,
 #menu1 ul span:hover {
@@ -132,7 +142,7 @@ header .right {
 }
 nav {
   background: linear-gradient(to top, #301ecd, #0f0f0f);
-  font-size: 100%;
+  font-size: 95%;
   font-weight: bold;
   font-variant: normal;
   color: #ffffff;
@@ -141,22 +151,22 @@ nav {
   margin: 9px auto;
   text-align: center;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 650px) {
   nav {
     display: none;
   }
 }
+@media screen and (max-width: 850px) {
+  nav {
+    font-size: 90%;
+  }
+}
 @media screen and (max-width: 768px) {
   nav {
-    font-size: 85%;
+    font-size: 75%;
   }
 }
-@media screen and (max-width: 640px) {
-  nav {
-    font-size: 80%;
-  }
-}
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 650px) {
   nav {
     display: block !important;
   }

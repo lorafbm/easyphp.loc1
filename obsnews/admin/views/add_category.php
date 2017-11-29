@@ -1,3 +1,4 @@
+<?php getHeader_a(); ?>
 <main>
     <div class="wrap">
         <?php if (isset($_SESSION['info_cat'])) { ?>
@@ -25,12 +26,10 @@
                     <div class="form-group">
                         <button type="submit" name="submit" class="btn btn-primary">Добавить категорию</button>
                     </div>
-                    <!--<p style="color:red; margin-top: 10px;"><?php echo !empty($_SESSION['result']['info']) ? $_SESSION['result']['info'] : ''; ?></p>-->
                 </form>
             </fieldset>
         </div>
     </div>
-    </div>
 </main>
-
+<?php getFooter_a(); ?>
 

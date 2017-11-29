@@ -28,16 +28,15 @@ if (isset ($_GET['key']) && (int)$_GET['key'] && $_GET['key'] > 0) {
 /*поиск*/
 if (!empty($_POST['name'])) {
     foreach ($_POST as $k => $v) {
-        $_POST[$k] = trimAll($v);
+        $_POST[$k] = trimAll(htmlspecialchars($v));
     }
     $sql_s = " 
         SELECT *
         FROM `news` 
-        WHERE `news_name` LIKE '%" . mysqli_real_escape_string($connect, $_POST['name']) . "%' 
-        AND `category_id` = '" . (int)$category_id . "'
+        WHERE `news_name` LIKE '%" .  $_POST['name'] . "%' 
+        AND   `category_id` = '" . (int)$category_id . "'
         ORDER BY `news_id` DESC 
-        
-     ";
+        ";
     $res_s = mysqli_query($connect, $sql_s);
     if ($res_s) {
         while ($row_s = mysqli_fetch_assoc($res_s)) {
@@ -61,20 +60,9 @@ if (!empty($_POST['name'])) {
     }
 }
 
-/*выборки для хедера категорий*/
-$sql_h = "SELECT *
-          FROM `category`
-           ORDER BY `category_id` ASC
-          ";
-$res_h = mysqli_query($connect, $sql_h);
-$allow_categories = array();
-while ($row_h = mysqli_fetch_assoc($res_h)) {
-    $data['category_info'][] = $row_h;
-    $allow_categories[] = $row_h['category_id'];//массив допустимых названий категорий
-}
 
-/*запрос есть ли уникальный title у текущей категориии выводим название категории*/
-$sql_t = "SELECT *
+/*запрос есть ли уникальный title у текущей категориии выводим название категории на странице*/
+$sql_t = "SELECT `category_name`,`category_id`,`title`
           FROM `category`
           WHERE `category_id` = '" . $category_id . "' 
              ORDER BY `category_id` ASC 
@@ -82,19 +70,32 @@ $sql_t = "SELECT *
 $res_t = mysqli_query($connect, $sql_t);
 
 while ($row_t = mysqli_fetch_assoc($res_t)) {
-    $data['category'] = $row_t['category_name']; // получаем имя категрии новости
-    //  echo $row_t['title'];
+    $data['category'] = $row_t['category_name']; // получаем имя категории новости
+
     if (!empty($row_t['title'])) {
         $data['title'] = $row_t['title'];
     } else {
         $data['title'] = $row_t['category_name'];
     }
 }
+
+/*создае массив допустимых категорий для проверки на существование категории*/
+$sql_h = "SELECT `category_name`, `category_id`
+          FROM `category`
+           ORDER BY `category_id` ASC
+          ";
+$res_h = mysqli_query($connect, $sql_h);
+$allow_categories = array();
+while ($row_h = mysqli_fetch_assoc($res_h)) {
+    $data['cat_info'][] = $row_h;
+    $allow_categories[] = $row_h['category_id'];//массив допустимых id категорий
+}
+
+
 /*проверяем есть ли данная категория если нет то 404*/
 if (in_array($category_id, $allow_categories)) {
-    //  echo $category_id;  wtf($allow_categories,1);
+     //wtf($data, 1);
     getHeader($data);
-    // wtf($data, 1);
     getView('category', $data);
     getFooter();
 } else {
@@ -103,7 +104,4 @@ if (in_array($category_id, $allow_categories)) {
     getFooter();
 }
 
-
-
-
-
+//wtf($data, 1);

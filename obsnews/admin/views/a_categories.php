@@ -1,3 +1,4 @@
+<?php getHeader_a(); ?>
 <main>
     <div class="row">
         <div class="container">
@@ -72,3 +73,4 @@
         </div>
     </div>
 </main>
+<?php getFooter_a(); ?>

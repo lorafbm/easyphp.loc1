@@ -1,3 +1,4 @@
+<?php getHeader_a(); ?>
 <main>
     <div class="wrap">
         <?php if (isset($_SESSION['info_cat'])) { ?>
@@ -32,5 +33,6 @@
         </div>
     </div>
 </main>
+<?php getFooter_a(); ?>
 
 

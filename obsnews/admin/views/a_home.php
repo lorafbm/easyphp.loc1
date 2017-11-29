@@ -1,3 +1,4 @@
+<?php getHeader_a(); ?>
 <main>
     <div class="wrap">
         <?php echo !empty($_SESSION['info_r']) ? $_SESSION['info_r'] : ''; ?>
@@ -82,7 +83,7 @@ Math.round(Math.random()*9999)" value="Другой код" class=" btn btn-prim
         <?php } ?>
     </div>
 </main>
-
+<?php getFooter_a(); ?>
 
 
 

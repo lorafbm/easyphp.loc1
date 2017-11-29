@@ -1,34 +1,22 @@
 <?php
-/*вывод*/
-$sql = "SELECT *
-        FROM `aboutus`
-       ";
-$res = mysqli_query($connect, $sql);
-$row = mysqli_fetch_assoc($res);
-$data['info'] = $row;
+$_SESSION['info_page'] = '';
 
-/*редактирование*/
-if (isset($_POST['title'], $_POST['text'], $_POST['address'],
-    $_POST['phone'], $_POST['email'])) {
+$data['errors'] = array();
+/*валидация на пустоту всех полей кроме изображения*/
+if (isset($_POST['name'], $_POST['title'], $_POST['text'])) {
 
-    $data['errors'] = array();
-    if (empty($_POST['title'])) {
-        $data['errors']['title'] = 'Заполните заголовок!';
+    if (empty($_POST['name'])) {
+        $data['errors']['name'] = 'Заполните название страницы!';
     }
     if (empty($_POST['text'])) {
         $data['errors']['text'] = 'Заполните текст!';
     }
-    if (empty($_POST['address'])) {
-        $data['errors']['address'] = 'Заполните адрес!';
+    if (empty($_POST['title'])) {
+        $data['errors']['title'] = 'Заполните заголовок!';
     }
-    if (empty($_POST['phone'])) {
-        $data['errors']['phone'] = 'Заполните телефон!';
-    }
-    if (empty($_POST['email'])) {
-        $data['errors']['email'] = 'Заполните email!';
-    } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-        $data['errors']['email'] = 'Неправильно введен email!';
-    }
+
+    /*загружаем фото*/
+
     /*загружаем 1 фото*/
     if (isset($_FILES['file1'])) {
 
@@ -88,39 +76,29 @@ if (isset($_POST['title'], $_POST['text'], $_POST['address'],
     foreach ($_POST as $k => $v) {
         $_POST[$k] = trimAll($v);
     }
+    if (!count($data['errors'])) {// если нет ошибок вставляем данные в БД
 
-    if (!count($data['errors'])) {// если нет ошибок вставляем данные в БД"
-        $sql = "UPDATE `aboutus` SET
-          `title`         = '" . mysqli_real_escape_string($connect,$_POST['title']) . "',
-          `text`          = '" . mysqli_real_escape_string($connect, $_POST['text']) . "',
-          `address`       = '" . mysqli_real_escape_string($connect, $_POST['address']) . "',
-          `phone`         = '" . mysqli_real_escape_string($connect, $_POST['phone']) . "',
-          `email`         = '" . mysqli_real_escape_string($connect, $_POST['email']) . "'
+        $sql = q("
+          INSERT INTO `pages` SET
+          `name`  = '" . mysqli_real_escape_string($connect,$_POST['name']) . "',
+          `title` = '" . mysqli_real_escape_string($connect,$_POST['title']) . "',
+          `text`  = '" . mysqli_real_escape_string($connect,$_POST['text']) . "'
            " . ((isset($img1)) ? ",`img1` = '" . $img1 . "'" : "") . "
            " . ((isset($img2)) ? ",`img2` = '" . $img2 . "'" : "") . "
-           " . ((isset($img3)) ? ",`img3` = '" . $img3 . "'" : "") . "
-           ";
-         $res = mysqli_query($connect, $sql);
-
-        $_SESSION['info_aboutus'] = 'Отредактировано!';
-        header("Location: /index.php?route=admin&page=a_aboutus");
+           " . ((isset($img3)) ? "`img1` = '" . $img3 . "'" : "") . "
+          
+         ");
+        // $res = mysqli_query($connect, $sql);
+        $_SESSION['info_news'] = 'Страница успешно добавлена!';;
+        header("Location: /index.php?route=admin&page=a_pages");
         exit();
+
     }
 }
 
-if (isset($_POST['title'], $_POST['text'], $_POST['address'], $_POST['phone'], $_POST['email'])) {
-    $data['info']['title'] = $_POST['title'];
-    $data['info']['text'] = $_POST['text'];
-    $data['info']['address'] = $_POST['address'];
-    $data['info']['phone'] = $_POST['phone'];
-    $data['info']['email'] = $_POST['email'];
-}
 
+getView_a('add_page', $data);
 
-$data['title'] = ' Админ «ABCновости» | О нас - Редактировать';
-getHeader_a($data);
-//wtf($_POST,1);
-//wtf($_FILES,1);
-//wtf($data,1);
-getView_a('edit_aboutus', $data);
-getFooter_a();
+//wtf($_POST, 1);
+//wtf($data, 1);
+//wtf($_SESSION,1);getFooter_a();

@@ -3,7 +3,7 @@ function getView($name, $data = '')
 {
     return require_once $_SERVER['DOCUMENT_ROOT'] . "/views/" . $name . ".php";
 }
-function getHeader($data = '')
+function getHeader()
 {
     return require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/header.php";
 }
@@ -15,7 +15,7 @@ function getView_a($name, $data = '')
 {
     return require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/views/" . $name . ".php";
 }
-function getHeader_a($data = '')
+function getHeader_a()
 {
     return require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/controllers/a_header.php";
 }
@@ -30,6 +30,12 @@ function mylink($name, $category_id)
       return '/index.php?route=' . $name . '&' . $name . '_id=' . $category_id;
 
 }
+function mylink_page($name, $id)
+{
+    return '/index.php?route=' . $name . '&' . $name . '_id=' . $id;
+
+}
+
 
 /*function mylink($name, $category_name)
 {
@@ -42,6 +48,7 @@ function mylink_a($id)
     return '/index.php?route=admin&page=' . $id;
 
 }
+
 
 /*загрузка изображений*/
 function can_upload($file)

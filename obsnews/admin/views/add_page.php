@@ -1,7 +1,15 @@
+<?php getHeader_a(); ?>
 <main>
     <div class="wrap aboutus">
-        <p class="title">Немного о нас:</p>
         <form action="" method="post" role="form" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="text" name="name" class="form-control"
+                       placeholder="Введите название страницы"
+                       value="<?php echo !empty($data['info']['name']) ? htmlspecialchars($data['info']['name']) : ''; ?>">
+                <p class="info"><?php if (isset($data['errors']['name'])) {
+                        echo $data['errors']['name'];
+                    } ?></p>
+            </div>
             <a class="fancybox" rel="gallery1" href="<?php echo $data['info']['img1']; ?>"
                title="Крутая фотка1">
                 <img src="<?php echo $data['info']['img1']; ?>" alt="pic1"></a>
@@ -38,39 +46,18 @@
                        value="<?php echo !empty($data['info']['title']) ? htmlspecialchars($data['info']['title']) : ''; ?>">
                 <p class="info"><?php if (isset($data['errors']['title'])) {
                         echo $data['errors']['title'];
-                    } ?></p>
-                <div class="form-group">
-                    <textarea name="text" class="form-control"
+                    } ?></p></div>
+            <div class="form-group">
+                    <textarea name="text" class="form-control" placeholder="Введите текст"
                               style="height: 250px;"><?php echo !empty($data['info']['text']) ? htmlspecialchars($data['info']['text']) : ''; ?></textarea>
-                    <p class="info"><?php if (isset($data['errors']['text'])) {
-                            echo $data['errors']['text'];
-                        } ?></p>
-                </div>
-                <p class="title" style="width: 50%;">Свяжитесь с нами:</p>
-                <div class="form-group">
-                    <input type="text" name="address" class="form-control"
-                           value="<?php echo !empty($data['info']['address']) ? htmlspecialchars($data['info']['address']) : ''; ?>">
-                    <p class="info"><?php if (isset($data['errors']['address'])) {
-                            echo $data['errors']['address'];
-                        } ?></p>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="phone" class="form-control"
-                           value="<?php echo !empty($data['info']['phone']) ? htmlspecialchars($data['info']['phone']) : ''; ?>">
-                    <p class="info"><?php if (isset($data['errors']['phone'])) {
-                            echo $data['errors']['phone'];
-                        } ?></p>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="email" class="form-control"
-                           value="<?php echo !empty($data['info']['email']) ? htmlspecialchars($data['info']['email']) : ''; ?>">
-                    <p class="info"><?php if (isset($data['errors']['email'])) {
-                            echo $data['errors']['email'];
-                        } ?></p>
-                </div>
-                <div class="form-group">
-                    <button type="submit" name="edit_aboutus" class="btn btn-primary">Редактировать страницу</button>
-                </div>
+                <p class="info"><?php if (isset($data['errors']['text'])) {
+                        echo $data['errors']['text'];
+                    } ?></p>
+            </div>
+            <div class="form-group">
+                <button type="submit" name="add_page" class="btn btn-primary">Добавить страницу</button>
+            </div>
         </form>
     </div>
 </main>
+<?php getFooter_a(); ?>
