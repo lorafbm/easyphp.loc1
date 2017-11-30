@@ -1,29 +1,24 @@
 <?php
 $_SESSION['info_news'] = '';
-
 /*выборка категорий для вывода*/
-$sql_c = "SELECT *
+$sql_c = "SELECT `category_id`,`category_name`
          FROM `category`
          ORDER BY `category_id` ASC 
          ";
 $res_c = mysqli_query($connect, $sql_c);
-
 while ($row_c = mysqli_fetch_assoc($res_c)) {
     $data['category_info'][] = $row_c;  // формируем массив для передачи
 }
-
 /*вывод из базы новости*/
 $sql = "SELECT *
         FROM `news`
         WHERE `news_id`=" . (int)$_GET['id'] . "
-          LIMIT 1
-         ";
+        LIMIT 1
+        ";
 $res = mysqli_query($connect, $sql);
-
 while ($row = mysqli_fetch_assoc($res)) {
     $data['news'][] = $row;  // формируем массив для передачи в вывод
 }
-
 
 /*редактирование*/
 if (isset($_POST['edit_news'], $_POST['edit_news_name'], $_POST['edit_short_description'],
@@ -63,30 +58,26 @@ if (isset($_POST['edit_news'], $_POST['edit_news_name'], $_POST['edit_short_desc
     foreach ($_POST as $k => $v) {
         $_POST[$k] = trimAll($v);
     }
-
-    if (!count($data['errors'])) {// если нет ошибок вставляем данные в БД"
+    if (!count($data['errors'])) {// если нет ошибок вставляем данные в БД
         $sql2 = "UPDATE `news` SET
-          `category_id`        = '" .(int)($_POST['category']) . "',
-          `news_name`          = '" . mysqli_real_escape_string($connect,$_POST['edit_news_name']) . "',
-          `short_description`  = '" . mysqli_real_escape_string($connect,$_POST['edit_short_description']) . "',
-          `description`        = '" . mysqli_real_escape_string($connect,$_POST['edit_description']) . "',
-          `author`             = '" . mysqli_real_escape_string($connect,$_POST['edit_author']) . "',
-           " . ((isset($img)) ? "`news_img` = '" . $img . "'," : "") . "
-          `date`         = NOW()
-              WHERE `news_id`=" . (int)$_GET['id'] . "
-        ";
+                `category_id`        = '" . (int)($_POST['category']) . "',
+                `news_name`          = '" . $_POST['edit_news_name'] . "',
+                `short_description`  = '" . $_POST['edit_short_description'] . "',
+                `description`        = '" . $_POST['edit_description'] . "',
+                `author`             = '" . $_POST['edit_author'] . "',
+                " . ((isset($img)) ? "`news_img` = '" . $img . "'," : "") . "
+                `date`         = NOW()
+                 WHERE `news_id`=" . (int)$_GET['id'] . "
+                 ";
         $res2 = mysqli_query($connect, $sql2);
-
         $_SESSION['info_news'] = 'Новость успешно отредактирована!';
         header("Location: /index.php?route=admin&page=a_news");
         exit();
     }
 }
-
 if (isset($_POST['edit_news'], $_POST['edit_news_name'], $_POST['edit_short_description'],
-    $_POST['edit_description'], $_POST['edit_author']/*, $_POST['category']*/)) {
+    $_POST['edit_description'], $_POST['edit_author'])) {
 
-    // $key['category_name'] = $_POST['category'];
     $key['news_name'] = $_POST['edit_news_name'];
     $key['short_description'] = $_POST['edit_short_description'];
     $key['description'] = $_POST['edit_description'];

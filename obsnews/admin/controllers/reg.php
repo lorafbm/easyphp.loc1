@@ -11,11 +11,10 @@ if (!empty ($_POST['submit'])) {
             $_SESSION['error']['login'] = 'Логин слишком длинный!';
         }
         /*проверяем нет ли уже такого логина*/
-        $sql1 = "
-            SELECT `user_id` FROM `users`
-            WHERE `user_name`= '" . $_POST['login'] . "'
-              LIMIT 1
-        ";
+        $sql1 = "SELECT `user_id` FROM `users`
+                  WHERE `user_name`= '" . $_POST['login'] . "'
+                  LIMIT 1
+                 ";
         $res1 = mysqli_query($connect, $sql1);
         if (mysqli_num_rows($res1)) {
             $_SESSION['error']['login'] = 'Такой логин уже существует!';
@@ -29,12 +28,10 @@ if (!empty ($_POST['submit'])) {
 // валидация мыло на пустоту и существование
     if (!empty ($_POST['email']) && (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))) {
         /*проверяем нет ли уже такой почты*/
-
-        $sql2 = "
-            SELECT `user_id`  FROM `users`
-            WHERE `email` = '" . $_POST['email'] . "'
-              LIMIT 1
-        ";
+        $sql2 = "SELECT `user_id`  FROM `users`
+                 WHERE `email` = '" . $_POST['email'] . "'
+                 LIMIT 1
+                 ";
         $res2 = mysqli_query($connect, $sql2);
         if ($res2->num_rows) {
             $_SESSION['error']['email'] = 'Такой email уже существует!';
@@ -45,7 +42,6 @@ if (!empty ($_POST['submit'])) {
     } else {
         $_SESSION['error']['email'] = 'Заполните e-mail!';
     }
-
     /*пароль*/
     if (!empty ($_POST['password'])) {
         if (mb_strlen($_POST['password']) < 5) {
@@ -56,9 +52,7 @@ if (!empty ($_POST['submit'])) {
         }
     } else {
         $_SESSION['error']['password'] = 'Вы не заполнили пароль!';
-
     }
-
     /*капча*/
     if (isset($_POST['capcha']) && isset($_SESSION['captcha'])) {
        if (!empty ($_POST['capcha'])) {
@@ -84,13 +78,10 @@ if (!empty ($flag_l) && !empty($flag_p) && !empty($flag_e) && !empty($flag_c) ) 
            `hash`       ='" . MyHash($_POST['login'] . ":" . $_POST['email']) . "' 
             ";
     mysqli_query($connect, $sql3);
-
     $_SESSION['info_r'] = 'Вы зарегистрированы!';
     header('Location: /index.php?route=admin');
     exit();
 }
-
-
 getView_a('reg');
 //wtf($data,1);
 //wtf($_SESSION,1);

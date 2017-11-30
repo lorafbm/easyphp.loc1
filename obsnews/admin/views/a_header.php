@@ -44,11 +44,12 @@
         <div class="mini-menu" onclick="$('#menu1').toggle('slow');"></div>
         <div id="menu1">
             <ul>
-                <li><a href="/">Главная</a></li>
+                <li class="first"><a href="/index.php?route=admin">Главная</a></li>
                 <?php if(isset($_SESSION['user'])){ ?>
-                <li><a href="#">Категории</a></li>
+                    <li><a href="<?php echo mylink_a('a_categories'); ?>">Категории</a></li>
                 <li><a href="<?php echo mylink_a('a_news'); ?>">Новости</a></li>
-                <li><a href="<?php echo mylink_a('a_aboutus'); ?>">О нас</a></li>
+                <li><a href="<?php echo mylink_a('a_pages'); ?>">Cтраницы</a></li>
+                    <li><a href="<?php echo mylink_a('contacts'); ?>">Контакты</a></li>
                 <li><a href="<?php echo mylink_a('cab'); ?>">Кабинет</a></li>
                 <?php } ?>
                 <li class="last"><a href="<?php echo mylink_a('exit'); ?>">Выход</a></li>
@@ -60,7 +61,8 @@
                 <?php if(isset($_SESSION['user'])){ ?>
                 <li><a href="<?php echo mylink_a('a_categories'); ?>">Категории</a></li>
                 <li><a href="<?php echo mylink_a('a_news'); ?>">Новости</a></li>
-                <li><a href="<?php echo mylink_a('a_pages'); ?>">Статичные страницы</a></li>
+                <li><a href="<?php echo mylink_a('a_pages'); ?>">Cтраницы</a></li>
+                    <li><a href="<?php echo mylink_a('contacts'); ?>">Контакты</a></li>
                 <li><a href="<?php echo mylink_a('cab'); ?>">Кабинет</a></li>
                 <?php } ?>
                 <li class="last"><a href="<?php echo mylink_a('exit'); ?>">Выход</a></li>

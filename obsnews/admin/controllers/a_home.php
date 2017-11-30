@@ -22,7 +22,7 @@ if (!empty($_POST['submit'])) {
             $_SESSION['captcha'] = strtoupper($_POST['capcha']);//записываем в сессию
             $flag_c = 1;
         } else {
-            $_SESSION['error']['capcha'] = 'Не правильный код с картинки!';
+            $_SESSION['error']['capcha'] = 'Неправильный код с картинки!';
         }
     } else {
         $_SESSION['error']['capcha'] = 'Введите код с картинки!';
@@ -50,7 +50,6 @@ if (!empty($_POST['submit'])) {
         }
     }
 }
-
 getView_a('a_home');
 //wtf($data,1);
 

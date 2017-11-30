@@ -188,7 +188,7 @@ nav ul {
 nav ul li {
   position: relative;
   float: left;
-  width: 16.5%;
+  width: 14.5%;
   border-left: solid #000 1px;
   padding: 0;
 }
@@ -262,7 +262,7 @@ nav ul li ul .lastli {
   height: 50px;
 }
 nav ul .first {
-  width: 16.7%;
+  width: 12.7%;
   border: none;
 }
 nav ul .first::before {

@@ -5,7 +5,9 @@
             <div class="form-group">
                 <input type="text" name="name" class="form-control"
                        placeholder="Введите название страницы"
-                       value="<?php echo !empty($data['info']['name']) ? htmlspecialchars($data['info']['name']) : ''; ?>">
+                       value="<?php if (isset($_POST['name'])) {
+                           echo htmlspecialchars($_POST['name']);
+                       } ?>">
                 <p class="info"><?php if (isset($data['errors']['name'])) {
                         echo $data['errors']['name'];
                     } ?></p>
@@ -43,13 +45,17 @@
             <div class="form-group">
                 <input type="text" name="title" class="form-control"
                        placeholder="Введите заголовок"
-                       value="<?php echo !empty($data['info']['title']) ? htmlspecialchars($data['info']['title']) : ''; ?>">
+                       value="<?php if (isset($_POST['title'])) {
+                           echo htmlspecialchars($_POST['title']);
+                       } ?>">
                 <p class="info"><?php if (isset($data['errors']['title'])) {
                         echo $data['errors']['title'];
                     } ?></p></div>
             <div class="form-group">
                     <textarea name="text" class="form-control" placeholder="Введите текст"
-                              style="height: 250px;"><?php echo !empty($data['info']['text']) ? htmlspecialchars($data['info']['text']) : ''; ?></textarea>
+                              style="height: 250px;"><?php if (isset($_POST['text'])) {
+                            echo htmlspecialchars($_POST['text']);
+                        } ?></textarea>
                 <p class="info"><?php if (isset($data['errors']['text'])) {
                         echo $data['errors']['text'];
                     } ?></p>

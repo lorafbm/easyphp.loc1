@@ -1,16 +1,14 @@
 <?php
 /*выборка инфы о странице для вывода*/
 $sql = "SELECT *
-         FROM `pages`
+        FROM `pages`
           WHERE `id`=" . (int)$_GET['id'] . "
          ";
 $res = mysqli_query($connect, $sql);
 
 while ($row = mysqli_fetch_assoc($res)) {
     $data['info'] = $row;  // формируем массив для передачи
-
 }
-
 /*редактирование*/
 if (isset($_POST['title'], $_POST['text'], $_POST['name'])) {
 
@@ -25,11 +23,6 @@ if (isset($_POST['title'], $_POST['text'], $_POST['name'])) {
         $data['errors']['name'] = 'Заполните название страницы!';
     }
 
-   /* if (empty($_POST['email'])) {
-        $data['errors']['email'] = 'Заполните email!';
-    } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-        $data['errors']['email'] = 'Неправильно введен email!';
-    }*/
     /*загружаем 1 фото*/
     if (isset($_FILES['file1'])) {
 
@@ -76,8 +69,6 @@ if (isset($_POST['title'], $_POST['text'], $_POST['name'])) {
 
             if (!empty($info3['file'])) { // если не вернулось $info['errors'] то ресайз
                 $img3 = resize($info3['file'], 900, 700);
-
-
             } else { // если вернулось $info['errors'] то передаем ошибку на вывод в вид
                 $data['errors']['file '] = $info3['errors'];
             }
@@ -86,36 +77,32 @@ if (isset($_POST['title'], $_POST['text'], $_POST['name'])) {
                $data['errors']['file'] = 'Загрузите фото!';
            }*/
     }
-    foreach ($_POST as $k => $v) {
-        $_POST[$k] = trimAll($v);
-    }
 
     if (!count($data['errors'])) {// если нет ошибок вставляем данные в БД"
+        foreach ($_POST as $k => $v) {
 
-        $sql = q("UPDATE `pages` SET
-          `name`  = '" . mysqli_real_escape_string($connect,$_POST['name']) . "',
-          `title` = '" . mysqli_real_escape_string($connect,$_POST['title']) . "',
-          `text`  = '" . mysqli_real_escape_string($connect,$_POST['text']) . "'
-           " . ((isset($img1)) ? ",`img1` = '" . $img1 . "'" : "") . "
-           " . ((isset($img2)) ? ",`img2` = '" . $img2 . "'" : "") . "
-           " . ((isset($img3)) ? " `img1` = '" . $img3 . "'" : "") . "
-             WHERE `id`  =  " . (int)$_GET['id'] . "
-           ");
-       //  $res = mysqli_query($connect, $sql);
-
+            $_POST[$k] = trim($v);
+        }
+        $sql1 = "UPDATE `pages` SET
+                 `name`  = '" . $_POST['name'] . "',
+                 `title` = '" .$_POST['title'] . "',
+                 `text`  = '" . $_POST['text'] . "'
+                  " . ((isset($img1)) ? ",`img1` = '" . $img1 . "'" : "") . "
+                  " . ((isset($img2)) ? ",`img2` = '" . $img2 . "'" : "") . "
+                  " . ((isset($img3)) ? ",`img3` = '" . $img3 . "'" : "") . "
+                    WHERE `id`  =  " . (int)$_GET['id'] . "
+                  ";
+        $res = mysqli_query($connect, $sql1);
         $_SESSION['info_page'] = 'Отредактировано!';
         header("Location: /index.php?route=admin&page=a_pages");
         exit();
     }
 }
-
 if (isset($_POST['title'], $_POST['text'], $_POST['name'])) {
     $data['info']['title'] = $_POST['title'];
     $data['info']['text'] = $_POST['text'];
     $data['info']['name'] = $_POST['name'];
-
 }
-
 //wtf($_POST,1);
 //wtf($_FILES,1);
 //wtf($data,1);

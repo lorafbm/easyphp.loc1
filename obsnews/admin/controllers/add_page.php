@@ -1,6 +1,5 @@
 <?php
 $_SESSION['info_page'] = '';
-
 $data['errors'] = array();
 /*валидация на пустоту всех полей кроме изображения*/
 if (isset($_POST['name'], $_POST['title'], $_POST['text'])) {
@@ -14,7 +13,6 @@ if (isset($_POST['name'], $_POST['title'], $_POST['text'])) {
     if (empty($_POST['title'])) {
         $data['errors']['title'] = 'Заполните заголовок!';
     }
-
     /*загружаем фото*/
 
     /*загружаем 1 фото*/
@@ -45,7 +43,6 @@ if (isset($_POST['name'], $_POST['title'], $_POST['text'])) {
             if (!empty($info2['file'])) { // если не вернулось $info['errors'] то ресайз
                 $img2 = resize($info2['file'], 900, 700);
 
-
             } else { // если вернулось $info['errors'] то передаем ошибку на вывод в вид
                 $data['errors']['file'] = $info2['errors'];
             }
@@ -64,7 +61,6 @@ if (isset($_POST['name'], $_POST['title'], $_POST['text'])) {
             if (!empty($info3['file'])) { // если не вернулось $info['errors'] то ресайз
                 $img3 = resize($info3['file'], 900, 700);
 
-
             } else { // если вернулось $info['errors'] то передаем ошибку на вывод в вид
                 $data['errors']['file '] = $info3['errors'];
             }
@@ -73,32 +69,26 @@ if (isset($_POST['name'], $_POST['title'], $_POST['text'])) {
                $data['errors']['file'] = 'Загрузите фото!';
            }*/
     }
-    foreach ($_POST as $k => $v) {
-        $_POST[$k] = trimAll($v);
-    }
     if (!count($data['errors'])) {// если нет ошибок вставляем данные в БД
+        foreach ($_POST as $k => $v) {
+            $_POST[$k] = trimAll($v);
+        }
 
-        $sql = q("
-          INSERT INTO `pages` SET
-          `name`  = '" . mysqli_real_escape_string($connect,$_POST['name']) . "',
-          `title` = '" . mysqli_real_escape_string($connect,$_POST['title']) . "',
-          `text`  = '" . mysqli_real_escape_string($connect,$_POST['text']) . "'
-           " . ((isset($img1)) ? ",`img1` = '" . $img1 . "'" : "") . "
-           " . ((isset($img2)) ? ",`img2` = '" . $img2 . "'" : "") . "
-           " . ((isset($img3)) ? "`img1` = '" . $img3 . "'" : "") . "
-          
-         ");
-        // $res = mysqli_query($connect, $sql);
+        $sql = "INSERT INTO `pages` SET
+                `name`  = '" . $_POST['name'] . "',
+                `title` = '" . $_POST['title'] . "',
+                `text`  = '" . $_POST['text'] . "'
+                 " . ((isset($img1)) ? ",`img1` = '" . $img1 . "'" : "") . "
+                 " . ((isset($img2)) ? ",`img2` = '" . $img2 . "'" : "") . "
+                 " . ((isset($img3)) ? ",`img3` = '" . $img3 . "'" : "") . "
+                 ";
+        $res = mysqli_query($connect, $sql);
         $_SESSION['info_news'] = 'Страница успешно добавлена!';;
         header("Location: /index.php?route=admin&page=a_pages");
         exit();
-
     }
 }
-
-
 getView_a('add_page', $data);
-
 //wtf($_POST, 1);
 //wtf($data, 1);
 //wtf($_SESSION,1);getFooter_a();

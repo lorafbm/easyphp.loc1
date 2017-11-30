@@ -1,18 +1,14 @@
 <?php
 $_SESSION['info_news'] = '';
-
 /*выборка категорий для вывода списка категорий*/
 $sql_c = "SELECT *
-           FROM `category`
+          FROM `category`
           ORDER BY `category_id` ASC 
           ";
 $res_c = mysqli_query($connect, $sql_c);
-
 while ($row_c = mysqli_fetch_assoc($res_c)) {
     $data['category_info'][] = $row_c;  // формируем массив для передачи
-
 }
-
 /*валидация на пустоту всех полей кроме изображения*/
 if (isset($_POST['add_news'], $_POST['add_news_name'], $_POST['add_short_description'],
     $_POST['add_description'], $_POST['add_author'], $_POST['category'])) {
@@ -53,25 +49,22 @@ if (isset($_POST['add_news'], $_POST['add_news_name'], $_POST['add_short_descrip
         $_POST[$k] = trimAll($v);
     }
     if (!count($data['errors'])) {// если нет ошибок вставляем данные в БД
-
-        $sql = q("
+        $sql = "
           INSERT INTO `news` SET
           `category_id`        = '" .(int) $_POST['category'] . "',
-          `news_name`          = '" . mysqli_real_escape_string($connect,$_POST['add_news_name']) . "',
-          `short_description`  = '" . mysqli_real_escape_string($connect,$_POST['add_short_description']) . "',
-          `description`        = '" . mysqli_real_escape_string($connect,$_POST['add_description']) . "',
-          `author`             = '" . mysqli_real_escape_string($connect,$_POST['add_author']) . "',
+          `news_name`          = '" . $_POST['add_news_name'] . "',
+          `short_description`  = '" . $_POST['add_short_description'] . "',
+          `description`        = '" . $_POST['add_description'] . "',
+          `author`             = '" . $_POST['add_author'] . "',
            " . ((isset($img)) ? "`news_img` = '" . $img . "'," : "") . "
           `date`         = NOW()
-         ");
-        // $res = mysqli_query($connect, $sql);
+         ";
+         $res = mysqli_query($connect, $sql);
         $_SESSION['info_news'] = 'Новость успешно добавлена!';;
         header("Location: /index.php?route=admin&page=a_news");
         exit();
-
     }
 }
-
 getView_a('add_news', $data);
 //wtf($data, 1);
 //wtf($_SESSION,1);
