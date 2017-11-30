@@ -1,4 +1,4 @@
-
+<?php getHeader(); ?>
 <main>
     <div class="wrap">
         <?php if ($data['num'] != 0) { ?>
@@ -13,7 +13,7 @@
                 <input type="text" name="name" class="form-control"
                        placeholder="Поиск по заголовку новости"
                        value="<?php if (isset($_POST['name'])) {
-                           echo $_POST['name'];
+                           echo htmlspecialchars($_POST['name']);
                        } ?>">
                 <span class="input-group-btn">
                         <input type="submit" name="search" class="btn btn-default" value="Поиск">
@@ -53,5 +53,5 @@
         </div>
     </div>
 </main>
-
+<?php  getFooter(); ?>
 

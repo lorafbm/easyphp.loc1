@@ -1,3 +1,4 @@
+<?php getHeader(); ?>
 <main>
     <div class="wrap">
         <?php
@@ -15,3 +16,4 @@
             <?php } ?>
     </div>
 </main>
+<?php getFooter(); ?>

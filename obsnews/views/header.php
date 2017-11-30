@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <!--<link rel="dns-prefetch" href="https://obsnews.loc">-->
-    <title><?php echo $data['title']; ?></title>
+    <title><?php echo(!empty($data['title_uniq']) ? htmlspecialchars($data['title_uniq']) : htmlspecialchars($data['title'])); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="keywords"
@@ -62,8 +62,8 @@
                     </ul>
                 </li>
                 <li><a href="/index.php?route=popular">Популярное</a></li>
-                <li><a href="#">Бизнес</a></li>
-                <li><a href="#">Спорт</a></li>
+                <li><a href="/index.php?route=category&category_id=2">Бизнес</a></li>
+                <li><a href="/index.php?route=category&category_id=4">Спорт</a></li>
                 <li class="last">
                     <a href="#">Eще&nbsp;&nbsp;<span>&#8744;</span></a>
                     <ul>
@@ -78,7 +78,7 @@
                 </li>
             </ul>
         </div>
-<!--        <a href="/index.php?route=admin">Вход в Admin панель</a>-->
+        <!--        <a href="/index.php?route=admin">Вход в Admin панель</a>-->
         <nav class="clearfix">
             <ul>
                 <li class="first"><a href="/">Главная</a></li>
@@ -109,10 +109,6 @@
                         } ?>
                     </ul>
                 </li>
-
-
-<!--                <li class="last"><a href="/index.php?route=Aboutus">О нас</a></li>-->
-
             </ul>
         </nav>
     </header>

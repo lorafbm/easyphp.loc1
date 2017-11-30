@@ -1,4 +1,4 @@
-<?php getHeader($data); ?>
+<?php getHeader(); ?>
 <main>
     <div class="wrap">
         <p class="title">Популярное:</p>

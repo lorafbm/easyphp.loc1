@@ -2,17 +2,18 @@
 <main>
     <div class="wrap">
         <p class="title">Последние новости:</p>
+        <p class="text-danger"><?php echo((!empty($_SESSION['info'])) ? $_SESSION['info'] : ''); ?></p>
         <div class="container">
             <div class="row">
                 <?php foreach ($data['news'] as $news) { ?>
                     <div class="col-md-4">
                         <a href="/index.php?route=news&news_id=<?php echo (int)$news['news_id'] ?>">
-                            <img src="<?php echo $news['news_img']; ?>" width="200px" alt="pic1">
+                            <img src="<?php echo htmlspecialchars($news['news_img']); ?>" width="200px" alt="pic1">
                             <h3><?php echo htmlspecialchars($news['news_name']); ?></h3>
                             <p><?php echo htmlspecialchars($news['short_description']); ?></p>
-                            <?php foreach ($data['cat_info'] as $key1) {
-                            if ($news['category_id'] == $key1['category_id']) { ?>
-                            <p><span><?php echo htmlspecialchars($key1['category_name']);
+                            <?php foreach ($data['cat_info'] as $key) {
+                            if ($news['category_id'] == $key['category_id']) { ?>
+                            <p><span><?php echo htmlspecialchars($key['category_name']);
                                     }
                                     } ?></span></p>
                             <div class="news_info ">

@@ -11,23 +11,18 @@ $row = mysqli_query($connect, $sql);
 while ($res = mysqli_fetch_assoc($row)) {
     $data['news'][] =$res;
 }
-
 /* вывод всей инфы по категории*/
-$sql_h = "SELECT *
+$sql_h = "SELECT `category_name`,`category_id`
         FROM `category`
         ORDER BY `category_id` ASC 
         ";
 $res_h = mysqli_query($connect, $sql_h);
-
 while ($row_h = mysqli_fetch_assoc($res_h)) {
     $data['category_info'][] =$row_h;
 }
-
-//$data['title'] = 'Новости | «ABCновости»| Популярное';
 //wtf($data, 1);
-//getHeader($data);
 getView('popular',$data);
-//getFooter();
+
 
 
 

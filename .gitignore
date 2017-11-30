@@ -2,4 +2,6 @@ config.php
 vendor/
 .idea/
 node_modules/
+obsnews/photo/
+obsnews/uploaded/
 
