@@ -34,19 +34,19 @@ if (!empty($_POST['name'])) {
                 ORDER BY `news_id` DESC 
               ";
     $res_s = mysqli_query($connect, $sql_s);
-   if($res_s) {
-       while ($row_s = mysqli_fetch_assoc($res_s)) {
-           $data['news'][] = $row_s;  // формируем массив для передачи
-       }
-       $sql_cat = "SELECT `category_name`,`category_id`
+    if ($res_s) {
+        while ($row_s = mysqli_fetch_assoc($res_s)) {
+            $data['news'][] = $row_s;  // формируем массив для передачи
+        }
+        $sql_cat = "SELECT `category_name`,`category_id`
                     FROM `category`
                    ORDER BY `category_id` DESC 
                   ";
-       $res_cat = mysqli_query($connect, $sql_cat);
-       while ($row_cat = mysqli_fetch_assoc($res_cat)) {
-           $data['category_info'][] = $row_cat;  // формируем массив для передачи
-       }
-   }
+        $res_cat = mysqli_query($connect, $sql_cat);
+        while ($row_cat = mysqli_fetch_assoc($res_cat)) {
+            $data['category_info'][] = $row_cat;  // формируем массив для передачи
+        }
+    }
 } else {
     /*выборка новостей для вывода начиная с последних*/
     $sql1 = "SELECT *

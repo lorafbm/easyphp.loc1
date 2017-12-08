@@ -14,7 +14,7 @@ $data['num'] = $num;
 $count_show_pages = 3;// задаем сколько сообщений выводить на странице
 $count_pages = (int)(($num - 1) / $count_show_pages) + 1;
 $data['count_pages'] = $count_pages;
-$url = '/index.php?route=category&category_id=' .(int)($_GET['category_id']);
+$url = '/index.php?route=category&category_id=' . (int)($_GET['category_id']);
 $url_page = '/index.php?route=category&category_id=' . (int)($_GET['category_id']) . '&key=';
 $data['url'] = $url;
 $data['url_page'] = $url_page;

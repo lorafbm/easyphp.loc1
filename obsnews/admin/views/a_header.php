@@ -12,7 +12,6 @@
      и попытается набрать его по клику. То же самое и с адресом.-->
 
 
-
     <link rel="stylesheet" href="/vendor/public/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/vendor/public/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
@@ -36,7 +35,7 @@
 <div class="content">
     <header>
         <div class="clearfix">
-            <div class="left"><p>CMS  <span>Управление сайтом</span></p>
+            <div class="left"><p>CMS <span>Управление сайтом</span></p>
             </div>
             <div class="right">
             </div>
@@ -45,12 +44,12 @@
         <div id="menu1">
             <ul>
                 <li class="first"><a href="/index.php?route=admin">Главная</a></li>
-                <?php if(isset($_SESSION['user'])){ ?>
+                <?php if (isset($_SESSION['user'])) { ?>
                     <li><a href="<?php echo mylink_a('a_categories'); ?>">Категории</a></li>
-                <li><a href="<?php echo mylink_a('a_news'); ?>">Новости</a></li>
-                <li><a href="<?php echo mylink_a('a_pages'); ?>">Cтраницы</a></li>
+                    <li><a href="<?php echo mylink_a('a_news'); ?>">Новости</a></li>
+                    <li><a href="<?php echo mylink_a('a_pages'); ?>">Cтраницы</a></li>
                     <li><a href="<?php echo mylink_a('contacts'); ?>">Контакты</a></li>
-                <li><a href="<?php echo mylink_a('cab'); ?>">Кабинет</a></li>
+                    <li><a href="<?php echo mylink_a('cab'); ?>">Кабинет</a></li>
                 <?php } ?>
                 <li class="last"><a href="<?php echo mylink_a('exit'); ?>">Выход</a></li>
             </ul>
@@ -58,12 +57,12 @@
         <nav class="clearfix">
             <ul>
                 <li class="first"><a href="/index.php?route=admin">Главная</a></li>
-                <?php if(isset($_SESSION['user'])){ ?>
-                <li><a href="<?php echo mylink_a('a_categories'); ?>">Категории</a></li>
-                <li><a href="<?php echo mylink_a('a_news'); ?>">Новости</a></li>
-                <li><a href="<?php echo mylink_a('a_pages'); ?>">Cтраницы</a></li>
+                <?php if (isset($_SESSION['user'])) { ?>
+                    <li><a href="<?php echo mylink_a('a_categories'); ?>">Категории</a></li>
+                    <li><a href="<?php echo mylink_a('a_news'); ?>">Новости</a></li>
+                    <li><a href="<?php echo mylink_a('a_pages'); ?>">Cтраницы</a></li>
                     <li><a href="<?php echo mylink_a('contacts'); ?>">Контакты</a></li>
-                <li><a href="<?php echo mylink_a('cab'); ?>">Кабинет</a></li>
+                    <li><a href="<?php echo mylink_a('cab'); ?>">Кабинет</a></li>
                 <?php } ?>
                 <li class="last"><a href="<?php echo mylink_a('exit'); ?>">Выход</a></li>
             </ul>

@@ -55,7 +55,7 @@ if (!empty ($_POST['submit'])) {
     }
     /*капча*/
     if (isset($_POST['capcha']) && isset($_SESSION['captcha'])) {
-       if (!empty ($_POST['capcha'])) {
+        if (!empty ($_POST['capcha'])) {
 
             if (strtoupper($_POST['capcha']) == strtoupper($_SESSION['captcha'])) {
                 $_SESSION['captcha'] = strtoupper($_POST['capcha']);//записываем в сессию
@@ -69,12 +69,12 @@ if (!empty ($_POST['submit'])) {
         }
     }
 }
-if (!empty ($flag_l) && !empty($flag_p) && !empty($flag_e) && !empty($flag_c) ) {
+if (!empty ($flag_l) && !empty($flag_p) && !empty($flag_e) && !empty($flag_c)) {
 
     $sql3 = "INSERT INTO `users` SET
            `user_name`  ='" . $_POST['login'] . "',
            `password`   ='" . MyHash($_POST['password']) . "',
-           `email`      ='" .$_POST['email'] . "',
+           `email`      ='" . $_POST['email'] . "',
            `hash`       ='" . MyHash($_POST['login'] . ":" . $_POST['email']) . "' 
             ";
     mysqli_query($connect, $sql3);

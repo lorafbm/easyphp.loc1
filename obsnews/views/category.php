@@ -53,5 +53,5 @@
         </div>
     </div>
 </main>
-<?php  getFooter(); ?>
+<?php getFooter(); ?>
 

@@ -9,7 +9,7 @@ $row = mysqli_query($connect, $sql);
 //  wtf($row);
 
 while ($res = mysqli_fetch_assoc($row)) {
-    $data['news'][] =$res;
+    $data['news'][] = $res;
 }
 /* вывод всей инфы по категории*/
 $sql_h = "SELECT `category_name`,`category_id`
@@ -18,10 +18,10 @@ $sql_h = "SELECT `category_name`,`category_id`
         ";
 $res_h = mysqli_query($connect, $sql_h);
 while ($row_h = mysqli_fetch_assoc($res_h)) {
-    $data['category_info'][] =$row_h;
+    $data['category_info'][] = $row_h;
 }
 //wtf($data, 1);
-getView('popular',$data);
+getView('popular', $data);
 
 
 

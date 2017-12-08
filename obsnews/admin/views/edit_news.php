@@ -21,7 +21,7 @@
                                     <?php echo htmlspecialchars($key1['category_name']); ?></option>;
                             <?php } ?>
                         </select>
-                             </div>
+                    </div>
                     <div class="form-group">
                         <textarea name="edit_news_name" class="form-control"
                                   placeholder="Введите заголовок новости"

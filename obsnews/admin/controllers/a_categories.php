@@ -13,7 +13,7 @@ if (!empty($_POST['name'])) {
     while ($row_s = mysqli_fetch_assoc($res_s)) {
         $data['category_info'][] = $row_s;  // формируем массив для передачи
     }
-}else {
+} else {
     /*выборка категорий для вывода*/
     $sql = "SELECT *
             FROM `category`

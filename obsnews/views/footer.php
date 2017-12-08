@@ -7,7 +7,7 @@
             <span><?php echo htmlspecialchars($data['info']['address']); ?></span>
         </address>
         <div class="wrapp">
-            <span><?php echo htmlspecialchars($data['info']['phone']).'<br>'; ?><?php echo htmlspecialchars($data['info']['email']); ?></span>
+            <span><?php echo htmlspecialchars($data['info']['phone']) . '<br>'; ?><?php echo htmlspecialchars($data['info']['email']); ?></span>
         </div>
     </div>
 </footer>
@@ -30,6 +30,7 @@
     document.createElement("time");
 <![endif]-->
 </script>
-</div>
-</body>
-</html>
+<
+/div>
+< /body>
+< /html>

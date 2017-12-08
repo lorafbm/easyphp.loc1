@@ -7,7 +7,7 @@ while ($row = mysqli_fetch_assoc($res)) {
     $data['contacts'] = $row;
 }
 /*обработчик формы*/
-$data['errors']=array();
+$data['errors'] = array();
 if (isset($_POST['submit'], $_POST['address'], $_POST['phone'])) {
     $data['errors'] = array();
     if (empty($_POST['address'])) {

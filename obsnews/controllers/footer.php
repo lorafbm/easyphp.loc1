@@ -8,6 +8,6 @@ $sql = "SELECT *
          ";
 $res = mysqli_query($connect, $sql);
 $row = mysqli_fetch_assoc($res);
-$data['info']=$row;
+$data['info'] = $row;
 
-getView('footer',$data);
+getView('footer', $data);

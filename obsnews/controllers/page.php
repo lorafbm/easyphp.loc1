@@ -22,10 +22,10 @@ while ($row = mysqli_fetch_assoc($res)) {
 
 /*проверяем есть ли данная страница если нет то 404*/
 if (in_array($page_id, $allow_pages)) {
-         getView('page', $data);
-   } else {
-        getView('404');
-   }
+    getView('page', $data);
+} else {
+    getView('404');
+}
 
 //wtf($data, 1);
 

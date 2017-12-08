@@ -85,7 +85,7 @@ if (isset($_POST['title'], $_POST['text'], $_POST['name'])) {
         }
         $sql1 = "UPDATE `pages` SET
                  `name`  = '" . $_POST['name'] . "',
-                 `title` = '" .$_POST['title'] . "',
+                 `title` = '" . $_POST['title'] . "',
                  `text`  = '" . $_POST['text'] . "'
                   " . ((isset($img1)) ? ",`img1` = '" . $img1 . "'" : "") . "
                   " . ((isset($img2)) ? ",`img2` = '" . $img2 . "'" : "") . "

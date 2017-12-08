@@ -1,14 +1,14 @@
 <?php
 /*выборка страниц для вывода*/
-    $sql = "SELECT *
+$sql = "SELECT *
          FROM `pages`
          ORDER BY `id` ASC 
          ";
-    $res = mysqli_query($connect, $sql);
+$res = mysqli_query($connect, $sql);
 
-    while ($row = mysqli_fetch_assoc($res)) {
-        $data['page_info'][] = $row;  // формируем массив для передачи
-    }
+while ($row = mysqli_fetch_assoc($res)) {
+    $data['page_info'][] = $row;  // формируем массив для передачи
+}
 // удаление группы категорий из БД
 if (isset($_POST['delete'])) { // если пришел пост на удаление
     if (isset($_POST['ids'])) {  // если пришел массив чекбоксов

@@ -39,16 +39,7 @@ if (isset($_POST['submit'], $_POST['add_name'], $_POST['add_catdesc'])) {
 getView_a('add_category');
 
 
-
-
-
-
-
-
-
-
-
-$data['title'] =  ' Админ «ОБСновости» | Добавить категорию';
+$data['title'] = ' Админ «ОБСновости» | Добавить категорию';
 
 /*wtf($_FILES, 1);
 wtf($_POST, 1);

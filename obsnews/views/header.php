@@ -23,7 +23,7 @@
     <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">-->
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/views/styles/style.css">
-<!--  /*нг*/-->
+    <!--  /*нг*/-->
     <link rel="stylesheet" href="/vendor/newyear/style.css">
     <script type="text/javascript" src="/vendor/newyear/swfobject.min.js"></script>
     <script type="text/javascript" src="/vendor/newyear/newyear.js"></script>
@@ -55,136 +55,451 @@
 
             <i class="b-head-decor">
                 <i class="b-head-decor__inner b-head-decor__inner_n1">
-                    <div class="b-ball b-ball_n1 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n2 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n3 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n4 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n5 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n6 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n7 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                    <div class="b-ball b-ball_n1 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n2 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n3 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n4 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n5 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n6 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n7 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
 
-                    <div class="b-ball b-ball_n8 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n9 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i1"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i2"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i3"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i4"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i5"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i6"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                    <div class="b-ball b-ball_n8 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n9 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i1">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i2">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i3">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i4">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i5">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i6">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
                 </i>
 
                 <i class="b-head-decor__inner b-head-decor__inner_n2">
-                    <div class="b-ball b-ball_n1 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n2 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n3 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n4 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n5 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n6 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n7 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n8 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                    <div class="b-ball b-ball_n1 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n2 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n3 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n4 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n5 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n6 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n7 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n8 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
 
-                    <div class="b-ball b-ball_n9 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i1"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i2"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i3"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i4"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i5"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i6"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                    <div class="b-ball b-ball_n9 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i1">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i2">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i3">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i4">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i5">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i6">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
                 </i>
                 <i class="b-head-decor__inner b-head-decor__inner_n3">
 
-                    <div class="b-ball b-ball_n1 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n2 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n3 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n4 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n5 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n6 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n7 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n8 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n9 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                    <div class="b-ball b-ball_n1 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n2 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n3 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n4 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n5 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n6 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n7 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n8 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n9 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
 
-                    <div class="b-ball b-ball_i1"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i2"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i3"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i4"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i5"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i6"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                    <div class="b-ball b-ball_i1">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i2">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i3">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i4">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i5">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i6">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
                 </i>
                 <i class="b-head-decor__inner b-head-decor__inner_n4">
-                    <div class="b-ball b-ball_n1 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                    <div class="b-ball b-ball_n1 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
 
-                    <div class="b-ball b-ball_n2 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n3 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n4 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n5 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n6 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n7 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n8 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n9 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i1"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                    <div class="b-ball b-ball_n2 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n3 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n4 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n5 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n6 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n7 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n8 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n9 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i1">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
 
-                    <div class="b-ball b-ball_i2"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i3"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i4"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i5"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i6"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                    <div class="b-ball b-ball_i2">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i3">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i4">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i5">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i6">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
                 </i>
                 <i class="b-head-decor__inner b-head-decor__inner_n5">
-                    <div class="b-ball b-ball_n1 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n2 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                    <div class="b-ball b-ball_n1 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n2 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
 
-                    <div class="b-ball b-ball_n3 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n4 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n5 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n6 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n7 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n8 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n9 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i1"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i2"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                    <div class="b-ball b-ball_n3 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n4 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n5 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n6 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n7 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n8 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n9 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i1">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i2">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
 
-                    <div class="b-ball b-ball_i3"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i4"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i5"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i6"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                    <div class="b-ball b-ball_i3">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i4">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i5">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i6">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
                 </i>
                 <i class="b-head-decor__inner b-head-decor__inner_n6">
-                    <div class="b-ball b-ball_n1 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n2 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n3 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                    <div class="b-ball b-ball_n1 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n2 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n3 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
 
-                    <div class="b-ball b-ball_n4 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n5 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n6 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n7 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n8 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n9 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i1"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i2"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i3"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                    <div class="b-ball b-ball_n4 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n5 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n6 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n7 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n8 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n9 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i1">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i2">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i3">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
 
-                    <div class="b-ball b-ball_i4"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i5"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i6"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                    <div class="b-ball b-ball_i4">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i5">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i6">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
                 </i>
                 <i class="b-head-decor__inner b-head-decor__inner_n7">
-                    <div class="b-ball b-ball_n1 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n2 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n3 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n4 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                    <div class="b-ball b-ball_n1 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n2 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n3 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n4 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
 
-                    <div class="b-ball b-ball_n5 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n6 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n7 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n8 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_n9 b-ball_bounce"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i1"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i2"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i3"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i4"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                    <div class="b-ball b-ball_n5 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n6 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n7 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n8 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_n9 b-ball_bounce">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i1">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i2">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i3">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i4">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
 
-                    <div class="b-ball b-ball_i5"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
-                    <div class="b-ball b-ball_i6"><div class="b-ball__right"></div><div class="b-ball__i"></div></div>
+                    <div class="b-ball b-ball_i5">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
+                    <div class="b-ball b-ball_i6">
+                        <div class="b-ball__right"></div>
+                        <div class="b-ball__i"></div>
+                    </div>
                 </i>
             </i>
 

@@ -3,22 +3,27 @@ function getView($name, $data = '')
 {
     return require_once $_SERVER['DOCUMENT_ROOT'] . "/views/" . $name . ".php";
 }
+
 function getHeader()
 {
     return require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/header.php";
 }
+
 function getFooter()
 {
     return require_once $_SERVER['DOCUMENT_ROOT'] . "/controllers/footer.php";
 }
+
 function getView_a($name, $data = '')
 {
     return require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/views/" . $name . ".php";
 }
+
 function getHeader_a()
 {
     return require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/controllers/a_header.php";
 }
+
 function getFooter_a()
 {
     return require_once $_SERVER['DOCUMENT_ROOT'] . "/admin/controllers/a_footer.php";
@@ -27,9 +32,10 @@ function getFooter_a()
 
 function mylink($name, $category_id)
 {
-      return '/index.php?route=' . $name . '&' . $name . '_id=' . $category_id;
+    return '/index.php?route=' . $name . '&' . $name . '_id=' . $category_id;
 
 }
+
 function mylink_page($name, $id)
 {
     return '/index.php?route=' . $name . '&' . $name . '_id=' . $id;
@@ -53,12 +59,12 @@ function mylink_a($id)
 /*загрузка изображений*/
 function can_upload($file)
 {
-    $can_upload=array();
+    $can_upload = array();
 
     if ($file['name'] == '') {
-       $error = 'Вы не выбрали файл.';
+        $error = 'Вы не выбрали файл.';
     }
-    if ($file['size'] == 0){// если размер файла 0, значит его не пропустили настройки сервера из-за того, что он слишком большой
+    if ($file['size'] == 0) {// если размер файла 0, значит его не пропустили настройки сервера из-за того, что он слишком большой
         $error = 'Файл слишком большой.';
     }
     // разбиваем имя файла по точке и получаем массив
@@ -69,23 +75,23 @@ function can_upload($file)
     $types = array('jpg', 'png', 'gif', 'jpeg'); //массив допустимых расширений файлов длязанрузки
 
     if (!in_array($ext, $types)) {
-        $error =  'Недопустимый тип файла, можно загружать только файлы с расширениями jpg, png, gif, jpeg!';
+        $error = 'Недопустимый тип файла, можно загружать только файлы с расширениями jpg, png, gif, jpeg!';
     }
 
-    if(!isset($error)) { // формируем имя и записывем исходник в папку /uploaded
+    if (!isset($error)) { // формируем имя и записывем исходник в папку /uploaded
         $name = date('Ymd-His') . 'img' . rand(10000, 99999) . '.' . $ext;
         $url_name = './uploaded/' . $name;
         move_uploaded_file($file['tmp_name'], $url_name);
-        $can_upload['file']=$url_name;
+        $can_upload['file'] = $url_name;
         return $can_upload;
-    }else{
-        $can_upload['errors']=$error;
+    } else {
+        $can_upload['errors'] = $error;
         return $can_upload;
     }
 }
 
 /*ресайз изображения и сохраняем измененный файл в /photo*/
-function resize($image, $width,$height)
+function resize($image, $width, $height)
 {
     $infoimg = getimagesize($image);
 
@@ -149,29 +155,31 @@ function resize($image, $width,$height)
 
 
 // запрос в БД
-function q($query,$key=0)
+function q($query, $key = 0)
 {
     $connect = mysqli_connect(HOST, USER, PASSWORD, DATABASE);
     $res = mysqli_query($connect, $query);
 
     if ($res === false) {
         $info = debug_backtrace();
-        $error = "QUERY: " . $query ."<br>\n".
-            "error: " .mysqli_error($connect)."<br>\n".
-            "the error in file:" . $info[0]['file'] ."<br>\n".
-            "on the line: " . $info[0]['line'] ."<br>\n".
-            "date: " . date("Y-m-d H-i-s")."<br>\n".
+        $error = "QUERY: " . $query . "<br>\n" .
+            "error: " . mysqli_error($connect) . "<br>\n" .
+            "the error in file:" . $info[0]['file'] . "<br>\n" .
+            "on the line: " . $info[0]['line'] . "<br>\n" .
+            "date: " . date("Y-m-d H-i-s") . "<br>\n" .
             "=======================================================";
 
-        echo $error;        exit();
+        echo $error;
+        exit();
     } else {
         return $res;
     }
 }
 
-function wtf($array, $stop = false) {
-    echo '<pre>'.htmlspecialchars(print_r($array,1)).'</pre>';
-    if(!$stop) {
+function wtf($array, $stop = false)
+{
+    echo '<pre>' . htmlspecialchars(print_r($array, 1)) . '</pre>';
+    if (!$stop) {
         exit();
     }
 }
@@ -192,49 +200,49 @@ function paginator($page, $count_pages, $url, $url_page)
 
 
     if ($page != 1) {
-        $p1= '<a class="pag" href = "' . htmlspecialchars($url) . '" title = "Первая страница" >&lt;&lt;&lt;</a>';
+        $p1 = '<a class="pag" href = "' . htmlspecialchars($url) . '" title = "Первая страница" >&lt;&lt;&lt;</a>';
 
         if ($page == 2) {
-            $p2= '<a class="pag" href = "' . htmlspecialchars($url) . '"title = "Предыдущая страница" >&lt;</a>';
+            $p2 = '<a class="pag" href = "' . htmlspecialchars($url) . '"title = "Предыдущая страница" >&lt;</a>';
         } else {
-            $p2= '<a class="pag" href = "' . htmlspecialchars($url_page) . (int)($page - 1) . '"title = "Предыдущая страница">&lt;</a>';
+            $p2 = '<a class="pag" href = "' . htmlspecialchars($url_page) . (int)($page - 1) . '"title = "Предыдущая страница">&lt;</a>';
         }
 
-    }else{
-        $p1="";
-        $p2="";
+    } else {
+        $p1 = "";
+        $p2 = "";
     }
 
     if ($page - 2 > 0) {
         $page2left = ' <a class ="pag" href=' . htmlspecialchars($url_page) . (int)($page - 2) . '>' . ($page - 2) . '</a>  ';
 
-    }else{
-        $page2left="";
+    } else {
+        $page2left = "";
     }
     if ($page - 1 > 0) {
         $page1left = '<a class="pag" href=' . htmlspecialchars($url_page) . (int)($page - 1) . '>' . ($page - 1) . '</a> ';
 
-    }else{
-        $page1left="";
+    } else {
+        $page1left = "";
     }
     if ($page + 2 <= $count_pages) {
         $page2right = '  <a class="pag" href=' . htmlspecialchars($url_page) . (int)($page + 2) . '>' . ($page + 2) . '</a>';
-    }else{
-        $page2right="";
+    } else {
+        $page2right = "";
     }
     if ($page + 1 <= $count_pages) {
         $page1right = '  <a class="pag" href=' . htmlspecialchars($url_page) . (int)($page + 1) . '>' . ($page + 1) . '</a>';
-    }else{
-        $page1right="";
+    } else {
+        $page1right = "";
     }
     if ($page != $count_pages) {
-        $p3= '<a class="pag" href="' . htmlspecialchars($url_page) . (int)($page + 1) . '" title="Следующая страница">&gt;</a>
+        $p3 = '<a class="pag" href="' . htmlspecialchars($url_page) . (int)($page + 1) . '" title="Следующая страница">&gt;</a>
                     <a class="pag" href="' . htmlspecialchars($url_page) . (int)$count_pages . '" title="Последняя страница">&gt;&gt;&gt;</a>';
-    }else{
-        $p3="";
+    } else {
+        $p3 = "";
     }
 
-    $paginator = '<div class="paginator">'.$p1.$p2.$page2left . $page1left . '<a class="pagact" href='.$url_page.$page.'>'.$page.'</a>' . $page1right . $page2right.$p3.'</div><div class="clear"></div>';
+    $paginator = '<div class="paginator">' . $p1 . $p2 . $page2left . $page1left . '<a class="pagact" href=' . $url_page . $page . '>' . $page . '</a>' . $page1right . $page2right . $p3 . '</div><div class="clear"></div>';
 
     return $paginator;
 }

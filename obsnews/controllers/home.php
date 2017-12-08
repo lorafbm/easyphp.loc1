@@ -7,7 +7,7 @@ $sql = "SELECT * ,DATE_FORMAT( date,  '%d %M %Y %T'  ) as date
        ";
 $row = mysqli_query($connect, $sql);
 while ($res = mysqli_fetch_assoc($row)) {
-    $data['news'][] =$res;
+    $data['news'][] = $res;
 }
 
 /* вывод инфы по категории вывода в новости (можно его убрать и сократим запрос и не выводим категорию на главной)*/
@@ -19,9 +19,9 @@ $sql1 = "SELECT `category_id`, `category_name`
 $res1 = mysqli_query($connect, $sql1);
 
 while ($row1 = mysqli_fetch_assoc($res1)) {
-    $data['cat_info'][] =$row1;
+    $data['cat_info'][] = $row1;
 }
-getView('home',$data);
+getView('home', $data);
 
 //wtf($data,1);
 

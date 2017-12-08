@@ -167,6 +167,7 @@
         document.createElement("time");
     <![endif]-->
     </script>
-    </div>
-    </body>
-    </html>
+    <
+    /div>
+    < /body>
+    < /html>

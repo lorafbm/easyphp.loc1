@@ -35,7 +35,7 @@ if (!empty($_POST['submit'])) {
 
         $sql = " SELECT * FROM `users`
                  WHERE `user_name`= '" . $_POST['login'] . "' 
-                 AND  `password`  = '" .(MyHash($_POST['password'])) . "'
+                 AND  `password`  = '" . (MyHash($_POST['password'])) . "'
                   LIMIT 1
                 ";
         $res = mysqli_query($connect, $sql);

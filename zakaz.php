@@ -11,8 +11,29 @@ function wtf($array, $stop = false)
 Class myDate
 {
 
-    public $holidays = array('25-12-2017', '02-12-2017', '01-01-2018');//массив праздников из дат
-    private $months_name = array(1 => 'Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'); // Массив с названиями месяцев
+    public $holidays = array('04-12-2017', '02-12-2017', '05-12-2017');//массив праздников из дат
+    protected $months_name = array(1 => 'Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'); // Массив с названиями месяцев
+    protected $weekdays = array('Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота');
+    /*
+        public $id;
+
+        function  __construct($row)
+        {
+            $this->id=$row['id'];
+
+        }*/
+    public $today;
+
+    function __construct()
+    {
+        $this->today = time();
+    }
+
+   /* private function date_info($num){// возврашает массив о дате(лет,мес,дней,час,мин,сек) принимает unix
+        $date_time_array = getdate($num);
+        return $date_time_array;
+    }*/
+
 
     protected function if_time($data) // может исп в дочерних классах
     {
@@ -79,26 +100,56 @@ Class myDate
         }
     }
 
-    protected function printData($data) // вывод даты в формате 12декабря 2017
+    /*  public function dif_date($data,$data1){ //разница между датами, принимает unix
+
+          $dif=($data-$data1)/60*60*24;//в днях
+          if ($dif%7){
+               $dif1=($data-$data1)/60*60*24*7;//в неделях
+              $result=$dif-$dif1;
+          }else{
+              $result=$dif;
+          }
+
+          return $result;
+
+      }*/
+
+    public function printData($data) // вывод даты в формате 12декабря 2017 вторник
     {
-        $date_zakaz = date('d ' . $this->months_name[date('n')] . ' Y', $data);
+        $date_time_array = getdate($data);
+        $m = $date_time_array['mon'];
+        $w_day = $date_time_array['wday'];
+
+        $date_zakaz = date('d ' . $this->months_name[$m] . ' Y ' . $this->weekdays[$w_day], $data);
         return $date_zakaz;
     }
+
 
     public function zakaz($data)// формирование сообщения о доставке заказа
     {
         $date_zakaz1 = self::if_time($data); // проверяем сначала по времени
         $date_zakaz2 = self::check_day($date_zakaz1); // затем день
         $date_zakaz3 = self::if_holiday($date_zakaz2); // проверяем на праздник
-        $date_zakaz = self::printData($date_zakaz3); // форматируем дату
-        return 'Заявка поступила: ' . $data . ' доставка будет: ' . $date_zakaz;
+        $date_zakaz = self::printData($date_zakaz3); // форматируем дату 12декабря 2017
+        if ($date_zakaz3 > time()) {
+            $mes = 'Заявка поступила: <b>' . $data . '. </b> Доставка будет: <b>' . $date_zakaz . '.</b>';
+        } else {
+            $mes = 'Заявка поступила: <b>' . $data . '. </b>Доставка уже была.';
+        }
+
+        return $mes;
+
     }
 
 
 }
 
 $d = new myDate;
-$data = '29-11-2017 12:38:33'; // получили дату
+$data = '07.12.2017 22:38:33'; // получили дату
 $d->holidays[] = '30-11-2017'; //дописали праздник
 $d->holidays[] = '01-12-2017';// еще дописали праздник
+echo 'Сегодня <b>' . $d->printData($d->today) . '.</b> ';
 echo $d->zakaz($data);
+//echo $d->dif_date();
+
+

@@ -51,7 +51,7 @@ if (isset($_POST['add_news'], $_POST['add_news_name'], $_POST['add_short_descrip
     if (!count($data['errors'])) {// если нет ошибок вставляем данные в БД
         $sql = "
           INSERT INTO `news` SET
-          `category_id`        = '" .(int) $_POST['category'] . "',
+          `category_id`        = '" . (int)$_POST['category'] . "',
           `news_name`          = '" . $_POST['add_news_name'] . "',
           `short_description`  = '" . $_POST['add_short_description'] . "',
           `description`        = '" . $_POST['add_description'] . "',
@@ -59,7 +59,7 @@ if (isset($_POST['add_news'], $_POST['add_news_name'], $_POST['add_short_descrip
            " . ((isset($img)) ? "`news_img` = '" . $img . "'," : "") . "
           `date`         = NOW()
          ";
-         $res = mysqli_query($connect, $sql);
+        $res = mysqli_query($connect, $sql);
         $_SESSION['info_news'] = 'Новость успешно добавлена!';;
         header("Location: /index.php?route=admin&page=a_news");
         exit();
