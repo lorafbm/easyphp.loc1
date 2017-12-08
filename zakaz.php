@@ -14,14 +14,7 @@ Class myDate
     public $holidays = array('04-12-2017', '02-12-2017', '05-12-2017');//массив праздников из дат
     protected $months_name = array(1 => 'Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'); // Массив с названиями месяцев
     protected $weekdays = array('Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота');
-    /*
-        public $id;
 
-        function  __construct($row)
-        {
-            $this->id=$row['id'];
-
-        }*/
     public $today;
 
     function __construct()
@@ -29,17 +22,13 @@ Class myDate
         $this->today = time();
     }
 
-   /* private function date_info($num){// возврашает массив о дате(лет,мес,дней,час,мин,сек) принимает unix
-        $date_time_array = getdate($num);
-        return $date_time_array;
-    }*/
 
 
     protected function if_time($data) // может исп в дочерних классах
     {
         $mydate = strtotime($data);
         $date_time_array = getdate($mydate);
-        // wtf($date_time_array,1);
+
         if ($date_time_array['hours'] >= 20) {
             $date_zakaz = $mydate + 172800;// то +2 дня
 
@@ -57,7 +46,7 @@ Class myDate
     protected function check_day($data)
     {
         $date_time_array = getdate($data);
-        //    wtf($date_time_array,1);
+
         if ($date_time_array['wday'] == 6) {// если суббота 6
             $date_zakaz = $data + 172800;// то +2 дня
             return $date_zakaz;
@@ -78,8 +67,7 @@ Class myDate
         foreach ($this->holidays as $k => $v) {
             $holidays[$k] = strtotime($v);
         }
-        //  wtf($holidays, 1);
-        // echo $data.'<br>';
+
         if (in_array($data, $holidays)) {// если праздник
             $date_time_array = getdate($data); // получили день недели праздника
             if ($date_time_array['wday'] == 5 || $date_time_array['wday'] == 6) {// если пятница 5 или суббота
@@ -100,19 +88,7 @@ Class myDate
         }
     }
 
-    /*  public function dif_date($data,$data1){ //разница между датами, принимает unix
 
-          $dif=($data-$data1)/60*60*24;//в днях
-          if ($dif%7){
-               $dif1=($data-$data1)/60*60*24*7;//в неделях
-              $result=$dif-$dif1;
-          }else{
-              $result=$dif;
-          }
-
-          return $result;
-
-      }*/
 
     public function printData($data) // вывод даты в формате 12декабря 2017 вторник
     {
