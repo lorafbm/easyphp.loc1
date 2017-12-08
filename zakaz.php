@@ -126,6 +126,6 @@ $d->holidays[] = '30-11-2017'; //дописали праздник
 $d->holidays[] = '01-12-2017';// еще дописали праздник
 echo 'Сегодня <b>' . $d->printData($d->today) . '.</b> ';
 echo $d->zakaz($data);
-//echo $d->dif_date();
+
 
 
