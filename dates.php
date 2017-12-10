@@ -184,8 +184,6 @@ $d = new MyDate(9, 6, 12);
 echo $d->month;
 echo $d->weekday;
 echo '<br>' . $d->printData('2017-06-11');*/
-
-
 //wtf($d->date_dif('1970-01-01','09-12-2017'),1);
 
 $dd = '09-12-1967 00:00:00';
@@ -194,7 +192,7 @@ $dd1 = strtotime('09-12-2017 00:00:00');
 
 wtf($d->date_dif($dd,$dd1),1);
 
-//wtf($d->date_from_second(time()),1);
+wtf($d->date_from_second(time()),1);
 
 wtf($d->dateDiff($dd,$dd1),1);
 
