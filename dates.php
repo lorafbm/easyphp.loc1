@@ -85,7 +85,7 @@ Class MyDate
             }
         }
 
-        foreach ($result as $k => $v) { // заменить значения ключей на русские
+        foreach ($result as $k => $v) { // заменили значения ключей на русские
 
             if (array_key_exists('year', $result)) {
                 $result['лет'] = $result['year'];
@@ -116,12 +116,11 @@ Class MyDate
         return $result;
     }
 
-    public function date_from_second($data)//получилась фигня(?) - сколько времени прошло с UNIX
+    public function date_from_second($data)//получилось - сколько времени прошло с UNIX
     {
         if (!is_int($data)) {
             $data = strtotime($data);// привели к секундам если не секунды пришли
         }
-
         $y = (floor($data / (12 * 30.436 * 24 * 60 * 60)));//полных лет
         $secInLastYear = $data - ($y * 12 * 30.436 * 24 * 60 * 60); //секунд в последнем году
         $m = (floor($secInLastYear / (30.361 * 24 * 60 * 60))); //полных месяцев в последнем году
@@ -132,12 +131,12 @@ Class MyDate
         $secInLastHour = $secInLastDay - $hours * 3600; //секунд в последнем часе
         $min = (floor($secInLastHour / 60)); //полных минут
         $sec = $secInLastHour - $min * 60; //секунд
-        $intervals['year'] = $y;
-        $intervals['month'] = $m;
-        $intervals['day'] = $day;
-        $intervals['hours'] = $hours;
-        $intervals['minute'] = $min;
-        $intervals['second'] = $sec;
+        $intervals['лет'] = $y;
+        $intervals['месяцев'] = $m;
+        $intervals['дней'] = $day;
+        $intervals['часов'] = $hours;
+        $intervals['минут'] = $min;
+        $intervals['секунд'] = $sec;
         return $intervals;
     }
 
@@ -161,7 +160,7 @@ Class MyDate
 
     }
 
-    public function printData($data) // вывод даты в формате 12декабря 2017 вторник принимает формат 2017-12-31 из бд
+    public function printData($data) // вывод даты в формате 12декабря 2017 00 часов 00 минут 00 секунд -принимает формат 2017-12-31 00:00:00(или без времени) из бд
     {
         $array = explode('-', $data);
         $m = $array[1];
@@ -169,16 +168,57 @@ Class MyDate
         $d = $array[2];
         $arr = explode(' ', $d);
         $d = $arr[0];// отсекли время от даты
-        if(isset ($arr[1])) {
-            $t = explode(':',$arr[1]);
-            $h=$t[0];
-            $m=$t[1];
-            $s=$t[2];
+        if (isset ($arr[1])) {
+            $t = explode(':', $arr[1]);
+            $h = $t[0];
+            $m = $t[1];
+            $s = $t[2];
         }
         $y = $array[0];
 
-        return  isset($arr[1]) ? $d . ' ' . $month . ' ' . $y . ' '.$h.' часов '.$m.' минут '.$s.' секунд': $d .' '. $month .' '.$y;
+        return isset($arr[1]) ? $d . ' ' . $month . ' ' . $y . ' ' . $h . ' часов ' . $m . ' минут ' . $s . ' секунд' : $d . ' ' . $month . ' ' . $y;
     }
+
+    /*мой вкус*/
+    public function time_remains($data_in, $pr)//получилось - сколько времени до определенной даты  принимает дату в формате timestamp  '2017-12-10 00:00:00'
+    {
+        $data_end = strtotime($data_in);// привели к секундам
+
+        $data = $data_end - time(); // дата из остатка времени
+        $y = (floor($data / (12 * 30.436 * 24 * 60 * 60)));//полных лет
+        $secInLastYear = $data - ($y * 12 * 30.436 * 24 * 60 * 60); //секунд в последнем году
+        $m = (floor($secInLastYear / (30.361 * 24 * 60 * 60))); //полных месяцев в последнем году
+        $secInLastMonth = $secInLastYear - ($m * 30.361 * 24 * 60 * 60); //секунд в последнем месяце 30.361  30.436 везде
+        $day = (floor($secInLastMonth / (24 * 60 * 60)));// полных дней в последнем месяце
+        $secInLastDay = $secInLastMonth - $day * 24 * 3600; //секунд в последнем дне
+        $hours = (floor($secInLastDay / 3600)); // полных часов
+        $secInLastHour = $secInLastDay - $hours * 3600; //секунд в последнем часе
+        $min = (floor($secInLastHour / 60)); //полных минут
+        $sec = $secInLastHour - $min * 60; //секунд
+        $intervals['год'] = $y;
+        $intervals['месяцев'] = $m;
+        $intervals['дней'] = $day;
+        $intervals['часов'] = $hours;
+        $intervals['минут'] = $min;
+        $intervals['секунд'] = floor($sec);
+
+        foreach ($intervals as $k => $v) {             // не выводить пустые значения
+
+            if ($v == 0 || $v < 0) { // не выводить если нет значения
+                unset($intervals[$k]);
+            } else {
+                $result[] = $v . ' ' . $k;
+            }
+
+        }
+        return implode(', ', $result);
+    }
+
+
+
+
+
+
 }
 
 /*проба пера*/
@@ -201,7 +241,7 @@ wtf($d->date_from_second(time()), 1);//нет погрешности
 wtf($d->dateDiff($dd, $dd1), 1);// нет погрешности
 
 
-
+echo 'До получения вашего заказа осталось ' . $d->time_remains('31-01-2019');
 
 
 
