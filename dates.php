@@ -34,6 +34,7 @@ Class MyDate
             }
         }
     }
+
     public function month($month) // месяц по русски
     {
         $months_name = array(1 => 'Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря');
@@ -45,6 +46,7 @@ Class MyDate
             }
         }
     }
+
     function dateDiff($date1, $date2) // разница между датами сперла в инете идею
     {
 
@@ -94,19 +96,19 @@ Class MyDate
                 $result['месяцев'] = $result['month'];
                 unset($result['month']);
 
-            }elseif (array_key_exists('day', $result)) {
+            } elseif (array_key_exists('day', $result)) {
                 $result['дней'] = $result['day'];
                 unset($result['day']);
 
-            }elseif (array_key_exists('hour', $result)) {
+            } elseif (array_key_exists('hour', $result)) {
                 $result['часов'] = $result['hour'];
                 unset($result['hour']);
 
-            }elseif (array_key_exists('minute', $result)) {
+            } elseif (array_key_exists('minute', $result)) {
                 $result['минут'] = $result['minute'];
                 unset($result['minute']);
 
-            }elseif (array_key_exists('second', $result)) {
+            } elseif (array_key_exists('second', $result)) {
                 $result['секунд'] = $result['second'];
                 unset($result['second']);
 
@@ -170,31 +172,35 @@ Class MyDate
         $m = $array[1];
         $month = $this->month($m);
         $d = $array[2];
+        $arr = explode(' ', $d);
+        foreach ($arr as $k) {
+            $d = $arr[0];// отсекли время от даты
+        }
         $y = $array[0];
-        return $d . ' ' . $month . ' ' . $y;
-    }
 
+        return  isset($arr[1]) ? $d . ' ' . $month . ' ' . $y . ' '.$arr[1] : $d .' '. $month .' '.$y;
+    }
 
 }
 
-date_default_timezone_set("UTC");
+/*проба пера*/
 $d = new MyDate(9, 6, 12);
 
-/*echo $d->today;
+echo $d->today;
 echo $d->month;
 echo $d->weekday;
-echo '<br>' . $d->printData('2017-06-11');*/
-//wtf($d->date_dif('1970-01-01','09-12-2017'),1);
+echo '<br>' . $d->printData('2017-06-11');
+
 
 $dd = '09-12-1967 00:00:00';
 $dd1 = strtotime('09-12-2017 00:00:00');
-//echo date('d F Y h:i:s ' , $dd);
 
-wtf($d->date_dif($dd,$dd1),1);
 
-wtf($d->date_from_second(time()),1);
+wtf($d->date_dif($dd, $dd1), 1);
 
-wtf($d->dateDiff($dd,$dd1),1);
+wtf($d->date_from_second(time()), 1);
+
+wtf($d->dateDiff($dd, $dd1), 1);
 
 
 
