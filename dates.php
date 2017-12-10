@@ -180,7 +180,7 @@ Class MyDate
     }
 
     /*мой вкус*/
-    public function time_remains($data_in, $pr)//получилось - сколько времени до определенной даты  принимает дату в формате timestamp  '2017-12-10 00:00:00'
+    public function time_remains($data_in)//получилось - сколько времени до определенной даты  принимает дату в формате timestamp  '2017-12-10 00:00:00'
     {
         $data_end = strtotime($data_in);// привели к секундам
 
