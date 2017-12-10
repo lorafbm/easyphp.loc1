@@ -173,14 +173,18 @@ Class MyDate
         $month = $this->month($m);
         $d = $array[2];
         $arr = explode(' ', $d);
-        foreach ($arr as $k) {
-            $d = $arr[0];// отсекли время от даты
+        $d = $arr[0];// отсекли время от даты
+        if(isset ($arr[1])) {
+            $t = explode(':',$arr[1]);
+            $h=$t[0];
+            $m=$t[1];
+            $s=$t[2];
         }
+
         $y = $array[0];
 
-        return  isset($arr[1]) ? $d . ' ' . $month . ' ' . $y . ' '.$arr[1] : $d .' '. $month .' '.$y;
+        return  isset($arr[1]) ? $d . ' ' . $month . ' ' . $y . ' '.$h.' часов '.$m.' минут '.$s.' секунд': $d .' '. $month .' '.$y;
     }
-
 }
 
 /*проба пера*/
