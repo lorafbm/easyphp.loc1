@@ -71,7 +71,6 @@ Class MyDate
             $looped = 0;
 
             while ($date2 >= $ttime) {
-
                 // новое temp time из data1  и interval
                 $add++;
                 $ttime = strtotime("+" . $add . " " . $interval, $date1);
@@ -114,10 +113,7 @@ Class MyDate
 
             }
         }
-
-
         return $result;
-
     }
 
     public function date_from_second($data)//получилась фигня(?) - сколько времени прошло с UNIX
@@ -159,7 +155,6 @@ Class MyDate
         } else {
             $result = $date2 - $date1;
         }
-
         $result = $this->date_from_second($result);
 
         return $result;
@@ -180,7 +175,6 @@ Class MyDate
             $m=$t[1];
             $s=$t[2];
         }
-
         $y = $array[0];
 
         return  isset($arr[1]) ? $d . ' ' . $month . ' ' . $y . ' '.$h.' часов '.$m.' минут '.$s.' секунд': $d .' '. $month .' '.$y;
@@ -200,11 +194,11 @@ $dd = '09-12-1967 00:00:00';
 $dd1 = strtotime('09-12-2017 00:00:00');
 
 
-wtf($d->date_dif($dd, $dd1), 1);
+wtf($d->date_dif($dd, $dd1), 1);//погрешность +1 день 9 часов 36мин 2сек
 
-wtf($d->date_from_second(time()), 1);
+wtf($d->date_from_second(time()), 1);//нет погрешности
 
-wtf($d->dateDiff($dd, $dd1), 1);
+wtf($d->dateDiff($dd, $dd1), 1);// нет погрешности
 
 
 
