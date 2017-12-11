@@ -49,15 +49,16 @@ Class MyDate
 
 
 
-    public function date_from_second($data)//сколько времени прошло в виде даты (принимает секунды)
+    public function date_from_second($num)//сколько времени прошло в виде даты (принимает секунды)
+
     {
-        if (!is_int($data)) {
-            $data = strtotime($data);// привели к секундам если не секунды пришли
+        if (!is_int($num)) {
+            $num = strtotime($num);// привели к секундам если не секунды пришли
         }
-        $y = floor($data / (12 * 30.436 * 24 * 60 * 60));//полных лет30,436
-        $secInLastYear = $data - ($y * 12 * 30.436 * 24 * 60 * 60); //секунд в последнем году
-        $m = floor($secInLastYear / (30.361 * 24 * 60 * 60)); //полных месяцев в последнем году
-        $secInLastMonth = $secInLastYear - ($m * 30.361 * 24 * 60 * 60); //секунд в последнем месяце 30.361  30.436 везде
+        $y = floor($num / (12 * 30.437 * 24 * 60 * 60));//полных лет30,436
+        $secInLastYear = $num - ($y * 12 * 30.437 * 24 * 60 * 60); //секунд в последнем году
+        $m = floor($secInLastYear / (30.437 * 24 * 60 * 60)); //полных месяцев в последнем году
+        $secInLastMonth = $secInLastYear - ($m * 30.437 * 24 * 60 * 60); //секунд в последнем месяце 30.361  30.436 везде
         $day = floor($secInLastMonth / (24 * 60 * 60));// полных дней в последнем месяце
         $secInLastDay = $secInLastMonth - ($day * 24 * 3600); //секунд в последнем дне
         $hours = floor($secInLastDay / 3600); // полных часов
@@ -216,11 +217,6 @@ Class MyDate
         return $result;
     }
 
-
-
-
-
-
 }
 //date_default_timezone_set('Europe/Kiev');
 /*проба пера*/
@@ -233,12 +229,12 @@ echo '<br>' . $d->printData('2017-06-11');
 
 
 $dd = '01-12-1971';
-$dd1 = strtotime('01-12-2027');
+$dd1 = strtotime('01-12-2027 00:00:00');
 
 
-wtf($d->date_dif($dd, $dd1), 1);//погрешность(при 56 годах интервала) +1 день 9 часов 36мин 2сек
+wtf($d->date_dif($dd, $dd1), 1);//погрешность(при 56 годах интервала) 8 часов 3мин 50сек
 
-wtf($d->date_from_second(time()), 1);//нет погрешности
+wtf($d->date_from_second(time()), 1);// 8 часов 3 мин
 
 
 
