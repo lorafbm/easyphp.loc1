@@ -1,6 +1,5 @@
 <?php
-/*echo 'Занятие 25.Работа с базами.';
-date_default_timezone_set('UTC'+2');*/
+
 function wtf($array, $stop = false)
 {
     echo '<pre>' . htmlspecialchars(print_r($array, 1)) . '</pre>';
@@ -234,7 +233,7 @@ $dd1 = strtotime('01-12-2027 00:00:00');
 
 wtf($d->date_dif($dd, $dd1), 1);//погрешность(при 56 годах интервала) 8 часов 3мин 50сек
 
-wtf($d->date_from_second(time()), 1);// 8 часов 3 мин
+wtf($d->date_from_second(time()), 1);// 10 часов 3 мин
 
 
 

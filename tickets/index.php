@@ -37,9 +37,13 @@ if ($_SERVER['REQUEST_URI'] == '/index.php?route=admin') {
 }
 
 
-//echo $_SERVER['REQUEST_URI'];
-//echo $_SERVER['DOCUMENT_ROOT'] ;
-//wtf($_GET, 1);
-//echo $_SERVER['REQUEST_URI'];
-//wtf($_SERVER,1);
-//$a=1;
+/*проверка соединения с БД*/
+/*$res=q("SELECT NOW()");
+while ($row = $res->fetch_assoc()){
+    wtf($row,1);
+}
+$res->close();
+DB::close();
+echo 'OK!';
+exit();*/
+

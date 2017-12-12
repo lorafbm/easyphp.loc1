@@ -43,12 +43,6 @@ function mylink_page($name, $id)
 }
 
 
-/*function mylink($name, $category_name)
-{
-    return '/index.php?route=' . $name . '&' . $name . '_name=' . $category_name;
-
-}*/
-
 function mylink_a($id)
 {
     return '/index.php?route=admin&page=' . $id;
