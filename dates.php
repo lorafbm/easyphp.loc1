@@ -1,12 +1,5 @@
 <?php
 
-function wtf($array, $stop = false)
-{
-    echo '<pre>' . htmlspecialchars(print_r($array, 1)) . '</pre>';
-    if (!$stop) {
-        exit();
-    }
-}
 
 Class MyDate
 {
@@ -219,6 +212,16 @@ Class MyDate
 }
 //date_default_timezone_set('Europe/Kiev');
 /*проба пера*/
+
+
+function wtf($array, $stop = false)
+{
+    echo '<pre>' . htmlspecialchars(print_r($array, 1)) . '</pre>';
+    if (!$stop) {
+        exit();
+    }
+}
+
 $d = new MyDate(9, 6, 12);
 
 echo $d->today;
