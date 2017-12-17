@@ -20,7 +20,8 @@ class Form2
         $text = '<div class="form-group">
 <label for="'.$id.'">'.$label.'</label><input type="'.$type.'" name="' . $name . '" placeholder="' . $placeholder . '" class="form-control" id="'.$id.'"';
 
-        $text .= '></div>'; if (!empty($this->mem[$name])) {
+        $text .= '></div>';
+        if (!empty($this->mem[$name])) {
         $text .= ' value="' . htmlspecialchars($this->mem[$name]) . '"';
     }
 

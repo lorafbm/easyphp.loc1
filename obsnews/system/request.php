@@ -1,5 +1,5 @@
 <?php
-function getView($name, $data = '')
+function getView($name, $data = '',$data1='')
 {
     return require_once $_SERVER['DOCUMENT_ROOT'] . "/views/" . $name . ".php";
 }

@@ -33,5 +33,43 @@
     <orderEntry type="module" module-name="test" />
     <orderEntry type="module" module-name="schoolphp" />
     <orderEntry type="module" module-name="pages" />
+    <orderEntry type="module-library">
+      <library name="PHP" type="php">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/composer" />
+          <root url="file://$MODULE_DIR$/vendor/facebook/php-sdk-v4" />
+          <root url="file://$MODULE_DIR$/vendor/prestashop/blockcurrencies" />
+          <root url="file://$MODULE_DIR$/vendor/public/assets-loader" />
+          <root url="file://$MODULE_DIR$/vendor/public/bootstrap" />
+          <root url="file://$MODULE_DIR$/vendor/public/compass-mixins" />
+          <root url="file://$MODULE_DIR$/vendor/public/d3" />
+          <root url="file://$MODULE_DIR$/vendor/public/fancybox" />
+          <root url="file://$MODULE_DIR$/vendor/public/jquery" />
+          <root url="file://$MODULE_DIR$/vendor/public/less" />
+          <root url="file://$MODULE_DIR$/vendor/public/lesshat" />
+          <root url="file://$MODULE_DIR$/vendor/public/popper.js" />
+          <root url="file://$MODULE_DIR$/vendor/public/vega" />
+          <root url="file://$MODULE_DIR$/vendor/public/vega-lite" />
+          <root url="file://$MODULE_DIR$/vendor/public/viscompass" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/composer" />
+          <root url="file://$MODULE_DIR$/vendor/facebook/php-sdk-v4" />
+          <root url="file://$MODULE_DIR$/vendor/prestashop/blockcurrencies" />
+          <root url="file://$MODULE_DIR$/vendor/public/assets-loader" />
+          <root url="file://$MODULE_DIR$/vendor/public/bootstrap" />
+          <root url="file://$MODULE_DIR$/vendor/public/compass-mixins" />
+          <root url="file://$MODULE_DIR$/vendor/public/d3" />
+          <root url="file://$MODULE_DIR$/vendor/public/fancybox" />
+          <root url="file://$MODULE_DIR$/vendor/public/jquery" />
+          <root url="file://$MODULE_DIR$/vendor/public/less" />
+          <root url="file://$MODULE_DIR$/vendor/public/lesshat" />
+          <root url="file://$MODULE_DIR$/vendor/public/popper.js" />
+          <root url="file://$MODULE_DIR$/vendor/public/vega" />
+          <root url="file://$MODULE_DIR$/vendor/public/vega-lite" />
+          <root url="file://$MODULE_DIR$/vendor/public/viscompass" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
