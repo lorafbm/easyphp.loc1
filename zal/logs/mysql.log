@@ -1,1 +1,49 @@
-﻿
+﻿QUERY: SELECT COUNT(*)
+           FROM `tickets_events`
+           
+error: Table 'zal.tickets_events' doesn't exist
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\home.php
+on the line: 4
+date: 2017-12-17 17-25-18
+=======================================================
+
+QUERY: INSERT INTO `tickets2events` SET
+                      `ticket_id`        = '1'
+                      `event_id`= 6
+           
+error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`event_id`= 6' at line 3
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\kassa.php
+on the line: 12
+date: 2017-12-17 18-11-16
+=======================================================
+
+QUERY: INSERT INTO `tickets2events` SET
+                      `ticket_id`        = '1'
+                      `event_id`= '6'
+           
+error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`event_id`= '6'' at line 3
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\kassa.php
+on the line: 12
+date: 2017-12-17 18-11-37
+=======================================================
+
+QUERY: INSERT INTO `tickets2_events` SET
+                      `ticket_id`        = '1'
+                      `event_id`= '6'
+           
+error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`event_id`= '6'' at line 3
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\kassa.php
+on the line: 12
+date: 2017-12-17 18-12-46
+=======================================================
+
+QUERY: INSERT INTO `tickets2_events` SET
+                      `ticket_id`        = '1'
+                      `event_id`= '.6.'
+           
+error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`event_id`= '.6.'' at line 3
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\kassa.php
+on the line: 12
+date: 2017-12-17 18-13-21
+=======================================================
+
