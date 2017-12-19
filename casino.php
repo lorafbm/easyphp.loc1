@@ -160,14 +160,7 @@ Class valid_Data
 
 Class Casino
 {
-   //  public $money_casino;
-    //  public $num_casino;
-    //   public $stavka_casino;
 
-     /*  function __construct($money_casino)
-       {
-           $this->money_casino = $money_casino;
-       }*/
 
     public function count_result_casino($result, $num)// принимает текущий счет и результат хода игрока
     {
@@ -179,16 +172,7 @@ Class Casino
 
 Class igrok
 {
-    // public $money_igrok;
-    //public $num_igrok;
-    // public $stavka_igrok;
 
-    /*  function __construct($money_igrok/*, $num_igrok, $stavka_igrok)
-      {
-          $this->money_igrok = $money_igrok;
-          $this->num_igrok = $num_igrok;
-          $this->stavka_igrok = $stavka_igrok;
-      }*/
 
     public function count_result($num, $stavka)
     { // принимает загаданное число оппонента
