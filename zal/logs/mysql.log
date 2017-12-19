@@ -47,3 +47,99 @@ on the line: 12
 date: 2017-12-17 18-13-21
 =======================================================
 
+QUERY: INSERT INTO `zakaz` SET
+                 `user_id`        = '82',
+                 `ticket_id` IN  7,8,
+                 `event_id`= 5
+                  
+error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IN  7,8,
+                 `event_id`= 5' at line 3
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\kassa.php
+on the line: 72
+date: 2017-12-18 01-50-51
+=======================================================
+
+QUERY: INSERT INTO `zakaz` SET
+                 `user_id`        = '82',
+                 `ticket_id` IN  (9,10),
+                 `event_id`= 5
+                  
+error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IN  (9,10),
+                 `event_id`= 5' at line 3
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\kassa.php
+on the line: 72
+date: 2017-12-18 01-51-51
+=======================================================
+
+QUERY: INSERT INTO `zakaz` SET
+                 `user_id`        = '82',
+                 `ticket_id` =  (11,12),
+                 `event_id`= 5
+                  
+error: Operand should contain 1 column(s)
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\kassa.php
+on the line: 72
+date: 2017-12-18 01-52-55
+=======================================================
+
+QUERY: 
+                INSERT INTO `zakaz` (`user_id`,`ticket_id` ,`event_id`)
+                VALUES (,7,6)
+            
+error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '7,6)' at line 2
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\kassa.php
+on the line: 109
+date: 2017-12-18 15-07-01
+=======================================================
+
+QUERY: 
+        SELECT *,(
+         SELECT COUNT(*) FROM `zakaz`
+        ) as `cnt`
+        FROM `events` 
+        ORDER BY `id` DESC 
+        WHERE `user_id`  =  0
+        
+error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `user_id`  =  0' at line 6
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\zakaz.php
+on the line: 10
+date: 2017-12-18 15-50-43
+=======================================================
+
+QUERY: 
+        SELECT *,(
+         SELECT COUNT(*) FROM `zakaz`
+        ) as `cnt`
+        FROM `events` 
+        ORDER BY `id` DESC 
+        WHERE `user_id`  =  82
+        
+error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `user_id`  =  82' at line 6
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\zakaz.php
+on the line: 10
+date: 2017-12-18 15-50-58
+=======================================================
+
+QUERY: 
+        SELECT *,(
+         SELECT COUNT(*) FROM `zakaz`
+        ) as `cnt`
+        FROM `zakaz` 
+        ORDER BY `id` DESC 
+        WHERE `user_id`  =  82
+        
+error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `user_id`  =  82' at line 6
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\zakaz.php
+on the line: 10
+date: 2017-12-18 15-51-54
+=======================================================
+
+QUERY: INSERT INTO `zakaz` (`user_id`,`ticket_id` ,`event_id`,`data_zakaz`)
+                   VALUES (82,5,4,1513606889)
+                  
+error: Unknown column 'data_zakaz' in 'field list'
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\kassa.php
+on the line: 62
+date: 2017-12-18 17-21-29
+=======================================================
+
