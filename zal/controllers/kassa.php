@@ -1,8 +1,8 @@
 <?php
 
-/*$list = array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20);
+/*$list = array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35);
 //грузим базу связи событие-билеты
-$a=6;
+$a=1;
 
 foreach ($list as $key=>$v){
     //вставляем данные в БД
@@ -15,21 +15,19 @@ foreach ($list as $key=>$v){
 }*/
 /*вывод мест если пришли с событием*/
 if (!empty($_GET['event_id'])) {
-    $res = q("SELECT `ticket_id`,`category_id`,`row`,`place`,`ticket_status`,`price`,`limit_ticket`
+    $res = q("SELECT `ticket_id`,`category_id`,`category_name`,`row`,`place`,`ticket_status`,`price`,`limit_ticket`
               FROM `tickets`
               LEFT JOIN `tickets2_events` ON `tickets2_events`.`ticket_id` = `tickets`.`tick_id`
               LEFT JOIN `events` ON `events`.`id` = `tickets2_events`.`event_id`
               LEFT JOIN `tickets_category` ON `tickets_category`.`id` = `tickets`.`category_id`
               WHERE `event_id`='" . $_GET['event_id'] . "'
               ");
-    if ($res) {
-        $ids = array();
-        while ($row = $res->fetch_assoc()) {
-            $data['tickets'][] = $row;// формируем массив для передачи
-            $ids[] = $row['ticket_id'];
-            $data['ids'] = $ids;
+         if(mysqli_num_rows($res)){
+            while ($cats = mysqli_fetch_assoc($res)){
+                $data['tickets'][$cats['category_id']]['row'][$cats['row']][] = $cats;
+            }
         }
-    }
+
 } else {/*вывод просто категорий билетов*/
     $res = q("SELECT *
               FROM `tickets_category`
@@ -38,7 +36,6 @@ if (!empty($_GET['event_id'])) {
         $data['tickets_category'][] = $row;// формируем массив для передачи
     }
 }
-
 /*лимит*/
 if (isset($_SESSION['user'])) {
     /*обработчик формы*/
@@ -50,18 +47,6 @@ if (isset($_SESSION['user'])) {
                 $_POST['ticket'][$k] = (int)$v;
                 $ids = implode(',', $_POST['ticket']); // разбиаем массив пришедших чекбоксов  по ,
             }
-
-            /*запрос на лимит по id билета в тбл категорий*/
-            /*          $res1 = q("
-              SELECT `tick_id`,`category_id`,`limit_ticket`
-              FROM `tickets`
-              LEFT JOIN `tickets_category` ON `tickets`.`category_id` = `tickets_category`.`id`
-              WHERE `tick_id` IN (" . $ids . ")
-              ");
-                      while ($row1 = $res1->fetch_assoc()) {
-                          $data['limits'][] = $row1;// формируем массив для передачи
-                      }*/
-
             /*группируем выбранные билеты в вид:id категории билета,limit,номера билетов*/
             $res1 = q("SELECT `id`,`limit_ticket`,`category_name`,GROUP_CONCAT(`tickets`.`tick_id`)as tick_numbers
                        FROM `tickets_category`
@@ -74,10 +59,9 @@ if (isset($_SESSION['user'])) {
                 foreach ($array_info as $k => $v) {   // перебираем
                     $arr = explode(',', $v['tick_numbers']);   // преобразовываем в массив список выбранных id билетов
                     $q = count($arr); // получили их количество
-                    //echo $q.'<br>';
-                   // echo $v['limit_ticket'].'<br>';
+
                     if ($v['limit_ticket'] < $q) { // если лимит меньше выбранного числа билетов
-                        $data['error'] = 'Превышен лимит  по категории '.$v['category_name'].'!';// формируем ошибку
+                        $data['error'] = 'Превышен лимит  по категории!';// формируем ошибку
                     } else {
                         //пометили билет(ы) как купленный
                         q("UPDATE `tickets2_events` SET
@@ -104,8 +88,8 @@ if (isset($_SESSION['user'])) {
 } else {
     $data['info_kassa'] = 'Авторизуйтесь чтобы сделать заказ!';
 }
-//wtf($data['limits'], 1);
-//wtf($data, 1);
+//wtf($data['tickets'], 1);
+//wtf($_POST, 1);
 //wtf($_SESSION, 1);
-wtf($array_info, 1);
+//wtf($array_info, 1);
 getView('kassa', $data);

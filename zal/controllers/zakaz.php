@@ -19,7 +19,6 @@ if(isset($_SESSION['user'])) {
         }
     }
     /*удаление*/
-
     if (isset ($_GET['action']) && $_GET['action'] == 'delete') { // удаление одной категории из БД
         $sql = q("DELETE FROM `zakaz`
               WHERE `zakaz_id`=" . (int)$_GET['id'] . "
@@ -30,20 +29,8 @@ if(isset($_SESSION['user'])) {
         exit();
     }
 
-
-
-
-
-
 }
-/*SELECT  `user_id`,`zakaz_id`,`price`,SUM(`price`)
 
-        FROM `zakaz`
-        LEFT JOIN `tickets` ON `tickets`.`id` = `zakaz`.`ticket_id`
-
-        LEFT JOIN `tickets_category` ON `tickets_category`.`id` = `tickets`.`category_id`
-        WHERE `user_id`  =  82
-        GROUP BY `zakaz_id`*/
 
 $d=new MyDate;
 $data['d']=$d;
