@@ -143,3 +143,143 @@ on the line: 62
 date: 2017-12-18 17-21-29
 =======================================================
 
+QUERY: INSERT INTO `zakaz` (`user_id`,`ticket_id` ,`event_id`,`data_zakaz`)
+                   VALUES (82,7,4,  NOW()  )
+                  
+error: Out of range value for column 'data_zakaz' at row 1
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\kassa.php
+on the line: 62
+date: 2017-12-19 12-46-05
+=======================================================
+
+QUERY: 
+        SELECT  `user_id`,`event_id`,`row`,`place`,`category_name`,`name`, `date_start`,`zakaz_id`,DATE_FORMAT( date_zakaz,  '%d %M %Y %T'  ),`price`,
+        ( SELECT COUNT(*) FROM `zakaz`) as `cnt`
+        FROM `zakaz`
+        LEFT JOIN `tickets` ON `tickets`.`id` = `zakaz`.`ticket_id`
+        LEFT JOIN `events` ON `events`.`id` = `zakaz`.`event_id`
+        LEFT JOIN `tickets_category` ON `tickets_category`.`id` = `tickets`.`category_id`
+        WHERE `user_id`  =  82
+         ORDER BY `zakaz_id` DESC
+        
+error: Unknown column 'date_zakaz' in 'field list'
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\zakaz.php
+on the line: 11
+date: 2017-12-19 16-49-57
+=======================================================
+
+QUERY: 
+        SELECT  `user_id`,`event_id`,`row`,`place`,`category_name`,`name`, `date_start`,`zakaz_id`,DATE_FORMAT( date,  '%d %M %Y %T'  ),`price`,
+        ( SELECT COUNT(*) FROM `zakaz`) as `cnt`
+        FROM `zakaz`
+        LEFT JOIN `tickets` ON `tickets`.`id` = `zakaz`.`ticket_id`
+        LEFT JOIN `events` ON `events`.`id` = `zakaz`.`event_id`
+        LEFT JOIN `tickets_category` ON `tickets_category`.`id` = `tickets`.`category_id`
+        WHERE `user_id`  =  82
+         ORDER BY `zakaz_id` DESC
+        
+error: Unknown column 'date' in 'field list'
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\zakaz.php
+on the line: 11
+date: 2017-12-19 16-50-23
+=======================================================
+
+QUERY: 
+        SELECT  `user_id`,`event_id`,`row`,`place`,`category_name`,`name`, `date_start`,`zakaz_id`, `date_zakaz`,DATE_FORMAT( date,  '%d %M %Y %T'  ),`price`,
+        ( SELECT COUNT(*) FROM `zakaz`) as `cnt`
+        FROM `zakaz`
+        LEFT JOIN `tickets` ON `tickets`.`id` = `zakaz`.`ticket_id`
+        LEFT JOIN `events` ON `events`.`id` = `zakaz`.`event_id`
+        LEFT JOIN `tickets_category` ON `tickets_category`.`id` = `tickets`.`category_id`
+        WHERE `user_id`  =  82
+         ORDER BY `zakaz_id` DESC
+        
+error: Unknown column 'date_zakaz' in 'field list'
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\zakaz.php
+on the line: 11
+date: 2017-12-19 16-50-43
+=======================================================
+
+QUERY: 
+        SELECT  `user_id`,`event_id`,`row`,`place`,`category_name`,`name`, `date_start`,`zakaz_id`, `date_zakaz`,`price`,
+        ( SELECT COUNT(*) FROM `zakaz`) as `cnt`
+        FROM `zakaz`
+        LEFT JOIN `tickets` ON `tickets`.`id` = `zakaz`.`ticket_id`
+        LEFT JOIN `events` ON `events`.`id` = `zakaz`.`event_id`
+        LEFT JOIN `tickets_category` ON `tickets_category`.`id` = `tickets`.`category_id`
+        WHERE `user_id`  =  82
+         ORDER BY `zakaz_id` DESC
+        
+error: Unknown column 'date_zakaz' in 'field list'
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\zakaz.php
+on the line: 11
+date: 2017-12-19 16-50-56
+=======================================================
+
+QUERY: SELECT `ticket_id`,`category_id`,`row`,`place`,`ticket_status`,`price`,`limit_ticket`
+              FROM `tickets`
+              LEFT JOIN `tickets2_events` ON `tickets2_events`.`ticket_id` = `tickets`.`id`
+              LEFT JOIN `events` ON `events`.`id` = `tickets2_events`.`event_id`
+              LEFT JOIN `tickets_category` ON `tickets_category`.`id` = `tickets`.`category_id`
+              WHERE `event_id`='4'
+              
+error: Column 'ticket_id' in field list is ambiguous
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\kassa.php
+on the line: 24
+date: 2017-12-20 00-35-25
+=======================================================
+
+QUERY: SELECT `ticket_id`,`category_id`,`row`,`place`,`ticket_status`,`price`,`limit_ticket`
+              FROM `tickets`
+              LEFT JOIN `tickets2_events` ON `tickets2_events`.`ticket_id` = `tickets`.`ticket_id`
+              LEFT JOIN `events` ON `events`.`id` = `tickets2_events`.`event_id`
+              LEFT JOIN `tickets_category` ON `tickets_category`.`id` = `tickets`.`category_id`
+              WHERE `event_id`='4'
+              
+error: Column 'ticket_id' in field list is ambiguous
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\kassa.php
+on the line: 24
+date: 2017-12-20 00-36-39
+=======================================================
+
+QUERY: SELECT `ticket_id`,`category_id`,`row`,`place`,`ticket_status`,`price`,`limit_ticket`
+              FROM `tickets`
+              LEFT JOIN `tickets2_events` ON `tickets2_events`.`ticket_id` = `tickets`.`id`
+              LEFT JOIN `events` ON `events`.`id` = `tickets2_events`.`event_id`
+              LEFT JOIN `tickets_category` ON `tickets_category`.`id` = `tickets`.`category_id`
+              WHERE `event_id`='4'
+              
+error: Unknown column 'tickets.id' in 'on clause'
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\kassa.php
+on the line: 24
+date: 2017-12-20 00-37-33
+=======================================================
+
+QUERY: 
+        SELECT  `user_id`,`event_id`,`row`,`place`,`category_name`,`name`, DATE_FORMAT( date_start,  '%d %M %Y %T'  ) as date_start,`zakaz_id` ,DATE_FORMAT( data_zakaz,  '%d %M %Y '  ) as data_zakaz,`price`,
+        ( SELECT COUNT(*) FROM `zakaz`) as `cnt`
+        FROM `zakaz`
+        LEFT JOIN `tickets` ON `tickets`.`id` = `zakaz`.`ticket_id`
+        LEFT JOIN `events` ON `events`.`id` = `zakaz`.`event_id`
+        LEFT JOIN `tickets_category` ON `tickets_category`.`id` = `tickets`.`category_id`
+        WHERE `user_id`  =  82
+         ORDER BY `zakaz_id` DESC
+        
+error: Unknown column 'tickets.id' in 'on clause'
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\zakaz.php
+on the line: 12
+date: 2017-12-20 00-37-54
+=======================================================
+
+QUERY: SELECT `id`,`limit_ticket`,GROUP_CONCAT(`tickets`.`tick_id`)as tick_numbers
+                        FROM `tickets_category`
+                        JOIN `tickets` ON `tickets`.`category_id` = `tickets_category`.`id`
+                        GROUP BY `tickets_category`.`id`
+                         WHERE `tick_id` IN (3,7,8,20,10,12)
+                        
+error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `tick_id` IN (3,7,8,20,10,12)' at line 5
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\kassa.php
+on the line: 85
+date: 2017-12-20 01-52-44
+=======================================================
+
