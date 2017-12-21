@@ -283,3 +283,66 @@ on the line: 85
 date: 2017-12-20 01-52-44
 =======================================================
 
+QUERY: SELECT * 
+                        FROM `zakaz`
+                         JOIN `tickets` ON `tickets`.`category_id` = `tickets_category`.`id`
+                        WHERE `user_id`=82
+                        AND `event_id`=5 
+                        
+                        
+error: Unknown column 'tickets_category.id' in 'on clause'
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\kassa.php
+on the line: 73
+date: 2017-12-20 23-19-37
+=======================================================
+
+QUERY: SELECT * 
+                        FROM `zakaz`
+                        LEFT JOIN `tickets` ON `tickets`.`category_id` = `tickets_category`.`id`
+                        WHERE `user_id`=82
+                        AND `event_id`=5 
+                        
+                        
+error: Unknown column 'tickets_category.id' in 'on clause'
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\kassa.php
+on the line: 73
+date: 2017-12-20 23-22-25
+=======================================================
+
+QUERY: SELECT * 
+                        FROM `zakaz`
+                        LEFT JOIN `tickets` ON `tickets`.`category_id` = `tickets_category`.`id`
+                        WHERE `user_id`=82
+                        AND `event_id`=5 
+                        
+                        
+error: Unknown column 'tickets_category.id' in 'on clause'
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\kassa.php
+on the line: 73
+date: 2017-12-20 23-25-41
+=======================================================
+
+QUERY: SELECT * ,GROUP_CONCAT(`tickets`.`tick_id`)as tick_numbers
+                        FROM `zakaz`
+                        LEFT JOIN `tickets` ON `tickets`.`tick_id` = `zakaz`.`ticket_id`
+                        WHERE `user_id`=82
+                        AND `event_id`=5 
+                        GROUP BY `tickets_category`.`id`
+                        
+                        
+error: Unknown column 'tickets_category.id' in 'group statement'
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\kassa.php
+on the line: 81
+date: 2017-12-21 00-40-13
+=======================================================
+
+QUERY: UPDATE `tickets2_events` SET
+          `ticket_status`        = 0
+          WHERE `ticket_id`= 
+         
+error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+the error in file:E:\OpenServer\domains\easyphp.loc\zal\controllers\zakaz.php
+on the line: 34
+date: 2017-12-21 15-53-37
+=======================================================
+

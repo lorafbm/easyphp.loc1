@@ -84,16 +84,31 @@ Class myDate
 
 
 
-    public function printData($data) // вывод даты в формате 12декабря 2017 вторник
+    public function printData($data) // вывод даты в формате 12декабря 2017г  00:00 вторник
     {
+        $data = strtotime($data);
         $date_time_array = getdate($data);
         $m = $date_time_array['mon'];
         $w_day = $date_time_array['wday'];
-
-        $date_zakaz = date('d ' . $this->months_name[$m] . ' Y ' . $this->weekdays[$w_day], $data);
+        $date_zakaz = date('d ' . $this->months_name[$m] . ' Y'.'г. '.' H'.':'.'i ' . $this->weekdays[$w_day], $data);
         return $date_zakaz;
     }
-
+    public function printData1($data) // вывод даты в формате 12декабря 2017г
+    {
+        $data = strtotime($data);
+        $date_time_array = getdate($data);
+        $m = $date_time_array['mon'];
+        $date_zakaz = date('d ' . $this->months_name[$m] . ' Y'.'г.', $data);
+        return $date_zakaz;
+    }
+    public function printData2($data) // вывод даты в формате 12декабря 2017г  00:00
+    {
+        $data = strtotime($data);
+        $date_time_array = getdate($data);
+        $m = $date_time_array['mon'];
+        $date_zakaz = date('d ' . $this->months_name[$m] . ' Y'.'г. '.' H'.':'.'i ', $data);
+        return $date_zakaz;
+    }
 
     public function zakaz($data)// формирование сообщения о доставке заказа
     {
