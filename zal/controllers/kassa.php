@@ -92,7 +92,6 @@ if (isset($_SESSION['user'])) {
                 }
             }
 
-            //   }
             if (!isset($data['error'])) {// если нет ошибок то формируем заказ
 
 

@@ -42,7 +42,7 @@ if (isset($_SESSION['user'])) {
         exit();
     }
 
-
+}
 
 //wtf($data['zakaz'],1);
     if(!empty($data)) {
@@ -53,6 +53,3 @@ if (isset($_SESSION['user'])) {
         getView('zakaz');
     }
 
-}else{
-    getView('zakaz', $data1);
-}
