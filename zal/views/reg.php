@@ -2,7 +2,7 @@
     <div class="container">
 
                 <fieldset>
-                    <p>Форма регистрации:</p>
+                    <h4>Форма регистрации:</h4>
                     <form action="" method="post" role="form">
                         <div class="form-group">
                             <input type="text" name="login" class="form-control"

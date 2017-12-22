@@ -33,7 +33,7 @@ if (!empty($_POST['submit'])) {
             $_POST[$k] = trimAll($v);
         }
 
-        $res = q(" SELECT * FROM `users`
+        $res = q(" SELECT * FROM `user`
                  WHERE `user_name`= '" . $_POST['login'] . "' 
                  AND  `password`  = '" . (MyHash($_POST['password'])) . "'
                   LIMIT 1

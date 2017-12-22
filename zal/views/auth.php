@@ -1,15 +1,12 @@
 <?php getHeader(); ?>
 <div class="container">
-
         <?php echo !empty($_SESSION['info_r']) ? $_SESSION['info_r'] : ''; ?>
         <?php if (isset($_SESSION['user'])) { ?>
             <h3><?php echo $_SESSION['info_a']; ?></h3>
-            <img src="/image/smile.jpg" alt="pic" style="display: block; margin: 0 auto;">
-
         <?php } else { ?>
             <div class="wrapper">
                 <fieldset>
-                    <p>Форма авторизации:</p>
+                    <h4>Форма авторизации:</h4>
                     <form action="" method="post" role="form">
                         <div class="form-group">
                             <input type="text" name="login" class="form-control"
@@ -41,7 +38,7 @@ Math.round(Math.random()*9999)" value="Другой код" class=" btn btn-prim
                             <div class="form-group">
                                 <input type="submit" name="submit" value="Войти" class="btn btn-info">
                             </div>
-                            <a href="/index.php?route=reg">Регистрация</a>
+                            <h4><a href="/index.php?route=reg">Регистрация</a></h4>
                             <p style="color:red; margin-top: 10px;"><?php echo !empty($_SESSION['result']['info']) ? $_SESSION['result']['info'] : ''; ?></p>
                     </form>
                 </fieldset>

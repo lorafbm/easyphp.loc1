@@ -11,7 +11,7 @@ if (!empty ($_POST['submit'])) {
             $_SESSION['error']['login'] = 'Логин слишком длинный!';
         }
         /*проверяем нет ли уже такого логина*/
-        $res1 = q("SELECT `user_id` FROM `users`
+        $res1 = q("SELECT `user_id` FROM `user`
                   WHERE `user_name`= '" . $_POST['login'] . "'
                   LIMIT 1
                  ");
@@ -28,7 +28,7 @@ if (!empty ($_POST['submit'])) {
 // валидация мыло на пустоту и существование
     if (!empty ($_POST['email']) && (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))) {
         /*проверяем нет ли уже такой почты*/
-        $res2 = q("SELECT `user_id`  FROM `users`
+        $res2 = q("SELECT `user_id`  FROM `user`
                  WHERE `email` = '" . $_POST['email'] . "'
                  LIMIT 1
                  ");
@@ -71,7 +71,7 @@ if (!empty ($_POST['submit'])) {
 }
 if (!empty ($flag_l) && !empty($flag_p) && !empty($flag_e) && !empty($flag_c)) {
 
-    $sql3 = q("INSERT INTO `users` SET
+    $sql3 = q("INSERT INTO `user` SET
            `user_name`  ='" . $_POST['login'] . "',
            `password`   ='" . MyHash($_POST['password']) . "',
            `email`      ='" . $_POST['email'] . "',
