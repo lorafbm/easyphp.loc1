@@ -6,10 +6,10 @@
                         <span> © 2017 | </span><a href="#">Privacy Policy</a>
                     </div>
                     <address class="d-inline-block">
-                        <span>Киев, Крещатик ул., 52</span>
+                        <span>С-Петербург, Невский пр., 52</span>
                     </address>
                     <div class="d-inline-block">
-                        <span>+38 (044) 310-58-79, 571-19-00 </span>
+                        <span>+7 (812) 310-58-79, 571-19-00 </span>
                     </div>
             </footer>
         </div>

@@ -8,7 +8,6 @@
                 ($data['zakaz'][0]['cnt'] > 4) ? $zakaz = 'заказов:' : ''; ?>
                 <h4>У вас <?php echo $data['zakaz'][0]['cnt'] . ' ' . $zakaz; ?> </h4>
                 <div class="zakaz">
-                <?php if(!empty( $data)){?>
                     <?php foreach ($data['zakaz'] as $k => $v) { ?>
                         <p class="text-left"><?php echo '<span>Дата заказа:</span> ' . $data1->printData1($v['data_zakaz']); ?></p>
                         <p class="text-left"><?php echo '<span>Событие: </span><b>' . $v['name'] . '</b>'; ?></p>
@@ -20,7 +19,7 @@
                         <a href="/index.php?route=zakaz&action=delete&id=<?php echo $v['zakaz_id']; ?>"
                            class="text-danger">Удалить заказ</a>
                         <hr>
-                    <?php } }?>
+                    <?php } ?>
                 </div>
                 <p class="text-left"><?php echo 'Итого на сумму: <b>' . array_sum($data['cost']) . ' грн.</b>'; ?></p>
             <?php } else {
