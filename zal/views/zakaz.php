@@ -4,7 +4,7 @@
             echo '<h6>' . ((isset($_SESSION['info_zakaz'])) ? $_SESSION['info_zakaz'] : '') . '</h6>';
             if (!empty($data)) {
                 ($data['zakaz'][0]['cnt'] == 1) ? $zakaz = 'заказ:' : '';
-                ($data['zakaz'][0]['cnt'] > 1 && $data['zakaz'][0]['cnt'] < 4) ? $zakaz = 'заказа:' : '';
+                ($data['zakaz'][0]['cnt'] > 1 && $data['zakaz'][0]['cnt'] <= 4) ? $zakaz = 'заказа:' : '';
                 ($data['zakaz'][0]['cnt'] > 4) ? $zakaz = 'заказов:' : ''; ?>
                 <h4>У вас <?php echo $data['zakaz'][0]['cnt'] . ' ' . $zakaz; ?> </h4>
                 <div class="zakaz">
