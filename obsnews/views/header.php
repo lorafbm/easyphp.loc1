@@ -546,7 +546,7 @@
                 </li>
             </ul>
         </div>
-        <!--        <a href="/index.php?route=admin">Вход в Admin панель</a>-->
+               <a href="/index.php?route=admin">Вход в Admin панель</a>
         <nav class="clearfix">
             <ul>
                 <li class="first"><a href="/">Главная</a></li>

@@ -26,7 +26,3 @@
     document.createElement("time");
 <![endif]-->
 </script>
-<
-/div>
-< /body>
-< /html>

@@ -1,0 +1,48 @@
+@charset "utf-8";
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.form-group {
+  max-width: 300px;
+  margin: 10px auto;
+}
+fieldset {
+  text-align: center;
+}
+main {
+  flex: 1;
+}
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+main header a {
+  color: #ffffff;
+}
+main nav {
+  background: linear-gradient(to top, #301ecd, cornflowerblue);
+}
+main input[type=button] {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.foot {
+  background: linear-gradient(to top, #301ecd, #0f0f0f);
+}
+footer {
+  color: #ffffff;
+}
+footer a {
+  color: #ffffff;
+}
+footer address {
+  margin-left: 20%;
+  margin-right: 20%;
+}

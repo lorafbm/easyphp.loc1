@@ -8,7 +8,7 @@
     if (isset($_SESSION['user'])){?>
     <h4>Выберите билеты:</h4>
     <div class="row justify-content-center">
-        <form class="col-6" action="" method="post">
+        <form class="col-12" action="" method="post">
             <?php foreach ($data['tickets'] as $cats) { ?>
                 <div>
                     <?php foreach ($cats as $row) {
