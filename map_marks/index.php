@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'classes.php';
+require_once 'config.php';
 
 $_SESSION['result'] = array();
 $_SESSION['error'] = array();
