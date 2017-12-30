@@ -136,8 +136,8 @@ if (!empty ($flag_l) && !empty($flag_p) && !empty($flag_e) && !empty($flag_c) &&
     if (!empty($_SESSION['error']['capcha']) && !empty($_POST['submit'])) {
         echo '<p class="text-danger">' . $_SESSION['error']['capcha'] . '</p>';
     } ?>
-    <img src="/capcha.php" id="capcha" alt="capcha"><br>
-    <?php echo '<input type="button" onclick="document.getElementById(\'capcha\').src=\'/capcha.php?id=\'+
+    <img src="/map_marks/capcha.php" id="capcha" alt="capcha"><br>
+    <?php echo '<input type="button" onclick="document.getElementById(\'capcha\').src=\'capcha.php?id=\'+
             Math.round(Math.random()*9999)" value="Другой код" class=" btn btn-primary" style="margin-top: 10px; margin-bottom: 10px;"><br>';
     echo $a->endForm('submit', 'Отправить!');
     ?>

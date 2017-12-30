@@ -46,16 +46,20 @@ class DB
 class Core
 {
 
-    static $DB_NAME = 'zal';
+   /* static $DB_NAME = 'zal';
     static $DB_LOGIN = 'root';
     static $DB_PASS = '';
     static $DB_LOCAL = 'localhost';
-    static $DOMAIN = 'http://localhost';
+    static $DOMAIN = 'http://localhost';*/
     /*  static $DB_NAME   = 'id4082200_zal';
       static $DB_LOGIN  = 'id4082200_root1';
       static $DB_PASS   = 'root1';
       static $DB_LOCAL  = 'localhost';*/
-
+    static $DB_NAME   = 'lora';
+    static $DB_LOGIN  = 'lora';
+    static $DB_PASS   = 'D3v40nka-da';
+    static $DB_LOCAL  = 'localhost';
+    static $DOMAIN    = 'http://lora.school-php.com';
 }
 
 
