@@ -43,13 +43,13 @@ if (!empty ($_POST['submit'])) {
 
 if (!empty ($flag_l) && !empty($flag_p) && !empty($flag_e) && !empty($flag_c) && !empty($flag_a)) {
 
-    $sql3 = q("INSERT INTO `user` SET
-              `user_name`  ='" . $_POST['login'] . "',
-              `password`   ='" . MyHash($_POST['password']) . "',
-               `email`      ='" . $_POST['email'] . "',
-               `hash`       ='" . MyHash($_POST['login'] . ":" . $_POST['email']) . "' ,
-               `address`='" . $_POST['address'] . "'
-                ");
+    q("INSERT INTO `user` SET
+       `user_name`  ='" . res($_POST['login']) . "',
+       `password`   ='" . MyHash($_POST['password']) . "',
+       `email`      ='" . res($_POST['email']) . "',
+       `hash`       ='" . MyHash($_POST['login'] . ":" . $_POST['email']) . "' ,
+       `address`='" . res($_POST['address']) . "'
+    ");
 
 // получаем id пользователя который зарегистрировался
     // $id = mysqli_insert_id(DB::_());
@@ -60,18 +60,19 @@ if (!empty ($flag_l) && !empty($flag_p) && !empty($flag_e) && !empty($flag_c) &&
               WHERE `user_id`='" . $id . "'
          ");
     $row = $res->fetch_assoc();
+    $res->close();
     $name = $row['address'];
     /*создаем экземмляр класса Geo передаем ключ API GoogleMaps */
-    $g = new Geo('AIzaSyAW_pF2dA6UtB-n0Pqb0AEFIPHQbN1ueNY');
+    $g = new Geo('AIzaSyBUui0A_7RKTxSwypdaY9YnZ80jujKPJYM');
     /*и вызывпем метод кот определит кординаты данного адреса*/
     /*если адрес определен то отформатированный адрес записываем в БД и координаты тоже записываем*/
     if ($result = $g->geocode($name)) {
-        $res = q("UPDATE `user` SET
-                 `lat`='" . $result['lat_coord'] . "',
-                  `lng`='" . $result['lng_coord'] . "',
-                  `address_form`='" . $result['loc'] . "'
-                   WHERE `user_id`='" . $id . "'
-                  ");
+        q("UPDATE `user` SET
+          `lat`='" . $result['lat_coord'] . "',
+          `lng`='" . $result['lng_coord'] . "',
+          `address_form`='" . $result['loc'] . "'
+            WHERE `user_id`='" . $id . "'
+        ");
     }
 
     $_SESSION['result'] = 'Вы зарегистрированы!';
@@ -86,7 +87,7 @@ if (!empty ($flag_l) && !empty($flag_p) && !empty($flag_e) && !empty($flag_c) &&
     <title>Пример вывод данных из базы на карту Google при регистрации пользователя, используя XML</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
           integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyAW_pF2dA6UtB-n0Pqb0AEFIPHQbN1ueNY"
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyBUui0A_7RKTxSwypdaY9YnZ80jujKPJYM"
             type="text/javascript"></script>
     <script type="text/javascript">
 
