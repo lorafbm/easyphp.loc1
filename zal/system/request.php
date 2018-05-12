@@ -95,7 +95,6 @@ function get_token($code)
 
     $i = json_decode($result, true);
     if (!empty($i['access_token'])) {
-
         return $i['access_token'];
     }
 }

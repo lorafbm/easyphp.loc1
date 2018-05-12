@@ -72,6 +72,7 @@ if (isset($_GET['code'])) {
                    ");
             }
             $_SESSION['user']['user_name'] = htmlspecialchars($result->name);// записали в сессию
+            $_SESSION['user']['user_id'] = (int)$result->id;
             $_SESSION['info_a'] = 'Здравствуйте, ' . $_SESSION['user']['user_name'] . '!';
             header('Location: /');
             exit();
@@ -82,6 +83,7 @@ if (isset($_GET['code'])) {
                   `user_code`  = " . (int)($result->id). "
                    ");
             $_SESSION['user']['user_name'] = htmlspecialchars($result->name);// записали в сессию
+            $_SESSION['user']['user_id'] = (int)$result->id;
             $_SESSION['info_a'] = 'Здравствуйте, ' . $_SESSION['user']['user_name'] . '!';
             header('Location: /');
             exit();
@@ -93,11 +95,11 @@ if (isset($_GET['code'])) {
     }
 }
 
-if (!empty($result)) {
+/*if (!empty($result)) {
     getView('auth', $result);
-} else {
+} else {*/
     getView('auth');
-}
+//}
 //wtf($data,1);
 
 

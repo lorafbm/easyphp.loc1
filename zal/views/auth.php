@@ -41,32 +41,11 @@ Math.round(Math.random()*9999)" value="Другой код" class=" btn btn-prim
                         <h4><a href="/index.php?route=reg">Регистрация</a></h4>
                         <a href="<?php echo URL_AUTH . "?" . "client_id=" . CLIENT_ID . "&redirect_uri=" . urlencode(REDIRECT) . "&response_type=code"; ?>"
                            style="font-size: 40px; font-weight: bold;">f</a>
-                        <!--                         <a href="-->
-                        <?php //echo URL_AUTH."?"."client_id=".CLIENT_ID."&redirect_uri=".urlencode(REDIRECT)."&response_type=code&scope=email,user_birthday";?><!--" style="font-size: 40px; font-weight: bold;">f</a>-->
                         <p style="color:red; margin-top: 10px;"><?php echo !empty($_SESSION['result']['info']) ? $_SESSION['result']['info'] : ''; ?></p>
                 </form>
             </fieldset>
         </div>
     <?php } ?>
-<!--    --><?php //if (isset($_GET['code'])) {
-//          $result = get_token($_GET['code']);
-        if (!empty($_SESSION['res'])) {
-           // $_SESSION['result']=(get_data($result));
-            wtf($_SESSION['res']);
-        }
-//    if (!empty($result)) {
-//        // $_SESSION['result']=(get_data($result));
-//        wtf($result);
-//    }
-
-//
-//   }
-    /* else {
-         exit('Ошибка параметров');
-     }*/
-
-   // print_r($_SESSION['result']);
-    ?>
 </div>
 </main>
 <?php getFooter(); ?>
