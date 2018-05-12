@@ -20,7 +20,7 @@ if (!empty($_GET['event_id'])) {
               LEFT JOIN `tickets2_events` ON `tickets2_events`.`ticket_id` = `tickets`.`tick_id`
               LEFT JOIN `events` ON `events`.`id` = `tickets2_events`.`event_id`
               LEFT JOIN `tickets_category` ON `tickets_category`.`id` = `tickets`.`category_id`
-              WHERE `event_id`='" . $_GET['event_id'] . "'
+              WHERE `event_id`='" . (int)$_GET['event_id'] . "'
               ");
     if ($res->num_rows) {
         while ($cats = mysqli_fetch_assoc($res)) {

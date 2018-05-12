@@ -3,7 +3,7 @@ $page_id = (int)$_GET['page_id'];
 /*выборка информации по нужной странице,
 создаем массив допустимых страниц для проверки на существование */
 $sql = "SELECT *
-        FROM `pages`
+        FROM `pages_zal`
           ORDER BY `id` ASC
           ";
 $res = mysqli_query($connect, $sql);

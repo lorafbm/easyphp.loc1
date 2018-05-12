@@ -351,6 +351,11 @@ function q($query, $key = 0)
     }
 }
 
+/**
+ * @param $var пароль
+ * @return string закодированный пароль
+ *
+ */
 function MyHash($var)
 {
     $salt = 'ABC';
@@ -358,6 +363,8 @@ function MyHash($var)
     $var = crypt(md5($var . $salt), $salt2);
     return $var;
 }
+
+
 
 function parseToXML($htmlStr)
 {
@@ -367,5 +374,9 @@ function parseToXML($htmlStr)
     $xmlStr = str_replace("'", '&#39;', $xmlStr);
     $xmlStr = str_replace("&", '&amp;', $xmlStr);
     return $xmlStr;
+}
+
+function res($el,$key=0){
+    return DB::_($key)->real_escape_string($el);
 }
 

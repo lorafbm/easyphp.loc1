@@ -25,7 +25,7 @@ while ($row_h = mysqli_fetch_assoc($res_h)) {
 }
 /* вывод всей инфы по статичным страницам для формирования ссылок */
 $sql_p = "SELECT *
-          FROM `pages`
+          FROM `pages_zal`
            ORDER BY `id` ASC 
          ";
 $res_p = mysqli_query($connect, $sql_p);

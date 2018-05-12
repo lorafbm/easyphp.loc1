@@ -1,7 +1,7 @@
 <?php
 /*выборка страниц для вывода*/
 $sql = "SELECT *
-         FROM `pages`
+         FROM `pages_zal`
          ORDER BY `id` ASC 
          ";
 $res = mysqli_query($connect, $sql);
@@ -18,7 +18,7 @@ if (isset($_POST['delete'])) { // если пришел пост на удале
         }
         $ids = implode(',', $_POST['ids']); // разбиваем массив чтобы получить список id страниц которые нужно удалить
         //echo $ids;
-        $sql1 = "DELETE FROM `pages`
+        $sql1 = "DELETE FROM `pages_zal`
                   WHERE `id` IN (" . $ids . ")
                 ";
         $query1 = mysqli_query($connect, $sql1);
@@ -32,7 +32,7 @@ if (isset($_POST['delete'])) { // если пришел пост на удале
     }
 }
 if (isset ($_GET['action']) && $_GET['action'] == 'delete') { // удаление одной страницы из БД
-    $sql2 = "DELETE FROM `pages`
+    $sql2 = "DELETE FROM `pages_zal`
               WHERE `id`=" . (int)$_GET['id'] . "
              ";
     $query2 = mysqli_query($connect, $sql2);

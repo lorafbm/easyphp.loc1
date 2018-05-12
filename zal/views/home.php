@@ -22,4 +22,8 @@
     </div>
 </div>
 </main>
-<?php getFooter(); ?>
+<?php if (!empty($_SESSION['res'])) {
+           // $_SESSION['result']=(get_data($result));
+            wtf($_SESSION['res']);
+
+        } getFooter(); ?>

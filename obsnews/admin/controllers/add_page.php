@@ -74,7 +74,7 @@ if (isset($_POST['name'], $_POST['title'], $_POST['text'])) {
             $_POST[$k] = trimAll($v);
         }
 
-        $sql = "INSERT INTO `pages` SET
+        $sql = "INSERT INTO `pages_zal` SET
                 `name`  = '" . $_POST['name'] . "',
                 `title` = '" . $_POST['title'] . "',
                 `text`  = '" . $_POST['text'] . "'

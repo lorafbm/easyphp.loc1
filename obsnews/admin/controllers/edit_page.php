@@ -1,7 +1,7 @@
 <?php
 /*выборка инфы о странице для вывода*/
 $sql = "SELECT *
-        FROM `pages`
+        FROM `pages_zal`
           WHERE `id`=" . (int)$_GET['id'] . "
          ";
 $res = mysqli_query($connect, $sql);
@@ -83,7 +83,7 @@ if (isset($_POST['title'], $_POST['text'], $_POST['name'])) {
 
             $_POST[$k] = trim($v);
         }
-        $sql1 = "UPDATE `pages` SET
+        $sql1 = "UPDATE `pages_zal` SET
                  `name`  = '" . $_POST['name'] . "',
                  `title` = '" . $_POST['title'] . "',
                  `text`  = '" . $_POST['text'] . "'

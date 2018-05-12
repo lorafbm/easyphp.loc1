@@ -1,7 +1,8 @@
 <?php
 $q = q("SELECT COUNT(*)
-           FROM `events`
-           ");
+        FROM `events`
+       ");
+
 $tnum = mysqli_fetch_row($q);
 $num = $tnum[0];
 $data1['num']=$num;
@@ -21,8 +22,6 @@ $res = q("
 if ($res->num_rows) {
     while ($row=$res->fetch_assoc()) {
         $data1['events'][] = $row;// формируем массив для передачи
-
-
     }
 }
 $d = new myDate;
