@@ -112,7 +112,6 @@ if (isset($_GET['code'])) {
         exit();
     }
 }
-
 getView('auth');
 //wtf($data,1);
 
