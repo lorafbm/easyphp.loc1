@@ -95,6 +95,7 @@ function get_token($code)
 
     $i = json_decode($result, true);
     if (!empty($i['access_token'])) {
+
         return $i['access_token'];
     }
 }
@@ -105,7 +106,7 @@ function get_data($token)
     $ku = curl_init();
 
     //$query = "fields=email,name,birthday&access_token=" . $token;
-    $query = "&access_token=".$token;
+    $query = "fields=email,name&access_token=".$token;
     curl_setopt($ku, CURLOPT_URL, GET_DATA . "?" . $query);
     curl_setopt($ku, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ku, CURLOPT_HEADER, false);
@@ -117,6 +118,5 @@ function get_data($token)
     }
 
     return json_decode($result);
-
 }
 

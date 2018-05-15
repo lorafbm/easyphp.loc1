@@ -28,6 +28,35 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/touch-icon-ipad.png">
     <link rel="apple-touch-icon" sizes="120x120" href="/touch-icon-iphone-retina.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/touch-icon-ipad-retina.png">
+    <script>
+         function delAdd(action,id) {
+            if (confirm('Уверены?')) {
+                $.ajax({
+                    url: '/index.php?route=zakaz',
+                    type: "POST",
+                    cache: false,
+                    data: {
+                        id: id,
+                        action: action
+                    },
+                    success: function (msg) {
+                        var response = JSON.parse(msg);
+                        if (response.status == 'ok') {
+                            if (response.flag_f == 'off') {
+                                $('#del_f').css('display', 'none');
+                                $('#add_f').css('display', 'block');
+                            }
+                            if (response.flag_f == 'on') {
+                                $('#add_f').css('display', 'none');
+                                $('#del_f').css('display', 'block');
+                            }
+                        }
+                    },
+                });
+            }
+            return false;
+        }
+    </script>
 </head>
 <body>
 <main>
@@ -37,11 +66,11 @@
             <nav class="breadcrumb">
                 <a class="breadcrumb-item" href="/">Главная</a>
                 <a class="breadcrumb-item" href="/index.php?route=kassa">Касса</a>
-                <a class="breadcrumb-item" href="/index.php?route=zakaz" >Заказ</a>
+                <a class="breadcrumb-item" href="/index.php?route=zakaz">Кабинет</a>
                 <?php if(!isset($_SESSION['user'])){?>
-                <a class="breadcrumb-item" href="/index.php?route=auth" >Войти</a>
+                <a class="breadcrumb-item" href="/index.php?route=auth">Войти</a>
                 <?php } else{?>
-                <a class="breadcrumb-item" href="/index.php?route=exit" >Выход</a>
+                <a class="breadcrumb-item" href="/index.php?route=exit">Выход</a>
                 <?php } ?>
             </nav>
         </div>

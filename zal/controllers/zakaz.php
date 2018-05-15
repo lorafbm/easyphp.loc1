@@ -2,7 +2,7 @@
 if (isset($_SESSION['user'])) {
     $res = q("
         SELECT  `user_id`,`event_id`,`row`,`place`,`category_name`,`name`, DATE_FORMAT( date_start,  '%d %M %Y %T'  ) as date_start,`zakaz_id` ,DATE_FORMAT( data_zakaz,  '%d %M %Y '  ) as data_zakaz,`price`,
-        ( SELECT COUNT(*) FROM `zakaz`) as `cnt`
+        ( SELECT COUNT(*) FROM `zakaz` WHERE `user_id`  =  " . (int)$_SESSION['user']['user_id'] . ") as `cnt`
         FROM `zakaz`
         LEFT JOIN `tickets` ON `tickets`.`tick_id` = `zakaz`.`ticket_id`
         LEFT JOIN `events` ON `events`.`id` = `zakaz`.`event_id`
@@ -42,14 +42,36 @@ if (isset($_SESSION['user'])) {
         exit();
     }
 
-}
-
-//wtf($data['zakaz'],1);
-    if(!empty($data)) {
-        $d = new myDate;
-        $data1 = $d;
-        getView('zakaz', $data, $data1);
-    }else{
-        getView('zakaz');
+    /*отвязать аккаунт от f*/
+    if (isset ($_POST['action']) && $_POST['action'] == 'del_f') {
+        $sql = q("UPDATE `user_zal` SET
+                  `f_id` = ''
+                  WHERE `user_id`= " . (int)$_POST['id'] . "
+                ");
+        $_SESSION['flag_f']= 0; // проставляем флаг для актуальности статуса при перезагрузке страницы
+        $msg['status'] = 'ok';
+        $msg['flag_f'] = 'off'; // передаем action который отработал
+        echo json_encode($msg);
+        exit();
     }
+    /*привязать аккаунт к f*/
+    if (isset ($_POST['action']) && $_POST['action'] == 'add_f') {
+        $sql = q("UPDATE `user_zal` SET
+                  `f_id` = " . $_SESSION['user']['user_id'] . "
+                   WHERE `user_id`= " . (int)$_POST['id'] . "
+                  ");
+        $_SESSION['flag_f']= 1;
+        $msg['status'] = 'ok';
+        $msg['flag_f'] = 'on';// передаем action который отработал
+        echo json_encode($msg);
+        exit();
+    }
+}
+if(!empty($data)) {
+    $d = new myDate;
+    $data1 = $d;
+    getView('zakaz', $data, $data1);
+} else {
+    getView('zakaz');
+}
 

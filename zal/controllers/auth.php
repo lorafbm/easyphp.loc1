@@ -56,38 +56,56 @@ if (isset($_GET['code'])) {
     $res = get_token($_GET['code']);
     if (!empty($res)) { // если пользователь залогинен в f
         $result=get_data($res);
-        $_SESSION['res']=$result;
-        // ищем его в нашей БД по id f
+        // записали в сессию данные пользователя
+        $_SESSION['user']['user_name'] = htmlspecialchars($result->name);
+        $_SESSION['user']['user_id'] = $result->id;
+        $_SESSION ['flag_f']= 1;
+        if (!empty($result->email)) {
+            $_SESSION['user']['email'] = $result->email;
+        }
+        // сначала ищем его в нашей БД по id f
         $sql = q("SELECT `user_id`, `user_name` FROM `user_zal`
-                     WHERE  `user_code`  = " . (int)$result->id . "
-                     LIMIT 1
+                   WHERE  `f_id`  = '" . $result->id . "'
+                   LIMIT 1
                 ");
         if (mysqli_num_rows($sql)) { // если есть такой
-            // проверяем не поменялось ли имя
             $data = $sql->fetch_assoc();
-            if($data['user_name'] != $result->name){
-                $sql = q("UPDATE `user_zal` SET
-                  `user_name`  = '" . res($result->name) . "'
-                   WHERE `user_code`  = " . (int)($result->id). "
-                   ");
-            }
-            $_SESSION['user']['user_name'] = htmlspecialchars($result->name);// записали в сессию
-            $_SESSION['user']['user_id'] = (int)$result->id;
+            $_SESSION['user']['id'] = $data['user_id'];
             $_SESSION['info_a'] = 'Здравствуйте, ' . $_SESSION['user']['user_name'] . '!';
             header('Location: /');
             exit();
         } else {
-            // если нет еще такого то записываем в бд нового пользователя
-            $sql = q("INSERT INTO `user_zal` SET
-                  `user_name`  = '" . res($result->name) . "',
-                  `user_code`  = " . (int)($result->id). "
+            if (!empty($result->email)) {
+                // пробуем найти пользователя зарег на этот же email
+                $sql_email = q("SELECT `user_id` FROM `user_zal`
+                   WHERE  `email`  = '" . $result->email . "'
+                   LIMIT 1
                    ");
-            $_SESSION['user']['user_name'] = htmlspecialchars($result->name);// записали в сессию
-            $_SESSION['user']['user_id'] = (int)$result->id;
-            $_SESSION['info_a'] = 'Здравствуйте, ' . $_SESSION['user']['user_name'] . '!';
-            header('Location: /');
-            exit();
+                if (mysqli_num_rows($sql_email)) { //если уже есть пользователь с таким email то проставляем ему id из f
+                    $data = $sql_email->fetch_assoc();
+                    $sql = q("UPDATE `user_zal` SET
+                            `f_id`  = '" . $result->id . "'
+                             WHERE `email`  = '" . $result->email . "'
+                             ");
+                    $_SESSION['user']['id'] = $data['user_id']; // записали в сессию его id
+                    $_SESSION['info_a'] = 'Здравствуйте, ' . $_SESSION['user']['user_name'] . '!';
+                    header('Location: /');
+                    exit();
+                } else {
+                    // если нет еще такого ни по id f ни по email  то записываем в бд нового пользователя
+                    $sql = q("INSERT INTO `user_zal` SET
+                      `user_name`  = '" . res($result->name) . "',
+                      `f_id`  = '" . $result->id . "'
+                      " . ((!empty($result->email)) ? ",`email` = '" . $result->email . "'" : "") . "
+                     ");
+                    $_SESSION['user']['id'] = DB::_()->insert_id; // записали в сессию его id
+                    $_SESSION['info_a'] = 'Здравствуйте, ' . $_SESSION['user']['user_name'] . '!';
+                    header('Location: /');
+                    exit();
+                }
+            }
         }
+
     } else{
         /*переадресация на авторизацию в  f*/
         header('Location: https://www.facebook.com/');
@@ -95,11 +113,7 @@ if (isset($_GET['code'])) {
     }
 }
 
-/*if (!empty($result)) {
-    getView('auth', $result);
-} else {*/
-    getView('auth');
-//}
+getView('auth');
 //wtf($data,1);
 
 
