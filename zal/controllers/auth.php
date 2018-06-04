@@ -35,8 +35,8 @@ if (!empty($_POST['submit'])) {
         }
 
         $res = q(" SELECT * FROM `user_zal`
-                 WHERE `user_name`= '" . $_POST['login'] . "' 
-                 AND  `password`  = '" . (MyHash($_POST['password'])) . "'
+                 WHERE `user_name`= '" . res($_POST['login']) . "' 
+                 AND  `password`  = '" . res((MyHash($_POST['password']))) . "'
                   LIMIT 1
                 ");
 
@@ -64,20 +64,21 @@ if (isset($_GET['code'])) {
             $_SESSION['user']['email'] = $result->email;
         }
         // сначала ищем его в нашей БД по id f
-        $sql = q("SELECT `user_id`, `user_name` FROM `user_zal`
+        $sql = q("SELECT `user_id`, `user_name`,`hash` FROM `user_zal`
                    WHERE  `f_id`  = '" . $result->id . "'
                    LIMIT 1
                 ");
         if (mysqli_num_rows($sql)) { // если есть такой
             $data = $sql->fetch_assoc();
             $_SESSION['user']['id'] = $data['user_id'];
+            $_SESSION['user']['hash'] = $data['hash'];
             $_SESSION['info_a'] = 'Здравствуйте, ' . $_SESSION['user']['user_name'] . '!';
             header('Location: /');
             exit();
         } else {
             if (!empty($result->email)) {
                 // пробуем найти пользователя зарег на этот же email
-                $sql_email = q("SELECT `user_id` FROM `user_zal`
+                $sql_email = q("SELECT `user_id`,`hash` FROM `user_zal`
                    WHERE  `email`  = '" . $result->email . "'
                    LIMIT 1
                    ");
@@ -88,17 +89,22 @@ if (isset($_GET['code'])) {
                              WHERE `email`  = '" . $result->email . "'
                              ");
                     $_SESSION['user']['id'] = $data['user_id']; // записали в сессию его id
+                    $_SESSION['user']['hash'] = $data['hash'];
                     $_SESSION['info_a'] = 'Здравствуйте, ' . $_SESSION['user']['user_name'] . '!';
                     header('Location: /');
                     exit();
                 } else {
                     // если нет еще такого ни по id f ни по email  то записываем в бд нового пользователя
+                    ((!empty($result->email)) ? $hash =  MyHash($result->name .':'. $result->email) :  $hash = MyHash($result->name .':'. $result->id));
+
                     $sql = q("INSERT INTO `user_zal` SET
                       `user_name`  = '" . res($result->name) . "',
-                      `f_id`  = '" . $result->id . "'
+                      `f_id`  = '" . $result->id . "',
+                      `hash` = '" . $hash . "'
                       " . ((!empty($result->email)) ? ",`email` = '" . $result->email . "'" : "") . "
                      ");
                     $_SESSION['user']['id'] = DB::_()->insert_id; // записали в сессию его id
+                    $_SESSION['user']['hash'] = $hash;
                     $_SESSION['info_a'] = 'Здравствуйте, ' . $_SESSION['user']['user_name'] . '!';
                     header('Location: /');
                     exit();

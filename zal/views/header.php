@@ -18,6 +18,7 @@
     <script src="/vendor/public/jquery/dist/jquery.js"></script>
     <script src="/vendor/public/fancybox/dist/jquery.fancybox.js"></script>
     <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/views/styles/styles.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -57,6 +58,83 @@
             return false;
         }
     </script>
+    <script>
+        function get_Token(login,password) {
+                $.ajax({
+                    url: '/index.php?route=testapi',
+                    type: "POST",
+                    cache: false,
+                    data: {
+                        getToken: 'getToken',
+                        login: $('#login').val(),
+                        password: $('#password').val()
+                    },
+                    success: function (msg) {
+                        var response = JSON.parse(msg);
+                        if (response.status == 'ok') {
+                            //очищаем форму
+                            form = document.getElementById('getToken');
+                            form.login.value = "";
+                            form.password.value = "";
+                            form1 = document.getElementById('getListSocial');
+                            form1.token.value = response.response;
+                            form2 = document.getElementById('delSocial');
+                            form2.id.value = response.id;
+                            //выводим результат
+
+                            $('#result_token').html('<p class="text-left">Ваш токен для работы с аккаунтом: '+ response.response +'</p>');
+                            response = json_decode(response);
+                            $('#result_token1').html('<p class="text-left"><pre>'+response+'</pre></p>');
+
+                        }
+                    },
+                });
+
+            return false;
+        }
+        function getListSocial(token) {
+            $.ajax({
+                url: '/index.php?route=testapi',
+                type: "POST",
+                cache: false,
+                data: {
+                    token: $('#token').val(),
+                    getToken: 'getToken'
+                },
+                success: function (msg) {
+                    var response = JSON.parse(msg);
+                    if (response.status == 'ok') {
+                        $('#result_list').html('<p class="text-left">Ваш аккаунт прикреплен к следующим соц. сетям: '+ response.response +'.</p>');
+                    }else {
+                        $('#result_list').html('<p class="text-left">Ваш аккаунт не прикреплен ни к каким сетям.</p>');
+                    }
+                },
+            });
+
+            return false;
+        }
+
+        function del_f(id) {
+            $.ajax({
+                url: '/index.php?route=testapi',
+                type: "POST",
+                cache: false,
+                data: {
+                    id: $('#id').val(),
+                    action: 'delete'
+
+                },
+                success: function (msg) {
+                    var response = JSON.parse(msg);
+                    if (response.status == 'ok') {
+                        $('#delete').html('<p class="text-left">Ваш аккаунт отвязан от facebook.</p>');
+                    }
+                },
+            });
+
+            return false;
+        }
+    </script>
 </head>
 <body>
 <main>
@@ -70,6 +148,8 @@
                 <?php if(!isset($_SESSION['user'])){?>
                 <a class="breadcrumb-item" href="/index.php?route=auth">Войти</a>
                 <?php } else{?>
+<!--                <a class="breadcrumb-item" href="/index.php?route=api">Api</a>-->
+                <a class="breadcrumb-item" href="/index.php?route=testapi">TestApi</a>
                 <a class="breadcrumb-item" href="/index.php?route=exit">Выход</a>
                 <?php } ?>
             </nav>
