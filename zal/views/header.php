@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
     <!--<link rel="dns-prefetch" href="https://.loc">-->
     <title>Заказ билетов</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -85,7 +84,6 @@
                         //выводим результат
                         $('#result_token').text(msg);
                         $('#id').val(response.id);
-
                     }
                 },
             });
@@ -107,7 +105,6 @@
                     if (response.status == 'ok') {
                         $('#result_list').text(msg);
                         $('#token').val(response.id);
-
                     }
                 },
             });
@@ -128,7 +125,6 @@
                     var response = JSON.parse(msg);
                     if (response.status == 'ok') {
                         $('#delete').text(msg);
-
                     }
                 },
             });
@@ -149,7 +145,6 @@
                 <?php if (!isset($_SESSION['user'])) { ?>
                     <a class="breadcrumb-item" href="/index.php?route=auth">Войти</a>
                 <?php } else { ?>
-                    <!--                <a class="breadcrumb-item" href="/index.php?route=api">Api</a>-->
                     <a class="breadcrumb-item" href="/index.php?route=testapi">TestApi</a>
                     <a class="breadcrumb-item" href="/index.php?route=exit">Выход</a>
                 <?php } ?>
