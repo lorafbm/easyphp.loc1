@@ -1,0 +1,144 @@
+@charset "utf-8";
+@import "../../../node_modules/lesshat/lesshat.less";
+
+
+body{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  color: #ffffff;
+
+}
+.form-group{
+  max-width: 250px;
+  //margin: 10px auto;
+}
+fieldset{
+  text-align: center;
+}
+main {
+  flex: 1;
+h1,h2,h3,h4,h5,h6 {
+  color: #ffffff;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+  a{
+    color:#ffffff;
+
+    &:hover{
+      color:#ffffff;
+    }
+
+  }
+  #del_f{
+    background: linear-gradient(to top, #bd2130, #0f0f0f);
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,0,0,0.1) inset, 0 0 0 2px rgba(255,255,255,0.1) inset;
+    opacity: .8;
+    text-align: center;
+    transition: opacity .3s ease;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 0 16px;
+    cursor: pointer;
+    width: fit-content;
+    line-height: 35px;
+  }
+  #add_f {
+    background: linear-gradient(to top, #301ecd, #0f0f0f);
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,0,0,0.1) inset, 0 0 0 2px rgba(255,255,255,0.1) inset;
+    opacity: .8;
+    text-align: center;
+    transition: opacity .3s ease;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 0 16px;
+    cursor: pointer;
+    width: fit-content;
+    line-height: 35px;
+  }
+
+
+nav{
+  background: linear-gradient(to top, #301ecd, cornflowerblue);
+}
+  input[type=button]{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  //background:url(/image/fon.jpg) ;
+  background: darkblue;
+
+  .paginator {
+    height: 60px;
+
+    .pagact {
+      display: block;
+      float: left;
+      border: solid 1px #301ecd;
+      margin: 8px 4px;
+      padding: 5px 10px;
+      background: linear-gradient(to top, #301ecd, cornflowerblue);
+      font-weight: bold;
+      color: #ffffff;
+      .border-radius(5px);
+
+    }
+    .pag {
+      display: block;
+      float: left;
+      border: solid 1px #301ecd;
+      margin: 8px 4px;
+      padding: 5px 10px;
+      background: linear-gradient(to top, #301ecd, #0f0f0f);
+      font-weight: bold;
+      color: #ffffff;
+      .border-radius(5px);
+    }
+  }
+  label{
+    margin-left: 10px;
+  }
+  .custom-control-indicator{
+    background-color: #007bff;
+    width: 30px;
+    height: 30px;
+  }
+  .custom-control-input:disabled~.custom-control-indicator {
+    background-color: red;
+  }
+
+  .zakaz{
+    line-height: 0.8;
+    margin-top: 20px;
+
+    span{
+      font-size: 13px;
+    }
+  }
+}
+
+.foot{
+  background: linear-gradient(to top, #301ecd, #0f0f0f);
+}
+footer{
+  color:#ffffff;
+
+  a{
+    color:#ffffff;
+  }
+  address{
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+}
+
+.test{
+  td{
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #ffffff;
+  }
+}
