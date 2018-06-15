@@ -68,7 +68,7 @@
             </tr>
             <tr>
                 <td>id</td>
-                <td>string</td>
+                <td>integer</td>
                 <td>id пользователя</td>
             </tr>
             </tbody>
