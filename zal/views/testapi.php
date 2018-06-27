@@ -92,7 +92,7 @@
         </fieldset>
         <hr style="border-top: 1px solid #ffffff;">
         <h4>Получить список сетей привязанных к аккаунту</h4>
-        <p class="text-left">URL: lora.school-php.com/testapi/{token}</p>
+        <p class="text-left">URL: lora.school-php.com/testapi/{token}/{format}</p>
         <p class="text-left">Метод: POST</p>
         <p class="text-left">Параметры запроса:</p>
         <table class="test">
@@ -108,6 +108,11 @@
                 <td>token</td>
                 <td>string</td>
                 <td>Токен</td>
+            </tr>
+            <tr>
+                <td>format</td>
+                <td>string</td>
+                <td>JSON, XML. По умолчанию JSON</td>
             </tr>
             </tbody>
         </table>
@@ -144,6 +149,10 @@
                 <div class="form-group">
                     <input type="text" name="token" id="token" class="form-control"
                            placeholder="Token">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="format"  id="format" class="form-control"
+                           placeholder="xml или пустое для json">
                 </div>
                 <div class="form-group">
                     <input type="submit" name="getList" value="Получить" class="btn btn-info">

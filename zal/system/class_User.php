@@ -21,23 +21,19 @@ class User
 
     public function getStatusSocial($token)
     {
-        $sql = q(" SELECT `f_id` FROM `user_zal`
-                    WHERE `hash`= '" . res($token) . "' 
-                     LIMIT 1
-                ");
-        if (mysqli_num_rows($sql)) {
-            $data = $sql->fetch_assoc();// извлекаем всю информацию о пользователе
-            if (!empty($data['f_id'])) {
+        $data = self::getInfoUser($token);
 
-                return 'faceebook';
-            } else {
+        if (!empty($data['f_id'])) {
 
-                return false;
-            }
-        }else{
+            return 'faceebook';
+        } else {
 
+            return false;
         }
+
+
     }
+
     public function getInfoUser($token)
     {
         $sql = q(" SELECT `f_id`,`user_id` FROM `user_zal`
@@ -47,9 +43,13 @@ class User
         if (mysqli_num_rows($sql)) {
             $data = $sql->fetch_assoc();// извлекаем всю информацию о пользователе
 
-                return $data;
+            return $data;
 
         }
     }
+
+
+
+
 
 }

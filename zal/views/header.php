@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <!--<link rel="dns-prefetch" href="https://.loc">-->
     <title>Заказ билетов</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -91,20 +91,28 @@
             return false;
         }
 
-        function getListSocial(token) {
+        function getListSocial() {
             $.ajax({
                 url: '/index.php?route=testapi',
                 type: "POST",
                 cache: false,
                 data: {
                     token: $('#token').val(),
-                    getList: 'getList'
+                    getList: 'getList',
+                    format: $('#format').val()
                 },
                 success: function (msg) {
-                    var response = JSON.parse(msg);
-                    if (response.status == 'ok') {
-                        $('#result_list').text(msg);
-                        $('#token').val(response.id);
+                    var format = $('#format').val();
+                    if (!format) {
+                        var response = JSON.parse(msg);
+                        if (response.status == 'ok') {
+                            $('#result_list').text(msg);
+                            $('#token').val(response.id);
+                        }
+                    }else if(format == 'xml'){
+                        if (response.status == 'ok') {
+                            $('#result_list').text(response.response);
+                        }
                     }
                 },
             });
