@@ -83,6 +83,7 @@
                         form2.id.value = response.id;
                         //выводим результат
                         $('#result_token').text(msg);
+                        $('#result_token').css('border-width','1px');
                         $('#id').val(response.id);
                     }
                 },
@@ -107,12 +108,12 @@
                         var response = JSON.parse(msg);
                         if (response.status == 'ok') {
                             $('#result_list').text(msg);
+                            $('#result_list').css('border-width','1px');
                             $('#token').val(response.id);
                         }
                     }else if(format == 'xml'){
-                        if (response.status == 'ok') {
-                            $('#result_list').text(response.response);
-                        }
+                        $('#result_list').text(msg);
+                        $('#result_list').css('border-width','1px');
                     }
                 },
             });
@@ -133,6 +134,7 @@
                     var response = JSON.parse(msg);
                     if (response.status == 'ok') {
                         $('#delete').text(msg);
+                        $('#delete').css('border-width','1px');
                     }
                 },
             });

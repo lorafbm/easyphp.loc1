@@ -86,8 +86,8 @@
                 </div>
                 <div class="form-group">
                     <input type="submit" name="getToken" value="Получить" class="btn btn-info">
-                    <div id="result_token" style="color: #ffffff; margin-top:10px;"></div>
                 </div>
+                <div id="result_token" style="border: 0px solid white;padding: 5px;"></div>
             </form>
         </fieldset>
         <hr style="border-top: 1px solid #ffffff;">
@@ -156,8 +156,8 @@
                 </div>
                 <div class="form-group">
                     <input type="submit" name="getList" value="Получить" class="btn btn-info">
-                    <div id="result_list" style="margin-top: 10px;"></div>
                 </div>
+                <div id="result_list" style="border: 0px solid white;padding: 5px;"></div>
             </form>
         </fieldset>
         <hr style="border-top: 1px solid #ffffff;">
@@ -217,8 +217,8 @@
                 </div>
                 <div class="form-group">
                     <input type="submit" name="delete" value="Отвязать" class="btn btn-info">
-                    <div id="delete" style="margin-top: 10px;"></div>
-                </div>
+                 </div>
+                <div id="delete" style="border: 0px solid white;padding: 5px;"></div>
             </form>
         </fieldset>
     </div>

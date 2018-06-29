@@ -17,6 +17,7 @@ if (!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['getT
             $msg['id'] = $id['user_id'];
             $_SESSION['id'] = $id['user_id'];
         }
+
         $restful->returnRestful($msg);
     }
 }
@@ -27,17 +28,12 @@ if (!empty($_POST['token']) && !empty($_POST['getList'])) {
     $token = trim($_POST['token']);
     $res = $user->getStatusSocial($token);
 
-
     if (!empty($_POST['format']) && $_POST['format'] == 'xml') {
         $format = trim(htmlspecialchars($_POST['format']));
-
         if (!$res) {
-            // TODO:  return xml russian
-            $res='Your account doesn\'t have any net attached!';
-           // $res = 'Нет сетей!';
-         //  $res = convert_cyr_string('Нет сетей!','k','w');
+            $res = 'Нет сетей!';
         }
-        $msg['status'] = 'ok';
+
         $msg['response'] = $restful->myXmlgenaration($res);
         $restful->returnRestful($res, $format);
 

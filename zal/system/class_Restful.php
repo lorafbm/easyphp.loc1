@@ -18,7 +18,8 @@ class Restful
      public function myXmlgenaration($response){
 
         // "Create" the document.
-        $xml = new DOMDocument( "1.0", "ISO-8859-15" );
+        $xml = new DOMDocument( "1.0", "utf-8" );
+
 
         // Create some elements.
         $xml_list = $xml->createElement( "list" );
