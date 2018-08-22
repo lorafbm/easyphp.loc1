@@ -1,0 +1,4 @@
+AddDefaultCharset UTF-8
+RewriteEngine on
+RewriteRule ^-(.*)$ /index.php?key=$1 [L]
+#http://links/-$key
